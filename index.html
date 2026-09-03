@@ -25,9 +25,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/site-nav.css">
-  <link rel="stylesheet" href="/assets/css/home.css?v=20260903-2">
+  <link rel="stylesheet" href="/assets/css/home.css?v=20260903-3">
   <script src="/assets/js/site-nav-loader.js" defer></script>
-  <script src="/assets/js/home-motion.js?v=20260903-2" defer></script>
+  <script src="/assets/js/home-motion.js?v=20260903-3" defer></script>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -90,10 +90,18 @@
 
     <section class="home-section home-involve" aria-labelledby="involve-title"><div class="home-shell"><div class="home-heading" data-reveal><p class="home-eyebrow">Take part</p><h2 id="involve-title">There is a place for you in this work.</h2></div><div class="home-involve-grid"><a class="home-involve-card home-involve-card--dark" href="/volunteer" data-reveal><span>Give your time</span><h3>Bring your gifts to the mission.</h3><p>Use your skills, perspective, and lived experience to help people feel less alone.</p><strong>Explore volunteering <i aria-hidden="true">→</i></strong></a><a class="home-involve-card home-involve-card--red" href="/donate" data-reveal style="--delay:100ms"><span>Give with purpose</span><h3>Help build what comes next.</h3><p>Support mental health programs, community resources, and The Vision Center.</p><strong>See ways to give <i aria-hidden="true">→</i></strong></a></div></div></section>
 
-    <section class="home-community" aria-labelledby="community-title"><div class="home-shell home-community__grid"><div data-reveal><p class="home-eyebrow">Stay connected</p><h2 id="community-title">Join the Unmasked community.</h2><p>Receive updates, new resources, and stories that keep honest conversations moving forward.</p></div><div class="home-community__form" data-reveal style="--delay:100ms"><div class="plato-form-widget" data-pf-id="fr1nhmojf91" data-pf-host="form.formcan.com/"></div></div></div></section>
+    <section class="home-community" id="newsletter" aria-labelledby="community-title"><div class="home-shell home-community__grid"><div data-reveal><p class="home-eyebrow">Stay connected</p><h2 id="community-title">Join the Unmasked community.</h2><p>Receive updates, new resources, and stories that keep honest conversations moving forward.</p></div><div class="home-community__form" data-reveal style="--delay:100ms">
+      <form class="home-newsletter-form" action="/api/submit-newsletter.php" method="post">
+        <div class="home-newsletter-field"><label for="newsletter-first-name">First name <span>Optional</span></label><input id="newsletter-first-name" name="first_name" type="text" autocomplete="given-name" maxlength="100"></div>
+        <div class="home-newsletter-field"><label for="newsletter-last-name">Last name <span>Optional</span></label><input id="newsletter-last-name" name="last_name" type="text" autocomplete="family-name" maxlength="100"></div>
+        <div class="home-newsletter-field home-newsletter-field--email"><label for="newsletter-email">Email address</label><input id="newsletter-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" required></div>
+        <div class="home-newsletter-honeypot" aria-hidden="true"><label for="newsletter-website">Leave this field empty</label><input id="newsletter-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <div class="home-newsletter-form__footer"><button class="home-newsletter-submit" type="submit"><span>Join the newsletter</span><span aria-hidden="true">→</span></button><p>Updates with purpose. Unsubscribe anytime.</p></div>
+        <div class="home-newsletter-status" id="newsletter-status" role="status" aria-live="polite" tabindex="-1" hidden></div>
+      </form>
+    </div></div></section>
   </main>
 
   <footer class="home-footer"><div class="home-shell"><div class="home-footer__grid"><div><a class="home-footer__brand" href="/"><span>UNMASKED</span> CULTURE</a><p>Creating honest spaces for mental health, faith, healing, and community.</p></div><div><h3>Explore</h3><a href="/about">About</a><a href="/team">Our team</a><a href="/contact">Contact</a></div><div><h3>Resources</h3><a href="/podcast">Podcast</a><a href="/blogs">Blogs</a><a href="/help">Find help</a></div><div><h3>Get involved</h3><a href="/volunteer">Volunteer</a><a href="/donate">Donate</a><a href="/visioncenter">Vision Center</a></div></div><div class="home-footer__bottom"><span>© <span id="home-year">2026</span> Unmasked Culture Foundation.</span><a href="https://app.candid.org/profile/9890997" target="_blank" rel="noopener noreferrer">View our Candid profile ↗</a></div></div></footer>
-  <script src="//static.formcan.com/assets/dist/formbuilder.js?v=20" defer></script>
 </body>
 </html>

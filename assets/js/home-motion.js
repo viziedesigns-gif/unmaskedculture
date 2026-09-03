@@ -3,6 +3,28 @@
   var year=document.getElementById('home-year');
   if(year)year.textContent=String(new Date().getFullYear());
 
+  var newsletterStatus=document.getElementById('newsletter-status');
+  if(newsletterStatus){
+    var newsletterResult=new URLSearchParams(window.location.search).get('newsletter');
+    var newsletterMessages={
+      success:'You’re subscribed. Welcome to the Unmasked community.',
+      validation:'Please enter a valid email address and try again.',
+      config:'Newsletter signup is temporarily unavailable. Please try again later.',
+      auth:'Newsletter signup could not be authorized. Please try again later.',
+      payload:'We could not accept that signup. Please review your information and try again.',
+      form:'The newsletter form is temporarily unavailable. Please try again later.',
+      rate:'Too many signup attempts were received. Please wait a moment and try again.',
+      connection:'We could not connect to the newsletter service. Please try again shortly.',
+      formcan:'We could not complete your signup. Please try again.'
+    };
+    if(newsletterResult&&newsletterMessages[newsletterResult]){
+      newsletterStatus.textContent=newsletterMessages[newsletterResult];
+      newsletterStatus.classList.add(newsletterResult==='success'?'is-success':'is-error');
+      newsletterStatus.hidden=false;
+      newsletterStatus.focus({preventScroll:true});
+    }
+  }
+
   var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var missionScroll=document.querySelector('[data-mission-scroll]');
   var missionWords=[];
