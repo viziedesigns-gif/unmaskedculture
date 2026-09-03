@@ -357,7 +357,7 @@ function getSettingsHubSubtitles(array $user): array {
         'journal' => ($user['journal_in_app'] ?? 1) ? 'Inside the app' : 'Outside the app',
         'notifications' => (($user['daily_reminder_enabled'] ?? 1) ? formatReminderTimeDisplay($user['daily_reminder_time'] ?? '18:00:00') . ' reminder' : 'Reminders off')
             . ' Â· ' . ($pushCount > 0 ? $pushCount . ' device' . ($pushCount === 1 ? '' : 's') : 'push off'),
-        'appearance' => 'Chat bubble color and water tilt',
+        'appearance' => 'Chat bubble color, haptics, and water tilt',
         'circles' => 'Manage circles, members, invites',
         'password' => 'Update your password',
         'install' => 'Add to home screen',

@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@capacitor/android": "latest",
-    "@capacitor/core": "latest"
+    "@capacitor/core": "latest",
+    "@capacitor/haptics": "^8.0.2"
   },
   "devDependencies": {
     "@capacitor/cli": "latest"

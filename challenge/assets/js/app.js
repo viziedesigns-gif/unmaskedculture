@@ -89,6 +89,12 @@ function showFlash(type, message) {
     `;
     
     document.body.appendChild(flash);
+
+    if (window.KintoHaptics) {
+        if (type === 'success') window.KintoHaptics.success();
+        if (type === 'error') window.KintoHaptics.error();
+        if (type === 'warning') window.KintoHaptics.warning();
+    }
     
     // Auto-remove after 5 seconds
     setTimeout(() => {
@@ -312,6 +318,96 @@ const storage = {
         }
     }
 };
+
+// ============================
+// Haptic Feedback
+// ============================
+
+const KINTO_HAPTICS_KEY = 'kintoHapticsEnabled';
+
+const KintoHaptics = (() => {
+    const vibrationPatterns = {
+        light: 10,
+        medium: 18,
+        heavy: 28,
+        success: [12, 40, 18],
+        warning: [18, 45, 18],
+        error: [28, 45, 28]
+    };
+
+    function isEnabled() {
+        try {
+            return localStorage.getItem(KINTO_HAPTICS_KEY) !== '0';
+        } catch {
+            return true;
+        }
+    }
+
+    function getNativePlugin() {
+        return window.Capacitor?.Plugins?.Haptics || null;
+    }
+
+    async function trigger(type = 'light') {
+        if (!isEnabled()) return false;
+
+        const nativeHaptics = getNativePlugin();
+        try {
+            if (nativeHaptics) {
+                if (['success', 'warning', 'error'].includes(type) && typeof nativeHaptics.notification === 'function') {
+                    await nativeHaptics.notification({ type: type.toUpperCase() });
+                    return true;
+                }
+
+                if (typeof nativeHaptics.impact === 'function') {
+                    const style = type === 'heavy' ? 'HEAVY' : type === 'medium' ? 'MEDIUM' : 'LIGHT';
+                    await nativeHaptics.impact({ style });
+                    return true;
+                }
+            }
+
+            if (typeof navigator.vibrate === 'function') {
+                return navigator.vibrate(vibrationPatterns[type] || vibrationPatterns.light);
+            }
+        } catch (error) {
+            console.debug('Haptic feedback unavailable', error);
+        }
+
+        return false;
+    }
+
+    function setEnabled(enabled) {
+        if (!enabled) trigger('light');
+        try {
+            localStorage.setItem(KINTO_HAPTICS_KEY, enabled ? '1' : '0');
+        } catch {
+            return false;
+        }
+        if (enabled) trigger('medium');
+        window.dispatchEvent(new CustomEvent('kintoHapticsPreferenceChanged', { detail: { enabled } }));
+        return true;
+    }
+
+    return {
+        isEnabled,
+        setEnabled,
+        impact: (style = 'light') => trigger(style),
+        success: () => trigger('success'),
+        warning: () => trigger('warning'),
+        error: () => trigger('error')
+    };
+})();
+
+window.KintoHaptics = KintoHaptics;
+
+document.addEventListener('pointerdown', event => {
+    const control = event.target.closest('button, .btn, .bottom-nav-item, .settings-hub-row, .checklist-item');
+    if (!control || control.matches(':disabled, [aria-disabled="true"], [data-haptic="none"]')) return;
+    KintoHaptics.impact('light');
+}, { passive: true });
+
+document.addEventListener('submit', () => {
+    KintoHaptics.impact('medium');
+}, { capture: true });
 
 // ============================
 // PWA Install + Service Worker

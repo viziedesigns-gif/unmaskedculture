@@ -28,10 +28,24 @@ include __DIR__ . '/../../includes/header.php';
             <div class="appearance-device-card">
                 <div class="appearance-device-row">
                     <div>
+                        <h3>Haptic Feedback</h3>
+                        <p>Feel light taps for controls and stronger feedback for important actions.</p>
+                    </div>
+                    <button type="button" id="hapticsPreference" class="device-preference-control" aria-pressed="true" data-haptic="none">
+                        <i data-lucide="vibrate"></i>
+                        <span>Haptics on</span>
+                    </button>
+                </div>
+                <p class="form-hint" id="hapticsHint">Haptics are enabled on this device.</p>
+            </div>
+
+            <div class="appearance-device-card">
+                <div class="appearance-device-row">
+                    <div>
                         <h3>Water Tilt</h3>
                         <p>Change tilt here to let this device's motion sensor move the water tracker.</p>
                     </div>
-                    <button type="button" id="waterTiltPreference" class="water-tilt-control" aria-pressed="false">
+                    <button type="button" id="waterTiltPreference" class="device-preference-control" aria-pressed="false">
                         <i data-lucide="move-3d"></i>
                         <span>Enable tilt</span>
                     </button>
@@ -56,6 +70,32 @@ document.getElementById('bubbleColorPicker')?.addEventListener('input', function
 
 const tiltPreferenceButton = document.getElementById('waterTiltPreference');
 const tiltPreferenceHint = document.getElementById('waterTiltHint');
+const hapticsPreferenceButton = document.getElementById('hapticsPreference');
+const hapticsPreferenceHint = document.getElementById('hapticsHint');
+
+function setHapticsPreferenceState(enabled) {
+    if (!hapticsPreferenceButton) return;
+    hapticsPreferenceButton.setAttribute('aria-pressed', enabled ? 'true' : 'false');
+    hapticsPreferenceButton.classList.toggle('is-enabled', enabled);
+    const label = hapticsPreferenceButton.querySelector('span');
+    if (label) label.textContent = enabled ? 'Haptics on' : 'Haptics off';
+    if (hapticsPreferenceHint) {
+        hapticsPreferenceHint.textContent = enabled
+            ? 'Haptics are enabled on this device.'
+            : 'Haptics are disabled on this device.';
+    }
+}
+
+hapticsPreferenceButton?.addEventListener('click', function() {
+    const currentlyEnabled = localStorage.getItem('kintoHapticsEnabled') !== '0';
+    const enabled = !currentlyEnabled;
+    if (window.KintoHaptics) {
+        window.KintoHaptics.setEnabled(enabled);
+    } else {
+        localStorage.setItem('kintoHapticsEnabled', enabled ? '1' : '0');
+    }
+    setHapticsPreferenceState(enabled);
+});
 
 function setTiltPreferenceState(enabled, message) {
     if (!tiltPreferenceButton) return;
@@ -105,6 +145,7 @@ tiltPreferenceButton?.addEventListener('click', async function() {
 });
 
 try {
+    setHapticsPreferenceState(localStorage.getItem('kintoHapticsEnabled') !== '0');
     setTiltPreferenceState(
         localStorage.getItem('waterTiltEnabled') === '1',
         localStorage.getItem('waterTiltEnabled') === '1'
@@ -112,6 +153,7 @@ try {
             : 'This setting is saved on this phone or browser.'
     );
 } catch (error) {
+    setHapticsPreferenceState(true);
     setTiltPreferenceState(false, 'This setting is saved on this phone or browser.');
 }
 </script>
