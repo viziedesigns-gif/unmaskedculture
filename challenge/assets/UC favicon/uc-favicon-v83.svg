@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Unmasked Challenge</title>
+  <rect width="512" height="512" rx="112" fill="#f7fbfa"/>
+  <path d="M44 312c53-86 113-112 181-78 36 18 58 50 122 44 54-5 93-38 127-72" fill="none" stroke="#0f766e" stroke-width="74" stroke-linecap="round"/>
+  <path d="M83 349c42 49 119 65 199 25 70-35 129-36 191 4" fill="none" stroke="#0f766e" stroke-width="38" stroke-linecap="round"/>
+  <text x="256" y="292" text-anchor="middle" font-family="Arial, sans-serif" font-size="206" font-weight="800" fill="#0f766e">UC</text>
+</svg>

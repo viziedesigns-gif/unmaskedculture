@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en" class="has-uc-site-nav">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BBEQYLCZDX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-BBEQYLCZDX');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Vision Center is a proposed Fort Wayne community restoration campus helping men and families rebuild through housing stability, meaningful work, education, mentorship, and hope. Partner with us.">
+  <title>The Vision Center | Unmasked Culture</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/site-nav.css">
+  <script src="/assets/js/site-nav-loader.js" defer></script>
+
+  <style>
+    :root {
+      --vc-red: #e10600;
+      --vc-red-deep: #b00000;
+      --vc-black: #0b0b0b;
+      --vc-ink: #141414;
+      --vc-soft: #f6f4f2;
+      --vc-muted: #6b6762;
+      --vc-line: rgba(20, 20, 20, 0.12);
+      --vc-white: #ffffff;
+      --font-sans: 'Manrope', system-ui, sans-serif;
+      --font-display: 'Source Serif 4', Georgia, serif;
+      --nav-h: 80px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--vc-ink);
+      background: var(--vc-soft);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+
+    .vc-wrap {
+      width: min(1120px, calc(100% - 2.5rem));
+      margin-inline: auto;
+    }
+
+    .vc-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--vc-red);
+      margin-bottom: 1rem;
+    }
+
+    .vc-display {
+      font-family: var(--font-display);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.12;
+    }
+
+    .vc-lead {
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
+      color: var(--vc-muted);
+      max-width: 38rem;
+    }
+
+    .vc-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 48px;
+      padding: 0.85rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .vc-btn:hover { transform: translateY(-2px); }
+    .vc-btn:active { transform: translateY(0); }
+
+    .vc-btn--primary {
+      background: var(--vc-red);
+      color: var(--vc-white);
+    }
+
+    .vc-btn--primary:hover { background: var(--vc-red-deep); }
+
+    .vc-btn--ghost {
+      background: transparent;
+      color: var(--vc-white);
+      border-color: rgba(255,255,255,0.45);
+    }
+
+    .vc-btn--ghost:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: #fff;
+    }
+
+    .vc-btn--dark {
+      background: var(--vc-ink);
+      color: var(--vc-white);
+    }
+
+    .vc-btn--dark:hover { background: #000; }
+
+    .vc-btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.75rem;
+    }
+
+    /* ===== HERO ===== */
+    .vc-hero {
+      position: relative;
+      min-height: calc(100svh - var(--nav-h));
+      display: grid;
+      align-items: end;
+      color: var(--vc-white);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .vc-hero__media {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+    }
+
+    .vc-hero__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.06);
+      animation: vcKen 18s ease-out forwards;
+    }
+
+    .vc-hero__shade {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.82) 100%);
+    }
+
+    .vc-hero__content {
+      width: min(1120px, calc(100% - 2.5rem));
+      margin: 0 auto;
+      padding: 4.5rem 0 4rem;
+      animation: vcRise 900ms ease both;
+    }
+
+    .vc-hero__brand {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 8vw, 5.2rem);
+      font-weight: 600;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.1rem;
+    }
+
+    .vc-hero__brand span {
+      display: block;
+      color: #ffd0cd;
+      font-size: 0.42em;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-family: var(--font-sans);
+      font-weight: 700;
+      margin-bottom: 0.65rem;
+    }
+
+    .vc-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.35rem, 3.2vw, 2rem);
+      font-weight: 500;
+      max-width: 22ch;
+      margin-bottom: 0.9rem;
+      color: rgba(255,255,255,0.96);
+    }
+
+    .vc-hero p {
+      max-width: 36rem;
+      color: rgba(255,255,255,0.82);
+      font-size: 1.05rem;
+    }
+
+    /* ===== SECTIONS ===== */
+    .vc-section {
+      padding: clamp(4rem, 8vw, 6.5rem) 0;
+    }
+
+    .vc-section--ink {
+      background: var(--vc-ink);
+      color: var(--vc-white);
+    }
+
+    .vc-section--ink .vc-lead,
+    .vc-section--ink .vc-copy {
+      color: rgba(255,255,255,0.72);
+    }
+
+    .vc-section--white { background: var(--vc-white); }
+
+    .vc-section__head {
+      max-width: 40rem;
+      margin-bottom: clamp(2rem, 4vw, 3rem);
+    }
+
+    .vc-section__head h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.5vw, 3.1rem);
+      margin-bottom: 0.85rem;
+    }
+
+    .vc-copy {
+      color: var(--vc-muted);
+      font-size: 1.02rem;
+    }
+
+    .vc-split {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: clamp(1.5rem, 4vw, 3.5rem);
+      align-items: center;
+    }
+
+    .vc-split--reverse { direction: rtl; }
+    .vc-split--reverse > * { direction: ltr; }
+
+    .vc-photo {
+      overflow: hidden;
+      border-radius: 18px;
+      min-height: 320px;
+      background: #ddd;
+    }
+
+    .vc-photo img {
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+      object-fit: cover;
+      transition: transform 1.2s ease;
+    }
+
+    .vc-photo:hover img { transform: scale(1.04); }
+
+    .vc-need-list {
+      list-style: none;
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.75rem;
+    }
+
+    .vc-need-list li {
+      padding-left: 1.15rem;
+      border-left: 2px solid var(--vc-red);
+      color: var(--vc-muted);
+    }
+
+    .vc-need-list strong {
+      display: block;
+      color: var(--vc-ink);
+      margin-bottom: 0.2rem;
+    }
+
+    .vc-section--ink .vc-need-list strong { color: #fff; }
+    .vc-section--ink .vc-need-list li { color: rgba(255,255,255,0.72); border-color: var(--vc-red); }
+
+    /* Model layers - not cards, just divided columns */
+    .vc-layers {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--vc-line);
+    }
+
+    .vc-layer {
+      padding: 1.75rem 1.4rem 1.75rem 0;
+      border-right: 1px solid var(--vc-line);
+    }
+
+    .vc-layer:last-child {
+      border-right: 0;
+      padding-right: 0;
+    }
+
+    .vc-layer:first-child { padding-left: 0; }
+
+    .vc-layer__num {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      color: var(--vc-red);
+      margin-bottom: 0.7rem;
+    }
+
+    .vc-layer h3 {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .vc-tracks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(1.25rem, 3vw, 2rem);
+    }
+
+    .vc-track {
+      padding-top: 1.25rem;
+      border-top: 2px solid var(--vc-red);
+    }
+
+    .vc-track h3 {
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .vc-track ul {
+      margin-top: 1rem;
+      padding-left: 1.1rem;
+      color: var(--vc-muted);
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .vc-facility {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .vc-facility article {
+      padding: 1.1rem 0;
+      border-top: 1px solid rgba(255,255,255,0.14);
+    }
+
+    .vc-facility h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+
+    .vc-facility p {
+      color: rgba(255,255,255,0.68);
+      font-size: 0.95rem;
+    }
+
+    .vc-phases {
+      display: grid;
+      gap: 0;
+    }
+
+    .vc-phase {
+      display: grid;
+      grid-template-columns: 7.5rem 1fr;
+      gap: 1.25rem;
+      padding: 1.25rem 0;
+      border-top: 1px solid var(--vc-line);
+      align-items: start;
+    }
+
+    .vc-phase time {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--vc-red);
+    }
+
+    .vc-phase h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .vc-phase p { color: var(--vc-muted); font-size: 0.98rem; }
+
+    .vc-fund-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: clamp(1.5rem, 4vw, 3rem);
+      align-items: start;
+    }
+
+    .vc-stat-stack {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .vc-stat {
+      padding: 1.25rem 0;
+      border-top: 1px solid var(--vc-line);
+    }
+
+    .vc-stat strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .vc-stat span { color: var(--vc-muted); font-size: 0.95rem; }
+
+    .vc-tiers {
+      display: grid;
+      gap: 0;
+      margin-top: 1rem;
+    }
+
+    .vc-tier {
+      display: grid;
+      grid-template-columns: 10rem 1fr auto;
+      gap: 1rem;
+      align-items: center;
+      padding: 1.15rem 0;
+      border-top: 1px solid var(--vc-line);
+      text-decoration: none;
+      transition: background 0.2s ease, padding 0.2s ease;
+    }
+
+    .vc-tier:hover {
+      background: rgba(225, 6, 0, 0.04);
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+
+    .vc-tier__ask {
+      font-weight: 800;
+      color: var(--vc-red);
+      font-size: 0.95rem;
+    }
+
+    .vc-tier h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .vc-tier p {
+      color: var(--vc-muted);
+      font-size: 0.92rem;
+    }
+
+    .vc-tier__cta {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--vc-ink);
+      white-space: nowrap;
+    }
+
+    .vc-final {
+      text-align: center;
+      padding: clamp(4.5rem, 9vw, 7rem) 0;
+      background:
+        radial-gradient(700px 280px at 50% 0%, rgba(225,6,0,0.18), transparent 60%),
+        var(--vc-ink);
+      color: #fff;
+    }
+
+    .vc-final h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.1rem, 5vw, 3.4rem);
+      max-width: 16ch;
+      margin: 0 auto 1rem;
+    }
+
+    .vc-final p {
+      max-width: 34rem;
+      margin: 0 auto;
+      color: rgba(255,255,255,0.72);
+    }
+
+    .vc-final .vc-btn-row { justify-content: center; }
+
+    .vc-note {
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .vc-reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .vc-reveal.is-in {
+      opacity: 1;
+      transform: none;
+    }
+
+    @keyframes vcKen {
+      to { transform: scale(1); }
+    }
+
+    @keyframes vcRise {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 900px) {
+      .vc-split,
+      .vc-split--reverse,
+      .vc-layers,
+      .vc-tracks,
+      .vc-facility,
+      .vc-fund-grid {
+        grid-template-columns: 1fr;
+        direction: ltr;
+      }
+
+      .vc-layer {
+        border-right: 0;
+        border-top: 1px solid var(--vc-line);
+        padding: 1.4rem 0;
+      }
+
+      .vc-tier {
+        grid-template-columns: 1fr;
+        gap: 0.35rem;
+      }
+
+      .vc-phase {
+        grid-template-columns: 1fr;
+        gap: 0.35rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .vc-hero__media img,
+      .vc-hero__content,
+      .vc-reveal,
+      .vc-photo img {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+
+    /* Simple page footer */
+    .vc-page-footer {
+      background: #000;
+      color: rgba(255,255,255,0.65);
+      padding: 2rem 0;
+      font-size: 0.9rem;
+    }
+
+    .vc-page-footer a { color: #fff; text-decoration: none; }
+    .vc-page-footer__row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="site-nav-root"></div>
+
+  <main>
+    <section class="vc-hero" aria-label="The Vision Center">
+      <div class="vc-hero__media">
+        <img src="/assets/images/vision-center/building.png" alt="Exterior of the Vision Center building with red brick and charcoal facade under a clear blue sky" width="1920" height="1080">
+      </div>
+      <div class="vc-hero__shade" aria-hidden="true"></div>
+      <div class="vc-hero__content">
+        <p class="vc-hero__brand"><span>Unmasked Culture</span>The Vision Center</p>
+        <h1>A Fort Wayne campus where restoration becomes possible.</h1>
+        <p>Help men and families rebuild through housing stability, meaningful work, education, mentorship, and Christ-centered hope.</p>
+        <div class="vc-btn-row">
+          <a class="vc-btn vc-btn--primary" href="/donate">Become a Founding Partner</a>
+          <a class="vc-btn vc-btn--ghost" href="#need">Why this is needed</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="vc-section vc-section--white" id="need">
+      <div class="vc-wrap vc-split vc-reveal">
+        <div>
+          <p class="vc-eyebrow">The Need</p>
+          <h2 class="vc-display" style="font-size:clamp(2rem,4.5vw,3rem);margin-bottom:0.85rem;">Fort Wayne needs more than a bed for the night.</h2>
+          <p class="vc-lead">Homelessness, housing instability, foster-care support, workforce readiness, and family restoration are connected challenges. The Vision Center is designed to meet them together.</p>
+          <ul class="vc-need-list">
+            <li>
+              <strong>Housing instability needs a bridge</strong>
+              Structure, employment, mentoring, budgeting, documents, and a path to independent housing—not only emergency shelter.
+            </li>
+            <li>
+              <strong>Foster families need safe space</strong>
+              Family-friendly supervised visitation rooms support reunification and reduce strain on caregivers and agencies.
+            </li>
+            <li>
+              <strong>Churches and businesses want a credible place to help</strong>
+              Partners need an organized, outcome-driven project where generosity becomes lasting change.
+            </li>
+          </ul>
+        </div>
+        <div class="vc-photo">
+          <img src="/assets/images/vision-center/family.png" alt="Calm family visitation room with soft seating and natural light" width="1200" height="900" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="vc-section" id="mission">
+      <div class="vc-wrap vc-reveal">
+        <div class="vc-section__head">
+          <p class="vc-eyebrow">Mission</p>
+          <h2>Restore hope, dignity, and purpose.</h2>
+          <p class="vc-lead">Through transitional support, education, paid work, financial stewardship, and mentorship, participants move from crisis toward spiritual health, stability, and independent living.</p>
+        </div>
+        <p class="vc-copy" style="max-width:46rem;">
+          This is not a traditional shelter. It is a <strong>community restoration campus</strong>—a public-facing center that serves Fort Wayne while creating supervised, paid work opportunities for people rebuilding their lives.
+        </p>
+      </div>
+    </section>
+
+    <section class="vc-section vc-section--white" id="model">
+      <div class="vc-wrap vc-reveal">
+        <div class="vc-section__head">
+          <p class="vc-eyebrow">The Model</p>
+          <h2>Three layers. One coordinated pathway.</h2>
+          <p class="vc-lead">Community benefit, participant restoration, and mission-aligned revenue work together so the campus can serve people well and sustain itself over time.</p>
+        </div>
+        <div class="vc-layers">
+          <article class="vc-layer">
+            <p class="vc-layer__num">01</p>
+            <h3>Community Center</h3>
+            <p class="vc-copy">Cafe, thrift shop, visitation rooms, classrooms, and outdoor space that welcome the public and build trust.</p>
+          </article>
+          <article class="vc-layer">
+            <p class="vc-layer__num">02</p>
+            <h3>Restoration Programs</h3>
+            <p class="vc-copy">Structured tracks for men and families: housing stability, education, budgeting, mentorship, and work readiness.</p>
+          </article>
+          <article class="vc-layer">
+            <p class="vc-layer__num">03</p>
+            <h3>Revenue Streams</h3>
+            <p class="vc-copy">Cafe sales, thrift operations, office leases, visitation partnerships, and event rentals reduce long-term donor dependence.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="vc-section" id="programs">
+      <div class="vc-wrap vc-split vc-split--reverse vc-reveal">
+        <div class="vc-photo">
+          <img src="/assets/images/vision-center/work.png" alt="Hands preparing food together in a community cafe training kitchen" width="1200" height="900" loading="lazy">
+        </div>
+        <div>
+          <p class="vc-eyebrow">Who We Serve</p>
+          <h2 class="vc-display" style="font-size:clamp(2rem,4.5vw,3rem);margin-bottom:1.25rem;">Pathways built for real life change.</h2>
+          <div class="vc-tracks">
+            <article class="vc-track">
+              <h3>Men’s Restoration</h3>
+              <p class="vc-copy">A first residential track for men facing homelessness or serious housing risk—focused on dignity, work, and accountability.</p>
+              <ul>
+                <li>About 12 months, flexible to progress</li>
+                <li>Paid supervised work inside the center</li>
+                <li>Budgeting + restricted graduation savings</li>
+                <li>Faith mentorship and housing transition plan</li>
+              </ul>
+            </article>
+            <article class="vc-track">
+              <h3>Family Restoration</h3>
+              <p class="vc-copy">A future parallel track for mothers and families—designed with child safety, separate housing, and trauma-informed support.</p>
+              <ul>
+                <li>Parenting and childcare partnerships</li>
+                <li>Flexible employment pathways</li>
+                <li>Counseling referral access</li>
+                <li>Safe family activities and visitation support</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="vc-section vc-section--ink" id="facility">
+      <div class="vc-wrap vc-reveal">
+        <div class="vc-section__head">
+          <p class="vc-eyebrow">Facility Vision</p>
+          <h2>A campus that serves the public and funds the mission.</h2>
+          <p class="vc-lead">Opening community-facing spaces first builds credibility, jobs, and earned income—before the full residential buildout.</p>
+        </div>
+        <div class="vc-facility">
+          <article>
+            <h3>Cafe</h3>
+            <p>Hospitality, job training, gathering space, and a public brand for restoration.</p>
+          </article>
+          <article>
+            <h3>Thrift Shop</h3>
+            <p>Affordable goods, donation pipeline, retail skills, and reliable mission revenue.</p>
+          </article>
+          <article>
+            <h3>Visitation Rooms</h3>
+            <p>Family-friendly supervised visits for foster care and reunification support.</p>
+          </article>
+          <article>
+            <h3>Leased Offices</h3>
+            <p>Space for aligned counselors and nonprofits—recurring income and referrals.</p>
+          </article>
+          <article>
+            <h3>Classrooms</h3>
+            <p>GED, budgeting, job readiness, workshops, and discipleship groups.</p>
+          </article>
+          <article>
+            <h3>Outdoor Space</h3>
+            <p>Gardens, seating, family events, and wellness space for the neighborhood.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="vc-section vc-section--white" id="roadmap">
+      <div class="vc-wrap vc-reveal">
+        <div class="vc-section__head">
+          <p class="vc-eyebrow">Phased Roadmap</p>
+          <h2>We build in stages—so every gift advances a clear next step.</h2>
+        </div>
+        <div class="vc-phases">
+          <article class="vc-phase">
+            <time>2026–2027</time>
+            <div>
+              <h3>Phase 0 — Foundation</h3>
+              <p>Governance, feasibility, local discovery, preliminary budgets, and donor materials.</p>
+            </div>
+          </article>
+          <article class="vc-phase">
+            <time>2027–2028</time>
+            <div>
+              <h3>Phase 1 — Public Launch</h3>
+              <p>Brand credibility, church/business network, monthly donors, and pilot partnerships.</p>
+            </div>
+          </article>
+          <article class="vc-phase">
+            <time>2028–2029</time>
+            <div>
+              <h3>Phase 2 — Capital Campaign</h3>
+              <p>Site search, architectural concept, sponsorship packages, and major gift fundraising.</p>
+            </div>
+          </article>
+          <article class="vc-phase">
+            <time>2029–2030</time>
+            <div>
+              <h3>Phase 3 — Facility Buildout</h3>
+              <p>Open cafe, thrift, offices, and visitation spaces with staff, policies, and soft launch.</p>
+            </div>
+          </article>
+          <article class="vc-phase">
+            <time>2030+</time>
+            <div>
+              <h3>Phase 4–5 — Programs &amp; Expansion</h3>
+              <p>Launch the men’s restoration track, then family capacity and long-term campus growth.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="vc-section" id="funding">
+      <div class="vc-wrap vc-fund-grid vc-reveal">
+        <div>
+          <p class="vc-eyebrow">Why Your Support Matters Now</p>
+          <h2 class="vc-display" style="font-size:clamp(2rem,4.5vw,3rem);margin-bottom:0.85rem;">Early partners shape the first facility phase.</h2>
+          <p class="vc-lead" style="margin-bottom:1rem;">Planning ranges put initial facility buildout around $2M–$4M, with a long-term campus vision that can grow as partnerships mature. Your gift funds credibility work today and capital readiness for tomorrow.</p>
+          <p class="vc-copy">We are building a diversified funding mix—major donors, churches, corporate sponsors, foundations, monthly givers, and earned revenue—so the mission is not dependent on a single source.</p>
+          <div class="vc-btn-row">
+            <a class="vc-btn vc-btn--primary" href="/donate">Give toward the vision</a>
+            <a class="vc-btn vc-btn--dark" href="/contact">Talk with our team</a>
+          </div>
+        </div>
+        <div class="vc-stat-stack">
+          <div class="vc-stat">
+            <strong>$2M–$4M</strong>
+            <span>Initial facility / first buildout planning range</span>
+          </div>
+          <div class="vc-stat">
+            <strong>$500K–$750K</strong>
+            <span>Lead gifts target for a $2M first-goal mix</span>
+          </div>
+          <div class="vc-stat">
+            <strong>12 months</strong>
+            <span>Men’s restoration pathway focused on housing, work, and stability</span>
+          </div>
+          <div class="vc-stat">
+            <strong>Fort Wayne first</strong>
+            <span>A replicable model for churches and partners in other cities</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="vc-section vc-section--white" id="partners">
+      <div class="vc-wrap vc-reveal">
+        <div class="vc-section__head">
+          <p class="vc-eyebrow">Partnership Levels</p>
+          <h2>Invest where you can make the strongest impact.</h2>
+          <p class="vc-lead">Every tier fuels restoration—whether you sponsor a program track, equip workforce training, or give monthly.</p>
+        </div>
+        <div class="vc-tiers">
+          <a class="vc-tier" href="/donate">
+            <div class="vc-tier__ask">$100K+</div>
+            <div>
+              <h3>Founding Vision Partner</h3>
+              <p>Anchor the launch. Major recognition and founding partnership conversations.</p>
+            </div>
+            <div class="vc-tier__cta">Partner →</div>
+          </a>
+          <a class="vc-tier" href="/donate">
+            <div class="vc-tier__ask">$50K</div>
+            <div>
+              <h3>Restoration Partner</h3>
+              <p>Sponsor core programming and receive lasting recognition in impact reports.</p>
+            </div>
+            <div class="vc-tier__cta">Partner →</div>
+          </a>
+          <a class="vc-tier" href="/donate">
+            <div class="vc-tier__ask">$25K</div>
+            <div>
+              <h3>Community Builder</h3>
+              <p>Help underwrite a room or public-facing space that serves families daily.</p>
+            </div>
+            <div class="vc-tier__cta">Partner →</div>
+          </a>
+          <a class="vc-tier" href="/donate">
+            <div class="vc-tier__ask">$10K</div>
+            <div>
+              <h3>Workforce Partner</h3>
+              <p>Fund training, tools, certifications, and paid work pathways for participants.</p>
+            </div>
+            <div class="vc-tier__cta">Partner →</div>
+          </a>
+          <a class="vc-tier" href="/donate">
+            <div class="vc-tier__ask">$25–$500/mo</div>
+            <div>
+              <h3>Monthly Supporter</h3>
+              <p>Sustain the restoration fund and help build a reliable community campaign base.</p>
+            </div>
+            <div class="vc-tier__cta">Give monthly →</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="vc-final" id="join">
+      <div class="vc-wrap vc-reveal">
+        <p class="vc-eyebrow" style="color:#ffb3ae;">Founding moment</p>
+        <h2>Fort Wayne can build a place where people do not just survive—they rebuild.</h2>
+        <p>Join Unmasked Culture as an early Vision Center partner. Your support turns a clear plan into a campus that restores dignity through work, family connection, and hope.</p>
+        <div class="vc-btn-row">
+          <a class="vc-btn vc-btn--primary" href="/donate">Fund the Vision Center</a>
+          <a class="vc-btn vc-btn--ghost" href="/contact">Request a partner conversation</a>
+        </div>
+        <p class="vc-note">Preliminary planning document — July 2026. Facility costs and timelines will be refined through feasibility study, architecture, and local partnerships.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="vc-page-footer">
+    <div class="vc-wrap vc-page-footer__row">
+      <p>&copy; <span id="yc"></span> Unmasked Culture · The Vision Center</p>
+      <p><a href="/">Home</a> · <a href="/donate">Donate</a> · <a href="/contact">Contact</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('yc').textContent = new Date().getFullYear();
+
+    (function () {
+      var nodes = document.querySelectorAll('.vc-reveal');
+      if (!nodes.length) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        nodes.forEach(function (n) { n.classList.add('is-in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
+      nodes.forEach(function (n) { io.observe(n); });
+    })();
+  </script>
+</body>
+</html>

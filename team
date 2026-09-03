@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en" class="has-uc-site-nav">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BBEQYLCZDX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-BBEQYLCZDX');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Meet the dedicated team behind Unmasked Culture - leadership, staff, and board members working to promote mental health awareness.">
+  <title>Our Team | Unmasked Culture</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* ========================================
+       CSS VARIABLES & RESET
+       ======================================== */
+    :root {
+      --primary-red: #ff0000;
+      --accent-color: #ff4d4d;
+      --hover-red: #cc0000;
+      --primary-black: #000000;
+      --primary-white: #ffffff;
+      --dark-bg: #1a1a1a;
+      --light-bg: #ffffff;
+      --secondary-color: #f5f5f5;
+      --text-color: #333333;
+      --navbar-height: 80px;
+      --transition-speed: 0.3s;
+      --transition: all 0.3s ease;
+      --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      --border-radius: 8px;
+      --footer-border: rgba(255, 255, 255, 0.1);
+      --blue-accent: #4e8cff;
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--light-bg);
+      color: var(--text-color);
+      line-height: 1.6;
+      padding-top: var(--navbar-height);
+    }
+
+    body.nav-open { overflow: hidden; }
+
+    a { text-decoration: none; }
+    ul { list-style: none; }
+
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ========================================
+       NAVBAR STYLES
+       ======================================== */
+    .navbar {
+      background-color: var(--primary-black);
+      height: var(--navbar-height);
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+  
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      padding: 0 50px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+  
+    .navbar-logo,
+    .footer-logo a {
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-red { color: var(--primary-red); }
+    .logo-white { color: var(--primary-white); }
+  
+    .navbar-logo:hover,
+    .footer-logo a:hover { transform: scale(1.05); }
+  
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+  
+    .nav-item {
+      position: relative;
+      height: var(--navbar-height);
+      display: flex;
+      align-items: center;
+    }
+  
+    .nav-link {
+      color: var(--primary-white);
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      padding: 0 15px;
+      height: 100%;
+      font-size: 1rem;
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 20px;
+      left: 15px;
+      background-color: var(--primary-red);
+      transition: width var(--transition-speed) ease;
+    }
+    
+    .nav-link:hover::after { width: calc(100% - 30px); }
+    .nav-link:hover { color: var(--primary-red); }
+  
+    .dropdown-icon {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      margin-left: 6px;
+      vertical-align: middle;
+      border-top: 4px solid var(--primary-white);
+      border-right: 4px solid transparent;
+      border-left: 4px solid transparent;
+      transition: transform var(--transition-speed) ease;
+    }
+    
+    .dropdown.active .dropdown-icon { transform: rotate(180deg); }
+  
+    .dropdown-menu {
+      position: absolute;
+      top: var(--navbar-height);
+      left: 0;
+      background-color: var(--primary-black);
+      min-width: 220px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: var(--transition);
+      padding: 10px 0;
+      border-radius: 0 0 4px 4px;
+      list-style: none;
+      border-top: 2px solid var(--primary-red);
+      z-index: 1000;
+    }
+  
+    .dropdown:hover .dropdown-menu,
+    .dropdown:focus-within .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  
+    .dropdown-menu li { padding: 0; }
+  
+    .dropdown-menu a {
+      color: var(--primary-white);
+      padding: 10px 20px;
+      display: block;
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 0.9rem;
+    }
+  
+    .dropdown-menu a:hover {
+      background-color: rgba(255, 0, 0, 0.1);
+      color: var(--primary-red);
+      padding-left: 25px;
+    }
+  
+    .donate-btn {
+      background-color: var(--primary-red);
+      color: var(--primary-white);
+      padding: 10px 20px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      margin-left: 15px;
+      border-radius: 25px;
+      box-shadow: 0 4px 8px rgba(255, 0, 0, 0.2);
+      display: inline-block;
+    }
+  
+    .donate-btn:hover {
+      background-color: var(--hover-red);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(255, 0, 0, 0.3);
+    }
+  
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      z-index: 1001;
+      padding: 10px;
+      background-color: transparent;
+      border: none;
+      outline: none;
+    }
+  
+    .menu-toggle .bar {
+      width: 25px;
+      height: 3px;
+      margin: 5px auto;
+      transition: var(--transition);
+      background-color: var(--primary-white);
+      display: block;
+      border-radius: 2px;
+    }
+
+    /* ========================================
+       TEAM HERO
+       ======================================== */
+    .team-hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://res.cloudinary.com/dtrk4dyly/image/upload/v1741111724/Team_4-min_ynkknc.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      color: var(--primary-white);
+      padding: 150px 0;
+      margin-bottom: 50px;
+      text-align: center;
+    }
+
+    .team-hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .team-hero p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* ========================================
+       SECTION TITLES
+       ======================================== */
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--text-color);
+      line-height: 1.2;
+      margin-top: 30px;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background-color: var(--blue-accent);
+      margin: 15px auto;
+    }
+
+    /* ========================================
+       TEAM GRID
+       ======================================== */
+    .team-section {
+      margin-bottom: 60px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+
+    .team-card {
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+      background-color: var(--light-bg);
+    }
+
+    .team-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .team-card img {
+      height: 300px;
+      object-fit: cover;
+      object-position: center top;
+      width: 100%;
+    }
+
+    .team-card-body {
+      padding: 25px;
+      flex: 1;
+    }
+
+    .team-card-title {
+      font-weight: 700;
+      margin-bottom: 5px;
+      font-size: 1.25rem;
+      color: var(--text-color);
+    }
+
+    .team-card-position {
+      color: var(--blue-accent);
+      font-weight: 600;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .team-card-text {
+      color: var(--text-color);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* ========================================
+       TEAM VALUES
+       ======================================== */
+    .team-values {
+      background-color: #f8f9fa;
+      padding: 80px 0;
+      margin: 60px 0;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .value-item {
+      text-align: center;
+      padding: 30px;
+      background-color: var(--light-bg);
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .value-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .value-icon {
+      font-size: 2.5rem;
+      color: var(--blue-accent);
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60px;
+    }
+
+    .value-icon svg {
+      width: 40px;
+      height: 40px;
+      fill: var(--blue-accent);
+    }
+
+    .value-item h3 {
+      color: var(--text-color);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .value-item p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* ========================================
+       JOIN TEAM SECTION
+       ======================================== */
+    .join-team {
+      position: relative;
+      color: var(--primary-white);
+      padding: 80px 0;
+      text-align: center;
+      overflow: hidden;
+      background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://res.cloudinary.com/dtrk4dyly/image/upload/v1741185284/LRM_EXPORT_1380197676216191_20190929_225940613_e59lpf.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .join-team h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .join-team p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-primary {
+      background-color: var(--blue-accent);
+      border-color: var(--blue-accent);
+      padding: 12px 30px;
+      font-weight: 600;
+      border-radius: 30px;
+      color: var(--primary-white);
+      text-decoration: none;
+      display: inline-block;
+      margin-right: 1rem;
+      transition: var(--transition);
+    }
+
+    .btn-primary:hover {
+      background-color: #3a78e0;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-light {
+      color: var(--primary-white);
+      border: 2px solid var(--primary-white);
+      padding: 12px 30px;
+      font-weight: 600;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-block;
+      background: transparent;
+      transition: var(--transition);
+    }
+
+    .btn-outline-light:hover {
+      background-color: var(--primary-white);
+      color: var(--text-color);
+    }
+
+    /* ========================================
+       FOOTER STYLES
+       ======================================== */
+    .footer {
+      background-color: var(--primary-black);
+      color: var(--primary-white);
+      padding: 60px 0 30px;
+      width: 100%;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 50px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo { margin-bottom: 30px; }
+
+    .footer-tagline {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .footer-nav-column h3 {
+      color: var(--primary-white);
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+      position: relative;
+    }
+
+    .footer-nav-column h3::after {
+      content: '';
+      position: absolute;
+      width: 30px;
+      height: 2px;
+      background-color: var(--primary-red);
+      bottom: -5px;
+      left: 0;
+    }
+
+    .footer-nav-column ul { list-style: none; }
+    .footer-nav-column ul li { margin-bottom: 10px; }
+
+    .footer-nav-column ul li a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 0.9rem;
+    }
+
+    .footer-nav-column ul li a:hover {
+      color: var(--primary-red);
+      padding-left: 5px;
+    }
+
+    .footer-middle {
+      display: flex;
+      justify-content: space-between;
+      padding: 30px 0;
+      border-top: 1px solid var(--footer-border);
+      border-bottom: 1px solid var(--footer-border);
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .candid-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .candid-seal img {
+      max-width: 200px;
+      height: auto;
+      transition: transform var(--transition-speed) ease;
+    }
+
+    .candid-seal:hover img { transform: scale(1.05); }
+
+    .candid-profile {
+      color: var(--primary-white);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color var(--transition-speed) ease;
+    }
+
+    .candid-profile:hover { color: var(--primary-red); }
+
+    .footer-social-links h3 {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--primary-white);
+      transition: var(--transition);
+    }
+
+    .social-icon:hover {
+      background-color: var(--primary-red);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .footer-info p {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover { color: var(--primary-red); }
+
+    .footer-donate .donate-btn { margin-left: 0; }
+
+    /* ========================================
+       RESPONSIVE STYLES
+       ======================================== */
+    @media screen and (max-width: 1024px) {
+      .navbar-container,
+      .footer-container { padding: 0 20px; }
+      
+      .nav-link {
+        padding: 0 10px;
+        font-size: 0.95rem;
+      }
+      
+      .donate-btn {
+        padding: 8px 16px;
+        margin-left: 10px;
+      }
+
+      .footer-nav { gap: 30px; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    
+    @media screen and (max-width: 960px) {
+      .nav-menu {
+        flex-direction: column;
+        width: 100%;
+        position: fixed;
+        top: var(--navbar-height);
+        right: -100%;
+        opacity: 0;
+        transition: all 0.5s ease;
+        background-color: rgba(0, 0, 0, 0.95);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        align-items: center;
+        height: calc(100vh - var(--navbar-height));
+        overflow-y: auto;
+        backdrop-filter: blur(5px);
+        z-index: 1000;
+      }
+  
+      .nav-menu.active {
+        right: 0;
+        opacity: 1;
+        padding: 20px 0;
+      }
+  
+      .nav-item {
+        height: auto;
+        width: 90%;
+        margin: 5px 0;
+      }
+  
+      .nav-link {
+        padding: 15px;
+        width: 100%;
+        display: block;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      .nav-link::after { display: none; }
+  
+      .dropdown-toggle {
+        position: relative;
+        width: 100%;
+        cursor: pointer;
+        justify-content: center;
+      }
+      
+      .dropdown-menu {
+        position: static;
+        background-color: rgba(255, 255, 255, 0.05);
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease, opacity 0.3s ease;
+        padding: 0;
+        box-shadow: none;
+        opacity: 0;
+        visibility: hidden;
+        transform: none;
+        border-radius: 4px;
+        margin-top: 5px;
+        border-top: none;
+      }
+      
+      .dropdown.active .dropdown-menu {
+        max-height: 500px;
+        padding: 5px 0;
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .dropdown-icon {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        border-top: 8px solid var(--primary-white);
+        border-right: 8px solid transparent;
+        border-left: 8px solid transparent;
+        pointer-events: none;
+        margin-left: 0;
+      }
+      
+      .dropdown.active .dropdown-icon {
+        transform: translateY(-50%) rotate(180deg);
+      }
+  
+      .dropdown-menu a {
+        padding: 12px 15px;
+        text-align: center;
+      }
+      
+      .dropdown-menu a:hover { padding-left: 15px; }
+  
+      .menu-toggle {
+        display: block;
+        position: relative;
+        z-index: 1001;
+        padding: 15px;
+        margin-right: -15px;
+      }
+      
+      .menu-toggle .bar {
+        width: 30px;
+        height: 4px;
+        margin: 6px auto;
+      }
+      
+      .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(10px) rotate(45deg);
+      }
+      
+      .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+      
+      .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-10px) rotate(-45deg);
+      }
+  
+      .nav-item .donate-btn {
+        margin: 15px 0;
+        width: 80%;
+        text-align: center;
+      }
+
+      .footer-top { flex-direction: column; }
+      .footer-logo { margin-bottom: 40px; }
+      .footer-nav { width: 100%; justify-content: space-between; }
+      .footer-middle { flex-direction: column; align-items: center; }
+      .candid-section, .footer-social-links { width: 100%; max-width: 100%; align-items: center; }
+      .footer-social-links { margin-top: 30px; }
+
+      .values-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media screen and (max-width: 768px) {
+      .team-hero { padding: 80px 0; }
+      .team-hero h1 { font-size: 2.5rem; }
+      .team-grid { grid-template-columns: 1fr; }
+      .values-grid { grid-template-columns: 1fr; }
+
+      .footer-nav { flex-wrap: wrap; gap: 40px 20px; }
+      .footer-nav-column { width: calc(50% - 20px); }
+      .footer-bottom { flex-direction: column-reverse; text-align: center; }
+      .footer-info { flex-direction: column; width: 100%; }
+      .footer-links { justify-content: center; width: 100%; }
+
+      .join-team .btn-primary,
+      .join-team .btn-outline-light {
+        display: block;
+        margin: 10px auto;
+        width: 80%;
+        max-width: 250px;
+      }
+    }
+    
+    @media screen and (max-width: 480px) {
+      .navbar-logo, .footer-logo a { font-size: 1.2rem; }
+      .nav-menu, .nav-item { width: 100%; }
+      .footer { padding: 40px 0 20px; }
+      .footer-nav-column { width: 100%; }
+      .social-icons { justify-content: center; }
+    }
+  </style>
+  <link rel="stylesheet" href="/assets/css/site-nav.css">
+  <script src="/assets/js/site-nav-loader.js" defer></script>
+</head>
+<body>
+  <div id="site-nav-root"></div>
+
+  <main>
+    <!-- Team Hero -->
+    <section class="team-hero">
+      <div class="container">
+        <h1>Meet Our Team</h1>
+        <p>Dedicated individuals working together to make a difference in our community and beyond.</p>
+      </div>
+    </section>
+
+    <!-- Leadership Team -->
+    <section class="team-section container">
+      <h2 class="section-title">Leadership Team</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="https://res.cloudinary.com/dtrk4dyly/image/upload/v1741111724/Mikel_Stull-min_nm8ptz.jpg" alt="Mikel C.J. Stull" loading="lazy">
+          <div class="team-card-body">
+            <h3 class="team-card-title">Mikel C.J. Stull</h3>
+            <span class="team-card-position">Executive Director</span>
+            <p class="team-card-text">Mikel founded the organization in 2019 out of his own personal struggles and experience with mental health. From this birthed Unmasked Culture.</p>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <img src="https://res.cloudinary.com/dtrk4dyly/image/upload/v1741184898/DSC05646-min_o1tbc8.jpg" alt="Brandon Burns" loading="lazy">
+          <div class="team-card-body">
+            <h3 class="team-card-title">Brandon Burns</h3>
+            <span class="team-card-position">Co-founder</span>
+            <p class="team-card-text">Co-Founded with Mikel Stull while rooming together in college, and is passionate about spreading awareness through digital means.</p>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <img src="https://res.cloudinary.com/dtrk4dyly/image/upload/v1741111724/Faith_Stull-min_deml03.jpg" alt="Faith Stull" loading="lazy">
+          <div class="team-card-body">
+            <h3 class="team-card-title">Faith Stull</h3>
+            <span class="team-card-position">Chief Operations Officer</span>
+            <p class="team-card-text">Joined the Unmasked Culture family in 2020 because I'm truly passionate about our mission to destigmatize mental health.</p>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <img src="https://res.cloudinary.com/dtrk4dyly/image/upload/v1741111724/Zach_Shepard-min_n0sy45.jpg" alt="Zach Shepard" loading="lazy">
+          <div class="team-card-body">
+            <h3 class="team-card-title">Zach Shepard</h3>
+            <span class="team-card-position">Development Director</span>
+            <p class="team-card-text">I've taken on the role of organizing, overseeing, and leading our fundraising efforts. I believe that to truly unmask the stigma around mental health, we need not only awareness but also resources.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Values -->
+    <section class="team-values">
+      <div class="container">
+        <h2 class="section-title">Our Values</h2>
+        <div class="values-grid">
+          <div class="value-item">
+            <div class="value-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/>
+              </svg>
+            </div>
+            <h3>Authenticity</h3>
+            <p>We believe in creating spaces where people can show up as their true selves, without masks or pretense, embracing vulnerability as a path to healing and connection.</p>
+          </div>
+
+          <div class="value-item">
+            <div class="value-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                <path d="M488 192H336v56c0 39.7-32.3 72-72 72s-72-32.3-72-72V126.4l-64.9 39C107.8 176.9 96 197.8 96 220.2v47.3l-80 46.2C.7 322.5-4.6 342.1 4.3 357.4l80 138.6c8.8 15.3 28.4 20.5 43.7 11.7L231.4 448H368c35.3 0 64-28.7 64-64h16c17.7 0 32-14.3 32-32v-64h8c13.3 0 24-10.7 24-24v-48c0-13.3-10.7-24-24-24zm147.7-37.4L555.7 16C546.9.7 527.3-4.5 512 4.3L408.6 64H306.4c-12 0-23.7 3.4-33.9 9.7L239 94.6c-9.4 5.8-15 16.1-15 27.1V248c0 22.1 17.9 40 40 40s40-17.9 40-40v-88h184c30.9 0 56 25.1 56 56v28.5l80-46.2c15.3-8.9 20.5-28.4 11.7-43.7z"/>
+              </svg>
+            </div>
+            <h3>Community Support</h3>
+            <p>We foster environments where individuals facing mental health challenges find understanding, acceptance, and the strength that comes from knowing they're not alone in their journey.</p>
+          </div>
+
+          <div class="value-item">
+            <div class="value-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">
+                <path d="M96.06 454.35c.01 6.29 1.87 12.45 5.36 17.69l17.09 25.69a31.99 31.99 0 0 0 26.64 14.28h61.71a31.99 31.99 0 0 0 26.64-14.28l17.09-25.69a31.989 31.989 0 0 0 5.36-17.69l.04-38.35H96.01l.05 38.35zM0 176c0 44.37 16.45 84.85 43.56 115.78 16.52 18.85 42.36 58.23 52.21 91.45.04.26.07.52.11.78h160.24c.04-.26.07-.51.11-.78 9.85-33.22 35.69-72.6 52.21-91.45C335.55 260.85 352 220.37 352 176 352 78.61 272.91-.3 175.45 0 73.44.31 0 82.97 0 176zm176-80c-44.11 0-80 35.89-80 80 0 8.84-7.16 16-16 16s-16-7.16-16-16c0-61.76 50.24-112 112-112 8.84 0 16 7.16 16 16s-7.16 16-16 16z"/>
+              </svg>
+            </div>
+            <h3>Awareness & Education</h3>
+            <p>We are committed to breaking down stigmas through education, open conversations, and sharing stories that illuminate the reality of mental health experiences in our communities.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Staff Team -->
+    <section class="team-section container">
+      <h2 class="section-title">Our Staff</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="https://res.cloudinary.com/dtrk4dyly/image/upload/v1741111724/Loncoln-min_kagil0.jpg" alt="Lincoln Netherton" loading="lazy">
+          <div class="team-card-body">
+            <h3 class="team-card-title">Lincoln Netherton</h3>
+            <span class="team-card-position">Community Engagement</span>
+            <p class="team-card-text">With a strong community focus, I'm all about mutual growth and fostering deeper connections. I'm thrilled to serve as the Community Engagement, where I can share the amazing things happening at Unmasked Culture.</p>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <img src="https://res.cloudinary.com/dtrk4dyly/image/upload/v1741184930/DSC05578-min_e9apgj.jpg" alt="Irie Young" loading="lazy">
+          <div class="team-card-body">
+            <h3 class="team-card-title">Irie Young</h3>
+            <span class="team-card-position">Community Engagement</span>
+            <p class="team-card-text">Passionate about creating meaningful connections, Irie brings energy and enthusiasm to our community outreach efforts. His ability to listen and empathize helps build bridges between Unmasked Culture and those we serve.</p>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <img src="https://res.cloudinary.com/dtrk4dyly/image/upload/v1741111723/Grace_Young-min_tqa22e.jpg" alt="Grace Young" loading="lazy">
+          <div class="team-card-body">
+            <h3 class="team-card-title">Grace Young</h3>
+            <span class="team-card-position">Creative Director</span>
+            <p class="team-card-text">With a background in visual storytelling and community engagement, Grace has a unique ability to create compelling content that resonates with audiences, sparking conversations about mental health awareness and support.</p>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <img src="https://res.cloudinary.com/dtrk4dyly/image/upload/v1741113710/434944831_122101230848265965_2127364943294824548_n_w8jpbv.jpg" alt="Diane Vaughan" loading="lazy">
+          <div class="team-card-body">
+            <h3 class="team-card-title">Diane Vaughan</h3>
+            <span class="team-card-position">Grant Writer</span>
+            <p class="team-card-text">Diane Vaughan is a dedicated grant writer who thrives on making a positive impact through community involvement. With a passion for securing resources to support important causes, Diane brings her expertise to our nonprofit organization.</p>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <img src="https://res.cloudinary.com/dtrk4dyly/image/upload/v1741111725/Chelsey-min_c2pd5a.jpg" alt="Chelsey Pontius" loading="lazy">
+          <div class="team-card-body">
+            <h3 class="team-card-title">Chelsey Pontius</h3>
+            <span class="team-card-position">Homeless Outreach Coordinator</span>
+            <p class="team-card-text">Chelsey leads our initiatives to connect with and support homeless individuals facing mental health challenges. Her compassionate approach helps build trust and create pathways to resources and healing.</p>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <img src="https://res.cloudinary.com/dtrk4dyly/image/upload/v1741111723/Hannah_Park-min_mqktpi.jpg" alt="Hannah Park" loading="lazy">
+          <div class="team-card-body">
+            <h3 class="team-card-title">Hannah Park</h3>
+            <span class="team-card-position">Homeless Outreach Coordinator</span>
+            <p class="team-card-text">Hannah works alongside Chelsey in our homeless outreach program, focusing on mental health support for vulnerable populations. Her dedication to creating safe spaces for healing makes her an invaluable part of our outreach team.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Board of Directors -->
+    <section class="team-section container">
+      <h2 class="section-title">Board of Directors</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="https://res.cloudinary.com/dtrk4dyly/image/upload/v1741183974/17450_106044416078313_1926993_n_tvigmi.jpg" alt="Linda McFann" loading="lazy">
+          <div class="team-card-body">
+            <h3 class="team-card-title">Linda McFann</h3>
+            <p class="team-card-text">Linda brings over 15 years of nonprofit leadership experience to our board. Her passion for mental health advocacy stems from personal experiences, and she's committed to expanding our reach and impact in the community.</p>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <img src="https://res.cloudinary.com/dtrk4dyly/image/upload/v1734714837/DSC01863-min_y8zwyt.jpg" alt="Chris Stull" loading="lazy">
+          <div class="team-card-body">
+            <h3 class="team-card-title">Chris Stull</h3>
+            <p class="team-card-text">As a pastor, Chris champions mental health awareness both in his church and throughout the community. He believes in breaking down the barriers between faith and mental health support, creating spaces where people can find both spiritual guidance and psychological well-being.</p>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <img src="https://res.cloudinary.com/dtrk4dyly/image/upload/v1741184936/DSC04566-min_l6bi0i.jpg" alt="Kristi Stull" loading="lazy">
+          <div class="team-card-body">
+            <h3 class="team-card-title">Kristi Stull</h3>
+            <p class="team-card-text">With a background in finance and a heart for nonprofit work, Kristi ensures sound financial stewardship for Unmasked Culture. Her expertise in budgeting and financial planning helps maximize our impact while maintaining transparency.</p>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <img src="https://res.cloudinary.com/dtrk4dyly/image/upload/v1741184565/DSC04644_il4unb.jpg" alt="Josh Crupe" loading="lazy">
+          <div class="team-card-body">
+            <h3 class="team-card-title">Josh Crupe</h3>
+            <p class="team-card-text">Josh brings a unique perspective to our board with his background in healthcare administration and personal experience with mental health challenges. His advocacy for accessible mental health resources makes him an invaluable voice in shaping our organization's future.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Join Team CTA -->
+    <section class="join-team">
+      <div class="container">
+        <h2>Join Our Team</h2>
+        <p>We're always looking for passionate individuals to join our mission. Check out our current openings or volunteer opportunities.</p>
+        <a href="/volunteer" class="btn-primary">Volunteer With Us</a>
+        <a href="/contact" class="btn-outline-light">Contact Us</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <a href="/">
+            <span class="logo-red">UNMASKED</span>&nbsp;<span class="logo-white">CULTURE</span>
+          </a>
+          <p class="footer-tagline">Empowering authentic cultural expression</p>
+        </div>
+        
+        <div class="footer-nav">
+          <div class="footer-nav-column">
+            <h3>About</h3>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/the-mission">Mission</a></li>
+              <li><a href="/team">Team</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-nav-column">
+            <h3>Community</h3>
+            <ul>
+              <li><a href="/volunteer">Volunteer</a></li>
+              <li><a href="/help">Help</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-nav-column">
+            <h3>Resources</h3>
+            <ul>
+              <li><a href="/podcast">Podcast</a></li>
+              <li><a href="/blogs">Blogs</a></li>
+              <li><a href="/cinema">Cinema</a></li>
+              </ul>
+          </div>
+          
+          <div class="footer-nav-column">
+            <h3>Programs</h3>
+            <ul>
+              <li><a href="/visioncenter">Vision Center</a></li>
+              <li><a href="/kinto">Kinto</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-middle">
+        <div class="candid-section">
+          <a href="https://app.candid.org/profile/9890997" target="_blank" rel="noopener noreferrer" class="candid-seal">
+            <img src="https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/9890997/svg" alt="Candid Seal of Transparency" width="200" height="200" loading="lazy">
+          </a>
+          <a href="https://app.candid.org/profile/9890997/?pkId=ca294a35-976d-4957-8a7e-95d2cde41ee5&isActive=true" target="_blank" rel="noopener noreferrer" class="candid-profile">
+            View our Candid Profile
+          </a>
+        </div>
+        
+        <div class="footer-social-links">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="24" height="24" aria-hidden="true">
+                <path fill="currentColor" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/>
+              </svg>
+            </a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24" aria-hidden="true">
+                <path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/>
+              </svg>
+            </a>
+            <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="24" height="24" aria-hidden="true">
+                <path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+              </svg>
+            </a>
+            <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="24" height="24" aria-hidden="true">
+                <path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/>
+              </svg>
+            </a>
+            <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="24" height="24" aria-hidden="true">
+                <path fill="currentColor" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-info">
+          <p>&copy; 2025 Unmasked Culture. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+            <a href="/accessibility">Accessibility</a>
+          </div>
+        </div>
+        
+        <div class="footer-donate">
+          <a href="/donate" class="donate-btn">Donate</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    (function() {
+      'use strict';
+      
+      // Mobile menu
+      const menuToggle = document.getElementById('mobile-menu');
+      const __legacyNavMenu = document.getElementById('nav-menu');
+      if (!menuToggle || !__legacyNavMenu) return; // shared site-nav
+      const navMenu = document.getElementById('nav-menu');
+      
+      const dropdowns = Array.from(document.querySelectorAll('.dropdown'));
+
+      function setDropdownState(dropdown, isOpen) {
+        dropdown.classList.toggle('active', isOpen);
+        dropdown.querySelector('.dropdown-toggle').setAttribute('aria-expanded', String(isOpen));
+      }
+
+      function closeDropdowns(except) {
+        dropdowns.forEach(dropdown => {
+          if (dropdown !== except) setDropdownState(dropdown, false);
+        });
+      }
+
+      function setMenuState(isOpen, returnFocus) {
+        menuToggle.classList.toggle('active', isOpen);
+        navMenu.classList.toggle('active', isOpen);
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+        if (!isOpen) closeDropdowns();
+        if (returnFocus) menuToggle.focus();
+      }
+
+      menuToggle.addEventListener('click', function() {
+        setMenuState(!navMenu.classList.contains('active'));
+      });
+
+      document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+          if (window.innerWidth <= 960) {
+            e.preventDefault();
+            e.stopPropagation();
+            const dropdown = toggle.closest('.dropdown');
+            const willOpen = !dropdown.classList.contains('active');
+            closeDropdowns(dropdown);
+            setDropdownState(dropdown, willOpen);
+          }
+        });
+      });
+      
+      document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 960 && navMenu.classList.contains('active') &&
+            !navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+          setMenuState(false);
+        }
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          if (navMenu.classList.contains('active')) setMenuState(false, true);
+          else closeDropdowns();
+        }
+      });
+      
+      window.addEventListener('resize', function() {
+        if (window.innerWidth > 960) setMenuState(false);
+      });
+
+      // Video background handling
+      const video = document.querySelector('.video-background');
+      const heroSection = document.querySelector('.hero-section');
+      
+      if (video && heroSection) {
+        video.load();
+        
+        const fallbackBg = 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")';
+        
+        setTimeout(function() {
+          if (video.readyState === 0 || video.networkState === 3) {
+            heroSection.style.backgroundImage = fallbackBg;
+            heroSection.style.backgroundSize = 'cover';
+            heroSection.style.backgroundPosition = 'center';
+            video.style.display = 'none';
+          }
+        }, 3000);
+        
+        video.addEventListener('canplaythrough', function() {
+          video.play().catch(function() {
+            heroSection.style.backgroundImage = fallbackBg;
+            heroSection.style.backgroundSize = 'cover';
+            heroSection.style.backgroundPosition = 'center';
+          });
+        });
+        
+        video.addEventListener('error', function() {
+          heroSection.style.backgroundImage = fallbackBg;
+          heroSection.style.backgroundSize = 'cover';
+          heroSection.style.backgroundPosition = 'center';
+          video.style.display = 'none';
+        });
+      }
+      
+    })();
+  </script>
+</body>
+</html>

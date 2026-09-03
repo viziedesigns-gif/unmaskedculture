@@ -1,0 +1,56 @@
+{
+  "name": "Kinto",
+  "short_name": "Kinto",
+  "description": "Kinto — Heal. Grow. Become. Daily check-ins, journaling, mood insights, and community support.",
+  "id": "/challenge/app/dashboard.php",
+  "start_url": "/challenge/app/dashboard.php",
+  "scope": "/challenge/",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "portrait",
+  "background_color": "#F5F0E8",
+  "theme_color": "#F5F0E8",
+  "categories": ["health", "lifestyle", "productivity"],
+  "icons": [
+    {
+      "src": "/challenge/assets/kinto-favicon/kinto-app-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/challenge/assets/kinto-favicon/kinto-app-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Daily Check-in",
+      "short_name": "Daily",
+      "description": "Open today's challenge checklist.",
+      "url": "/challenge/app/dashboard.php",
+      "icons": [
+        {
+          "src": "/challenge/assets/kinto-favicon/kinto-app-icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Journal",
+      "short_name": "Journal",
+      "description": "Open your journal.",
+      "url": "/challenge/app/journal.php",
+      "icons": [
+        {
+          "src": "/challenge/assets/kinto-favicon/kinto-app-icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}

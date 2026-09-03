@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en" class="has-uc-site-nav">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BBEQYLCZDX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-BBEQYLCZDX');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Meet Kinto, the daily wellness app created by Unmasked Culture Foundation for reflection, healthy rhythms, journaling, insights, and community support.">
+  <link rel="canonical" href="https://unmaskedculture.org/kinto">
+  <title>Kinto Wellness App | Created by Unmasked Culture</title>
+  <link rel="manifest" href="/challenge/manifest.json?v=2">
+  <link rel="icon" href="/challenge/assets/UC%20favicon/favicon.ico?v=2" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/challenge/assets/UC%20favicon/favicon.svg?v=2">
+  <link rel="icon" type="image/png" sizes="96x96" href="/challenge/assets/UC%20favicon/favicon-96x96.png?v=2">
+  <link rel="apple-touch-icon" href="/challenge/assets/UC%20favicon/apple-touch-icon.png?v=2">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red: #ff0000;
+      --red-dark: #cc0000;
+      --black: #000000;
+      --ink: #151515;
+      --muted: #666666;
+      --soft: #f6f6f6;
+      --line: #e8e8e8;
+      --white: #ffffff;
+      --kinto-cream: #f5f0e8;
+      --kinto-gold: #c4a35a;
+      --kinto-ink: #1a1714;
+      --kinto-sage: #718477;
+      --nav-height: 80px;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.12);
+      --transition: all 0.25s ease;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.6;
+      padding-top: var(--nav-height);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--nav-height);
+      z-index: 1000;
+      background: var(--black);
+      box-shadow: 0 2px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    .navbar-container {
+      max-width: 1400px;
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .navbar-logo,
+    .footer-logo {
+      display: inline-flex;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo-red {
+      color: var(--red);
+    }
+
+    .logo-white {
+      color: var(--white);
+    }
+
+    .nav-menu {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .nav-item {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-link {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      color: var(--white);
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--red);
+    }
+
+    .dropdown-icon {
+      width: 0;
+      height: 0;
+      margin-left: 7px;
+      border-top: 4px solid currentColor;
+      border-right: 4px solid transparent;
+      border-left: 4px solid transparent;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: var(--nav-height);
+      left: 0;
+      min-width: 220px;
+      padding: 10px 0;
+      background: var(--black);
+      border-top: 2px solid var(--red);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: var(--transition);
+    }
+
+    .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 20px;
+      color: var(--white);
+      font-size: 0.92rem;
+      transition: var(--transition);
+    }
+
+    .dropdown-menu a:hover,
+    .dropdown-menu a.active {
+      color: var(--red);
+      background: rgba(255, 0, 0, 0.1);
+    }
+
+    .donate-btn,
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 22px;
+      border-radius: 6px;
+      font-weight: 800;
+      line-height: 1;
+      transition: var(--transition);
+    }
+
+    .donate-btn,
+    .btn-primary {
+      color: var(--white);
+      background: var(--red);
+      box-shadow: 0 10px 26px rgba(255, 0, 0, 0.22);
+    }
+
+    .donate-btn {
+      margin-left: 14px;
+    }
+
+    .donate-btn:hover,
+    .btn-primary:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      color: var(--ink);
+      background: var(--white);
+      border: 1px solid var(--line);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--red);
+      color: var(--red);
+      transform: translateY(-2px);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .bar {
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 5px auto;
+      background: var(--white);
+      transition: var(--transition);
+    }
+
+    .section {
+      padding: 96px 50px;
+    }
+
+    .section-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      min-height: calc(100vh - var(--nav-height));
+      padding: 82px 50px 72px;
+      background: var(--black);
+      color: var(--white);
+      display: grid;
+      align-items: center;
+    }
+
+    .hero-grid {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.03fr) minmax(320px, 0.75fr);
+      gap: 70px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 32px;
+      height: 2px;
+      background: var(--kinto-gold);
+    }
+
+    .hero h1 {
+      max-width: 780px;
+      font-size: clamp(3.25rem, 8vw, 7rem);
+      line-height: 0.95;
+      font-weight: 900;
+      letter-spacing: 0;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 span {
+      color: var(--kinto-gold);
+    }
+
+    .hero-copy {
+      max-width: 690px;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.18rem;
+      margin-bottom: 34px;
+    }
+
+    .hero-actions,
+    .cta-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .hero-note {
+      margin-top: 26px;
+      color: rgba(255, 255, 255, 0.58);
+      font-size: 0.95rem;
+    }
+
+    .kinto-login-card {
+      position: relative;
+      padding: 34px;
+      overflow: hidden;
+      color: var(--kinto-ink);
+      background: var(--kinto-cream);
+      border: 1px solid rgba(196, 163, 90, 0.5);
+      border-radius: 24px;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.42);
+    }
+
+    .kinto-login-card::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 150px;
+      right: -110px;
+      top: -70px;
+      border: 2px solid rgba(196, 163, 90, 0.42);
+      border-radius: 50%;
+      transform: rotate(-16deg);
+      pointer-events: none;
+    }
+
+    .kinto-login-brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin-bottom: 23px;
+    }
+
+    .kinto-login-brand img {
+      width: 58px;
+      height: 58px;
+      border-radius: 17px;
+      box-shadow: 0 8px 24px rgba(26, 23, 20, 0.16);
+    }
+
+    .kinto-login-brand strong {
+      display: block;
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .kinto-login-brand span {
+      color: #6d675e;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .kinto-login-card h2 {
+      margin: 0 0 7px;
+      font-size: 2rem;
+    }
+
+    .kinto-login-intro {
+      margin-bottom: 23px;
+      color: #625d55;
+      font-size: 0.95rem;
+    }
+
+    .login-alert {
+      margin-bottom: 18px;
+      padding: 12px 14px;
+      color: #8b1b1b;
+      background: #fff0f0;
+      border: 1px solid #e8b5b5;
+      border-radius: 9px;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .login-alert.is-success {
+      color: #2f5f3c;
+      background: #edf7ef;
+      border-color: #b8d7bf;
+    }
+
+    .login-field { margin-bottom: 16px; }
+    .login-field label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.83rem;
+      font-weight: 800;
+    }
+
+    .login-field input {
+      width: 100%;
+      min-height: 48px;
+      padding: 11px 13px;
+      color: var(--kinto-ink);
+      background: #fff;
+      border: 1px solid #d9cebd;
+      border-radius: 9px;
+      font: inherit;
+      outline: 0;
+    }
+
+    .login-field input:focus {
+      border-color: var(--kinto-gold);
+      box-shadow: 0 0 0 3px rgba(196, 163, 90, 0.18);
+    }
+
+    .login-submit {
+      width: 100%;
+      min-height: 50px;
+      border: 0;
+      border-radius: 9px;
+      color: #fff;
+      background: var(--kinto-ink);
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .login-submit:hover { background: #332d27; transform: translateY(-1px); }
+
+    .login-links {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 17px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .login-links a { text-decoration: underline; text-underline-offset: 3px; }
+    .kinto-created-by {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid #d9cebd;
+      color: #6d675e;
+      font-size: 0.78rem;
+      text-align: center;
+    }
+
+    .stat-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-bottom: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .stat {
+      padding: 34px 30px;
+      text-align: center;
+      border-right: 1px solid var(--line);
+    }
+
+    .stat:last-child {
+      border-right: 0;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--red);
+      font-size: 2.5rem;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .section-label {
+      color: var(--red);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      max-width: 760px;
+      font-size: clamp(2.1rem, 4.5vw, 4rem);
+      line-height: 1.05;
+      font-weight: 900;
+      letter-spacing: 0;
+      margin-bottom: 24px;
+    }
+
+    .lead {
+      max-width: 800px;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .manifesto {
+      background: var(--soft);
+    }
+
+    .manifesto-grid {
+      margin-top: 44px;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .manifesto-callout {
+      position: sticky;
+      top: 112px;
+      padding: 34px;
+      color: var(--white);
+      background: var(--black);
+      border-left: 6px solid var(--red);
+      box-shadow: var(--shadow);
+    }
+
+    .manifesto-callout h3 {
+      font-size: 1.7rem;
+      line-height: 1.18;
+      margin-bottom: 14px;
+    }
+
+    .manifesto-callout p {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .manifesto-text {
+      display: grid;
+      gap: 24px;
+    }
+
+    .text-block {
+      padding: 30px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .text-block h3 {
+      margin-bottom: 12px;
+      font-size: 1.25rem;
+    }
+
+    .text-block li {
+      position: relative;
+      padding-left: 22px;
+      margin-top: 10px;
+      color: var(--muted);
+    }
+
+    .text-block li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.72em;
+      width: 8px;
+      height: 8px;
+      background: var(--red);
+      border-radius: 50%;
+    }
+
+    .focus-grid {
+      margin-top: 44px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .focus-card {
+      min-height: 245px;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      transition: var(--transition);
+    }
+
+    .focus-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: rgba(255, 0, 0, 0.22);
+    }
+
+    .focus-number {
+      color: var(--red);
+      font-size: 0.82rem;
+      font-weight: 900;
+      margin-bottom: 38px;
+    }
+
+    .focus-card h3 {
+      margin-bottom: 12px;
+      font-size: 1.35rem;
+    }
+
+    .focus-card p {
+      color: var(--muted);
+    }
+
+    .app-section {
+      color: var(--white);
+      background: var(--black);
+    }
+
+    .app-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 52px;
+      align-items: center;
+    }
+
+    .app-section .lead {
+      color: rgba(255, 255, 255, 0.74);
+    }
+
+    .app-list {
+      margin-top: 34px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .app-list li {
+      padding: 18px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .app-list strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--white);
+    }
+
+    .app-preview {
+      padding: 30px;
+      background: var(--white);
+      color: var(--ink);
+      border-radius: 8px;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.32);
+    }
+
+    .preview-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .preview-top strong {
+      font-size: 1.4rem;
+    }
+
+    .progress {
+      width: 86px;
+      height: 86px;
+      display: grid;
+      place-items: center;
+      color: var(--red);
+      font-weight: 900;
+      border: 8px solid var(--red);
+      border-left-color: var(--line);
+      border-radius: 50%;
+    }
+
+    .preview-checks {
+      margin-top: 24px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .preview-check {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .preview-check span:last-child {
+      color: var(--red);
+      font-weight: 900;
+    }
+
+    .cta-band {
+      background: var(--soft);
+    }
+
+    .cta-box {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: center;
+      padding: 46px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-box h2 {
+      margin-bottom: 14px;
+      font-size: clamp(2rem, 4vw, 3.3rem);
+    }
+
+    .cta-box p {
+      max-width: 720px;
+      color: var(--muted);
+    }
+
+    .cta-actions {
+      max-width: 330px;
+    }
+
+    .cta-privacy {
+      flex-basis: 100%;
+      margin-top: 3px;
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
+    .cta-privacy a {
+      color: var(--ink);
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .cta-privacy a:hover {
+      color: var(--red-dark);
+    }
+
+    .footer {
+      padding: 64px 50px 30px;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 60px;
+    }
+
+    .footer-tagline {
+      max-width: 360px;
+      margin-top: 18px;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 54px;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav h3 {
+      color: var(--red);
+      font-size: 0.94rem;
+      margin-bottom: 18px;
+    }
+
+    .footer-nav li {
+      margin-bottom: 10px;
+    }
+
+    .footer-nav a {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.94rem;
+      transition: var(--transition);
+    }
+
+    .footer-nav a:hover {
+      color: var(--red);
+    }
+
+    .footer-bottom {
+      margin-top: 44px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      color: rgba(255, 255, 255, 0.52);
+      font-size: 0.9rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1040px) {
+      .navbar-container {
+        padding: 0 24px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-menu {
+        position: fixed;
+        top: var(--nav-height);
+        right: -100%;
+        width: min(360px, 100%);
+        height: calc(100vh - var(--nav-height));
+        padding: 22px;
+        display: block;
+        background: var(--black);
+        overflow-y: auto;
+        transition: var(--transition);
+      }
+
+      .nav-menu.active {
+        right: 0;
+      }
+
+      .nav-item {
+        display: block;
+        height: auto;
+      }
+
+      .nav-link {
+        height: auto;
+        padding: 14px 0;
+      }
+
+      .dropdown-menu {
+        position: static;
+        min-width: 100%;
+        padding: 0 0 8px 12px;
+        border-top: 0;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background: transparent;
+      }
+
+      .dropdown-menu a {
+        padding: 8px 0;
+      }
+
+      .donate-btn {
+        margin: 14px 0 0;
+      }
+
+      .hero-grid,
+      .manifesto-grid,
+      .app-grid,
+      .cta-box {
+        grid-template-columns: 1fr;
+      }
+
+      .manifesto-callout {
+        position: static;
+      }
+
+      .focus-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding-top: 72px;
+      }
+
+      :root {
+        --nav-height: 72px;
+      }
+
+      .navbar-logo,
+      .footer-logo {
+        font-size: 1.12rem;
+      }
+
+      .hero,
+      .section,
+      .footer {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      .hero {
+        padding-top: 54px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 17vw, 4.6rem);
+      }
+
+      .stat-strip,
+      .focus-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .footer-top,
+      .footer-bottom,
+      .preview-top {
+        flex-direction: column;
+      }
+
+      .footer-nav {
+        width: 100%;
+        gap: 34px;
+      }
+
+      .cta-box {
+        padding: 30px;
+      }
+
+      .kinto-login-card { padding: 25px; border-radius: 18px; }
+      .login-links { flex-direction: column; gap: 8px; }
+    }
+  </style>
+  <link rel="stylesheet" href="/assets/css/site-nav.css">
+  <script src="/assets/js/site-nav-loader.js" defer></script>
+</head>
+<body>
+  <div id="site-nav-root"></div>
+
+  <main>
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Created by Unmasked Culture Foundation</p>
+          <h1>Meet Kinto. <span>A daily rhythm for real life.</span></h1>
+          <p class="hero-copy">Kinto is the wellness app from Unmasked Culture—built to help you reflect honestly, practice whole-person care, understand your patterns, and stay connected to people who want to see you well.</p>
+          <div class="hero-actions">
+            <a href="/challenge/app/register.php" class="btn btn-primary">Create Account</a>
+            <a href="#features" class="btn btn-secondary">Explore Kinto</a>
+          </div>
+          <p class="hero-note">Kinto has its own visual identity, but its purpose comes directly from Unmasked Culture's nonprofit mission of holistic mental health, vulnerability, authenticity, and community.</p>
+        </div>
+
+        <section class="kinto-login-card" id="signin" aria-labelledby="signin-title">
+          <div class="kinto-login-brand">
+            <img src="/challenge/assets/kinto-favicon/kinto-app-icon-192.png" alt="Kinto app icon">
+            <div><strong>Kinto</strong><span>by Unmasked Culture</span></div>
+          </div>
+          <h2 id="signin-title">Welcome back.</h2>
+          <p class="kinto-login-intro">Sign in to continue your check-ins, journal, wellness insights, and Circles.</p>
+          <div class="login-alert" id="login-alert" role="alert" hidden></div>
+          <form method="POST" action="/challenge/app/" id="kinto-login-form">
+            <input type="hidden" name="invite_code" id="login-invite-code" value="">
+            <input type="hidden" name="return" id="login-return" value="">
+            <div class="login-field">
+              <label for="login-email">Email</label>
+              <input type="email" id="login-email" name="email" autocomplete="email" placeholder="you@example.com" required>
+            </div>
+            <div class="login-field">
+              <label for="login-password">Password</label>
+              <input type="password" id="login-password" name="password" autocomplete="current-password" placeholder="Enter your password" required>
+            </div>
+            <button class="login-submit" type="submit">Sign in to Kinto</button>
+          </form>
+          <div class="login-links">
+            <a href="/challenge/app/forgot_password.php">Forgot password?</a>
+            <a href="/challenge/app/register.php" id="create-account-link">Create an account</a>
+          </div>
+          <p class="kinto-created-by">A wellness app created and operated by Unmasked Culture Foundation.</p>
+        </section>
+      </div>
+    </section>
+
+    <section class="stat-strip" aria-label="Kinto highlights">
+      <div class="stat"><strong>77</strong><span>day signature journey</span></div>
+      <div class="stat"><strong>4</strong><span>areas of whole-person wellness</span></div>
+      <div class="stat"><strong>1</strong><span>supportive daily rhythm</span></div>
+    </section>
+
+    <section class="section manifesto">
+      <div class="section-inner">
+        <p class="section-label">Inside Kinto</p>
+        <h2>Wellness without the performance.</h2>
+        <p class="lead">Kinto is not a grind-culture tracker or a one-size-fits-all plan. It is a compassionate structure for showing up honestly, noticing patterns, and choosing consistency over shame.</p>
+
+        <div class="manifesto-grid">
+          <aside class="manifesto-callout">
+            <h3>Your pace. Your practice. Your life, unmasked.</h3>
+            <p>Kinto's signature 77-day journey gives healthy rhythms time to take root, with room for growth, reflection, and grace when life gets messy.</p>
+          </aside>
+
+          <div class="manifesto-text">
+            <div class="text-block">
+              <h3>The daily rhythm is simple</h3>
+              <ul>
+                <li>Choose Easy, Moderate, or Difficult based on your current capacity.</li>
+                <li>Check in daily with a simple yes or no rhythm.</li>
+                <li>Track your progress without turning a missed day into a failure story.</li>
+                <li>Invite trusted people into the journey for support and accountability.</li>
+              </ul>
+            </div>
+
+            <div class="text-block">
+              <h3>Why it matters</h3>
+              <p>Mental health is a daily practice, not only a crisis response. Kinto turns Unmasked Culture's mission into practical tools for caring for your whole self while staying connected to supportive people.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <p class="section-label">Daily focus</p>
+        <h2>Four areas. One daily checklist.</h2>
+        <p class="lead">Each day brings a manageable set of actions that support physical health, spiritual grounding, mental clarity, and relational connection.</p>
+
+        <div class="focus-grid">
+          <article class="focus-card">
+            <div class="focus-number">01</div>
+            <h3>Physical</h3>
+            <p>Move your body, hydrate, and track sleep with targets matched to your chosen difficulty.</p>
+          </article>
+
+          <article class="focus-card">
+            <div class="focus-number">02</div>
+            <h3>Spiritual</h3>
+            <p>Pray, read, reflect, and make room for small daily practices instead of grand gestures.</p>
+          </article>
+
+          <article class="focus-card">
+            <div class="focus-number">03</div>
+            <h3>Mental</h3>
+            <p>Journal your real thoughts, check in with your mood, and notice patterns without judgment.</p>
+          </article>
+
+          <article class="focus-card">
+            <div class="focus-number">04</div>
+            <h3>Relational</h3>
+            <p>Show up for your inner circle through honest conversation, encouragement, and support.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section app-section" id="features">
+      <div class="section-inner app-grid">
+        <div>
+          <p class="section-label">The Kinto app</p>
+          <h2>One app for reflection, progress, and connection.</h2>
+          <p class="lead">Create a Kinto account to choose your pace, log daily progress, journal, track moods and wellness patterns, and connect with trusted accountability Circles.</p>
+          <ul class="app-list">
+            <li><strong>Daily dashboard</strong> See the habits that matter today and mark them complete.</li>
+            <li><strong>Journal and mood tracking</strong> Keep honest reflections in one place and watch patterns over time.</li>
+            <li><strong>Circles</strong> Invite people you trust to walk the challenge with you.</li>
+          </ul>
+        </div>
+
+        <div class="app-preview" aria-label="App feature preview">
+          <div class="preview-top">
+            <div>
+              <strong>Day 18 of 77</strong>
+              <p>Today's check-in</p>
+            </div>
+            <div class="progress">24%</div>
+          </div>
+          <div class="preview-checks">
+            <div class="preview-check"><span>Movement</span><span>Done</span></div>
+            <div class="preview-check"><span>Water</span><span>Log</span></div>
+            <div class="preview-check"><span>Reflection</span><span>Done</span></div>
+            <div class="preview-check"><span>Inner circle</span><span>Share</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-band">
+      <div class="section-inner">
+        <div class="cta-box">
+          <div>
+            <p class="section-label">Start today</p>
+            <h2>Begin your next healthy rhythm with Kinto.</h2>
+            <p>No perfect timing required. Start with the pace you can sustain and let Kinto help you keep showing up with honesty and grace.</p>
+          </div>
+          <div class="cta-actions">
+            <a href="/challenge/app/register.php" class="btn btn-primary">Create Account</a>
+            <a href="#signin" class="btn btn-secondary">Sign In</a>
+            <p class="cta-privacy">Learn how Kinto protects and uses your information in our <a href="/privacy">Privacy Policy</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div>
+          <a href="/" class="footer-logo">
+            <span class="logo-red">UNMASKED</span>&nbsp;<span class="logo-white">CULTURE</span>
+          </a>
+          <p class="footer-tagline">Promoting holistic mental health through vulnerability, authenticity, and community.</p>
+        </div>
+
+        <div class="footer-nav">
+          <div>
+            <h3>About</h3>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/team">Team</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Community</h3>
+            <ul>
+              <li><a href="/volunteer">Volunteer</a></li>
+              <li><a href="/help">Help</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Resources</h3>
+            <ul>
+              <li><a href="/podcast">Podcast</a></li>
+              <li><a href="/blogs">Blogs</a></li>
+              <li><a href="/cinema">Cinema</a></li>
+              </ul>
+          </div>
+
+          <div>
+            <h3>Programs</h3>
+            <ul>
+              <li><a href="/visioncenter">Vision Center</a></li>
+              <li><a href="/kinto">Kinto</a></li>
+              </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Unmasked Culture Foundation. Kinto is an Unmasked Culture app.</p>
+        <div class="footer-links">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/kinto-delete-account">Delete Account</a>
+          <a href="/terms">Terms of Service</a>
+          <a href="/accessibility">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const alertBox = document.getElementById('login-alert');
+      const messages = {
+        missing: 'Enter both your email address and password.',
+        invalid: 'The email address or password was not recognized. Please try again.',
+        required: 'Sign in to continue to that part of Kinto.',
+        expired: 'Your session expired. Please sign in again.',
+        security_update: 'For your security, please sign in again.',
+        invite: 'That Circle invitation is invalid or has expired. Ask the Circle owner for a new link.',
+        'logged-out': 'You have been signed out of Kinto.',
+        'account-deleted': 'Your Kinto account and associated data have been deleted.'
+      };
+      const statusKey = params.get('status');
+      const messageKey = params.get('login') || params.get('session') || params.get('notice') || statusKey;
+      if (alertBox && messages[messageKey]) {
+        alertBox.textContent = messages[messageKey];
+        if (statusKey === 'logged-out' || statusKey === 'account-deleted') alertBox.classList.add('is-success');
+        alertBox.hidden = false;
+      }
+
+      const inviteCode = params.get('invite') || '';
+      const returnPath = params.get('return') || '';
+      const inviteInput = document.getElementById('login-invite-code');
+      const returnInput = document.getElementById('login-return');
+      if (inviteInput) inviteInput.value = inviteCode;
+      if (returnInput && returnPath.indexOf('/challenge/app/member_profile.php?') === 0) returnInput.value = returnPath;
+
+      const loginForm = document.getElementById('kinto-login-form');
+      if (loginForm && (inviteCode || returnPath.indexOf('/challenge/app/member_profile.php?') === 0)) {
+        const actionParams = new URLSearchParams();
+        if (inviteCode) actionParams.set('invite', inviteCode);
+        if (returnPath.indexOf('/challenge/app/member_profile.php?') === 0) actionParams.set('return', returnPath);
+        loginForm.action = '/challenge/app/?' + actionParams.toString();
+      }
+
+      const createLink = document.getElementById('create-account-link');
+      if (createLink && (inviteCode || returnPath)) {
+        const createParams = new URLSearchParams();
+        if (inviteCode) createParams.set('invite', inviteCode);
+        if (returnPath) createParams.set('return', returnPath);
+        createLink.href += '?' + createParams.toString();
+      }
+
+      if (messageKey || inviteCode || params.get('signin') === '1') {
+        window.requestAnimationFrame(function() {
+          document.getElementById('signin')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      }
+    })();
+
+    (function() {
+      const menuToggle = document.getElementById('mobile-menu');
+      const __legacyNavMenu = document.getElementById('nav-menu');
+      if (!menuToggle || !__legacyNavMenu) return; // shared site-nav
+      const navMenu = document.getElementById('nav-menu');
+
+      if (!menuToggle || !navMenu) {
+        return;
+      }
+
+      menuToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+      });
+
+      window.addEventListener('resize', function() {
+        if (window.innerWidth > 1040 && navMenu.classList.contains('active')) {
+          navMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

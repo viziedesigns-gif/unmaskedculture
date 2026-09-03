@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 80" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8D5A3"/>
+      <stop offset="45%" stop-color="#C4A35A"/>
+      <stop offset="100%" stop-color="#8F7335"/>
+    </linearGradient>
+  </defs>
+  <!-- Vase body -->
+  <path fill="#1A1714" d="M22 8c0-2.2 1.8-4 4-4h12c2.2 0 4 1.8 4 4v4c0 1.1-.4 2.1-1.1 2.9C46.2 20.5 50 28.2 50 38c0 12.5-7.2 22-18 22S14 50.5 14 38c0-9.8 3.8-17.5 9.1-23.1C22.4 14.1 22 13.1 22 12V8z"/>
+  <path fill="#1A1714" d="M24 6h16v3H24z"/>
+  <ellipse cx="32" cy="60" rx="14" ry="3.5" fill="#1A1714"/>
+  <!-- Kintsugi cracks -->
+  <path stroke="url(#gold)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M28 14c2 6 1 12-2 18m6-22c4 8 6 16 3 26m-1 4c3 4 5 8 4 12"/>
+  <path stroke="url(#gold)" stroke-width="1.2" stroke-linecap="round" d="M36 22c-3 5-2 10 1 15M24 32c2 4 5 7 4 12"/>
+</svg>

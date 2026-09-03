@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en" class="has-uc-site-nav">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foster Storage | Essential Items for Foster Care - Unmasked Culture</title>
+    <meta name="description" content="Essential items to support foster families and children in need. Donate clothing, hygiene products, educational materials, and comfort items.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ============================================
+           NAVBAR STYLES
+        ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+        }
+
+        .uc-navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background-color: #000000;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .uc-logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo-red { color: #c41e3a; }
+        .logo-white { color: #ffffff; }
+
+        .uc-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .uc-nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .uc-nav-links a:hover {
+            color: #ff0000;
+            background-color: rgba(255, 0, 0, 0.1);
+        }
+
+        .uc-nav-links a.active { color: #ff0000; }
+
+        .uc-dropdown { position: relative; }
+
+        .uc-dropdown-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .uc-dropdown-toggle i {
+            font-size: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .uc-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #1a1a1a;
+            min-width: 200px;
+            border-radius: 8px;
+            padding: 10px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 0, 0, 0.1);
+        }
+
+        .uc-dropdown:hover .uc-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .uc-dropdown:hover .uc-dropdown-toggle i {
+            transform: rotate(180deg);
+        }
+
+        .uc-dropdown-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: #ffffff;
+            border-radius: 0;
+        }
+
+        .uc-dropdown-menu a:hover {
+            background-color: rgba(255, 0, 0, 0.2);
+            padding-left: 25px;
+        }
+
+        .uc-cta-button {
+            background-color: #ff0000 !important;
+            color: #ffffff !important;
+            padding: 12px 25px !important;
+            border-radius: 25px !important;
+            font-weight: 600 !important;
+            margin-left: 10px;
+            transition: all 0.3s ease !important;
+        }
+
+        .uc-cta-button:hover {
+            background-color: #cc0000 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.4);
+        }
+
+        .uc-help-cta {
+            background-color: #ff0000 !important;
+            color: #ffffff !important;
+            padding: 10px 20px !important;
+            border-radius: 25px !important;
+            font-weight: 600 !important;
+            animation: pulse-help 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-help {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(255, 0, 0, 0); }
+        }
+
+        .uc-mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .uc-mobile-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        /* ============================================
+           FOSTER STORAGE PAGE STYLES
+        ============================================ */
+        .shipping-address {
+            background-color: #ff4d4d;
+            color: #ffffff;
+            text-align: center;
+            padding: 15px 20px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-bottom: 3px solid #e63939;
+        }
+
+        .shipping-address strong { font-weight: 700; }
+
+        .hero-section {
+            height: 50vh;
+            min-height: 400px;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 0 20px;
+            z-index: 2;
+        }
+
+        .hero-section h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            font-weight: 400;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.4;
+        }
+
+        .cta-button {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background-color: #e63939;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 77, 77, 0.3);
+        }
+
+        .categories-section {
+            background-color: #ffffff;
+            padding: 80px 0 40px;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .categories-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            text-align: center;
+            letter-spacing: -0.5px;
+            color: #1a1a1a;
+        }
+
+        .categories-intro {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            font-size: 1.2rem;
+            text-align: center;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .category-card {
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #ff4d4d;
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            margin-right: 15px;
+        }
+
+        .category-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .item-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .item-list li {
+            margin-bottom: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .item-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .item-list li::before {
+            content: '☐';
+            font-size: 1.2rem;
+            margin-right: 12px;
+            color: #ff4d4d;
+            font-weight: bold;
+        }
+
+        .item-name {
+            font-weight: 500;
+            color: #333333;
+            flex-grow: 1;
+            line-height: 1.4;
+        }
+
+        .cta-section {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.2rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .donate-button {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+            margin: 0 10px 20px;
+        }
+
+        .donate-button:hover {
+            background-color: #e63939;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 77, 77, 0.3);
+        }
+
+        .volunteer-button {
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            padding: 14px 38px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+            margin: 0 10px 20px;
+        }
+
+        .volunteer-button:hover {
+            background-color: #ffffff;
+            color: #1a1a1a;
+            transform: translateY(-3px);
+        }
+
+        /* ============================================
+           FOOTER STYLES
+        ============================================ */
+        .uc-footer {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 60px 50px 30px;
+        }
+
+        .uc-footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .uc-footer-brand p {
+            color: #aaaaaa;
+            line-height: 1.8;
+            margin-top: 20px;
+        }
+
+        .uc-footer h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #ff0000;
+        }
+
+        .uc-footer-links {
+            list-style: none;
+        }
+
+        .uc-footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .uc-footer-links a {
+            color: #aaaaaa;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .uc-footer-links a:hover {
+            color: #ff0000;
+            padding-left: 5px;
+        }
+
+        .uc-footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .uc-footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .uc-footer-social a:hover {
+            background-color: #ff0000;
+            transform: translateY(-3px);
+        }
+
+        .uc-footer-bottom {
+            border-top: 1px solid #333;
+            margin-top: 40px;
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .uc-footer-bottom p {
+            color: #666666;
+            font-size: 14px;
+        }
+
+        .uc-footer-legal a {
+            color: #666666;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .uc-footer-legal a:hover {
+            color: #ff0000;
+        }
+
+        /* ============================================
+           RESPONSIVE STYLES
+        ============================================ */
+        @media (max-width: 992px) {
+            .uc-footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .uc-navbar {
+                padding: 15px 20px;
+            }
+
+            .uc-nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #000000;
+                flex-direction: column;
+                padding: 20px;
+                gap: 0;
+            }
+
+            .uc-nav-links.active {
+                display: flex;
+            }
+
+            .uc-nav-links a {
+                padding: 15px;
+                border-bottom: 1px solid #222;
+            }
+
+            .uc-dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                background-color: #111;
+                display: none;
+            }
+
+            .uc-dropdown.active .uc-dropdown-menu {
+                display: block;
+            }
+
+            .uc-mobile-toggle {
+                display: flex;
+            }
+
+            .uc-help-page h1 {
+                font-size: 2.5rem;
+            }
+            
+            .uc-help-card {
+                padding: 1.8rem;
+            }
+            
+            .uc-crisis-support-container {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .uc-crisis-support-button-column,
+            .uc-crisis-support-text-column {
+                flex: 1 0 100%;
+            }
+            
+            .uc-resource-grid, .uc-warning-signs, .uc-tips-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .uc-help-page h2, .uc-community-banner h2 {
+                font-size: 2.2rem;
+            }
+
+            .uc-community-banner p {
+                font-size: 1.1rem;
+            }
+
+            .uc-community-button {
+                padding: 12px 25px;
+                font-size: 1.1rem;
+            }
+
+            .uc-footer {
+                padding: 40px 20px 20px;
+            }
+
+            .uc-footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .uc-footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .uc-footer-legal a {
+                margin: 0 10px;
+            }
+        }
+    </style>
+  <link rel="stylesheet" href="/assets/css/site-nav.css">
+  <script src="/assets/js/site-nav-loader.js" defer></script>
+</head>
+<body>
+<div id="site-nav-root"></div>
+
+    <!-- Shipping Address Box -->
+    <div class="shipping-address">
+        Items can be shipped to: <strong>3975 Cobblestone Cove, New Haven, IN</strong>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Foster Storage</h1>
+            <p class="hero-subtitle">Essential items to support foster families and children in need</p>
+            <a href="#categories" class="cta-button">Browse Items</a>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="categories-section">
+        <div class="section-container">
+            <h2>Essential Categories</h2>
+            <p class="categories-intro">
+                These carefully curated categories contain essential items that make a real difference in the lives of foster children and families. Each item has been selected based on feedback from foster parents and social workers.
+            </p>
+            
+            <div class="category-grid">
+                <!-- Clothing & Essentials -->
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">👕</div>
+                        <h3>Clothing & Essentials</h3>
+                    </div>
+                    <ul class="item-list">
+                        <li><span class="item-name">Children's T-Shirts (Various Sizes)</span></li>
+                        <li><span class="item-name">Jeans & Pants (All Ages)</span></li>
+                        <li><span class="item-name">Underwear & Socks Sets</span></li>
+                        <li><span class="item-name">Pajamas (Toddler to Teen)</span></li>
+                        <li><span class="item-name">Shoes (Sneakers & Sandals)</span></li>
+                        <li><span class="item-name">Jackets & Hoodies</span></li>
+                    </ul>
+                </div>
+
+                <!-- Hygiene & Personal Care -->
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">🧴</div>
+                        <h3>Hygiene & Personal Care</h3>
+                    </div>
+                    <ul class="item-list">
+                        <li><span class="item-name">Toothbrushes (Kids & Adult)</span></li>
+                        <li><span class="item-name">Toothpaste (Fluoride-Free for Kids)</span></li>
+                        <li><span class="item-name">Shampoo & Conditioner</span></li>
+                        <li><span class="item-name">Body Wash & Soap</span></li>
+                        <li><span class="item-name">Deodorant (Teen Appropriate)</span></li>
+                        <li><span class="item-name">Hair Care Products</span></li>
+                    </ul>
+                </div>
+
+                <!-- Educational & Learning -->
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">📚</div>
+                        <h3>Educational & Learning</h3>
+                    </div>
+                    <ul class="item-list">
+                        <li><span class="item-name">Age-Appropriate Books</span></li>
+                        <li><span class="item-name">School Backpacks</span></li>
+                        <li><span class="item-name">Notebooks & Paper</span></li>
+                        <li><span class="item-name">Pencils, Pens & Erasers</span></li>
+                        <li><span class="item-name">Educational Tablets</span></li>
+                        <li><span class="item-name">Art & Craft Supplies</span></li>
+                    </ul>
+                </div>
+
+                <!-- Comfort & Emotional Support -->
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">🧸</div>
+                        <h3>Comfort & Emotional Support</h3>
+                    </div>
+                    <ul class="item-list">
+                        <li><span class="item-name">Stuffed Animals</span></li>
+                        <li><span class="item-name">Cozy Blankets</span></li>
+                        <li><span class="item-name">Soft Pillows</span></li>
+                        <li><span class="item-name">Night Lights</span></li>
+                        <li><span class="item-name">Journals for Teens</span></li>
+                        <li><span class="item-name">Calming Essential Oils</span></li>
+                    </ul>
+                </div>
+
+                <!-- Baby & Toddler Items -->
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">🍼</div>
+                        <h3>Baby & Toddler Items</h3>
+                    </div>
+                    <ul class="item-list">
+                        <li><span class="item-name">Diapers (All Sizes)</span></li>
+                        <li><span class="item-name">Baby Formula</span></li>
+                        <li><span class="item-name">Baby Bottles & Sippy Cups</span></li>
+                        <li><span class="item-name">Baby Wipes</span></li>
+                        <li><span class="item-name">Car Seats (Various Ages)</span></li>
+                        <li><span class="item-name">Portable Cribs</span></li>
+                    </ul>
+                </div>
+
+                <!-- Safety & Security -->
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">🔒</div>
+                        <h3>Safety & Security</h3>
+                    </div>
+                    <ul class="item-list">
+                        <li><span class="item-name">Baby Gates</span></li>
+                        <li><span class="item-name">Outlet Covers</span></li>
+                        <li><span class="item-name">Cabinet Locks</span></li>
+                        <li><span class="item-name">First Aid Kits</span></li>
+                        <li><span class="item-name">Bike Helmets</span></li>
+                        <li><span class="item-name">Emergency Contact Cards</span></li>
+                    </ul>
+                </div>
+
+                <!-- Electronics & Entertainment -->
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">🎮</div>
+                        <h3>Electronics & Entertainment</h3>
+                    </div>
+                    <ul class="item-list">
+                        <li><span class="item-name">Educational Tablets</span></li>
+                        <li><span class="item-name">Headphones (Kid-Safe Volume)</span></li>
+                        <li><span class="item-name">Portable Chargers</span></li>
+                        <li><span class="item-name">Board Games</span></li>
+                        <li><span class="item-name">Puzzles (Age Appropriate)</span></li>
+                        <li><span class="item-name">Musical Instruments (Beginner)</span></li>
+                    </ul>
+                </div>
+
+                <!-- Household Organization -->
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">🗂️</div>
+                        <h3>Household Organization</h3>
+                    </div>
+                    <ul class="item-list">
+                        <li><span class="item-name">Storage Bins & Baskets</span></li>
+                        <li><span class="item-name">Clothing Hangers</span></li>
+                        <li><span class="item-name">Laundry Baskets</span></li>
+                        <li><span class="item-name">Drawer Organizers</span></li>
+                        <li><span class="item-name">Label Makers</span></li>
+                        <li><span class="item-name">Closet Organizer Systems</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section id="donate" class="cta-section">
+        <div class="section-container">
+            <h2>Help Make a Difference</h2>
+            <p>
+                Every item donated helps create a stable, loving environment for children in foster care. Your support provides essential resources that foster families need to welcome children with open arms.
+            </p>
+            <a href="/donate" class="donate-button">Donate Items</a>
+            <a href="/volunteer" class="volunteer-button">Volunteer with Us</a>
+            <p style="margin-top: 30px; font-size: 1rem; opacity: 0.8;">
+                Questions about donating? Contact us at <strong>foster@unmaskedculture.org</strong>
+            </p>
+        </div>
+    </section>
+<footer class="uc-footer">
+        <div class="uc-footer-content">
+            <div class="uc-footer-brand">
+                <a href="/" style="text-decoration: none; font-size: 1.5rem; font-weight: 700;"><span class="logo-red">UNMASKED</span>&nbsp;<span class="logo-white">CULTURE</span></a>
+                <p>Unmasked Culture Foundation is a 501(c)(3) nonprofit organization dedicated to promoting holistic mental health by fostering a community that values vulnerability and authenticity.</p>
+                <div class="uc-footer-social">
+                    <a href="https://www.facebook.com/unmaskedculture" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/unmaskedculture" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.twitter.com/unaboringstory" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com/@unmaskedculture" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/company/unmasked-culture" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="uc-footer-column">
+                <h4>Quick Links</h4>
+                <ul class="uc-footer-links">
+                    <li><a href="about">About Us</a></li>
+                    <li><a href="team">Our Team</a></li>
+                    <li><a href="volunteer">Volunteer</a></li>
+                    <li><a href="contact">Contact</a></li>
+                    <li><a href="donate">Donate</a></li>
+                </ul>
+            </div>
+            
+            <div class="uc-footer-column">
+                <h4>Resources</h4>
+                <ul class="uc-footer-links">
+                    <li><a href="podcast">Podcast</a></li>
+                    <li><a href="blog">Blog</a></li>
+                    <li><a href="resources">Resources</a></li>
+                    <li><a href="help">Get Help</a></li>
+                </ul>
+            </div>
+            
+            <div class="uc-footer-column">
+                <h4>Programs</h4>
+                <ul class="uc-footer-links">
+                    <li><a href="77-day-challenge">77-Day Challenge</a></li>
+<li><a href="visioncenter">Vision Center</a></li>
+                    <li><a href="foster-storage">Foster Storage</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="uc-footer-bottom">
+            <p>&copy; 2024 Unmasked Culture Foundation. All rights reserved.</p>
+            <div class="uc-footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        if (!mobileToggle) return; // shared site-nav
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Dropdown functionality for mobile
+        const dropdowns = document.querySelectorAll('.uc-dropdown');
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+
+        // Scroll animations for cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.uc-help-card');
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = "1";
+                        entry.target.style.transform = "translateY(0)";
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            cards.forEach(card => {
+                card.style.opacity = "0";
+                card.style.transform = "translateY(20px)";
+                card.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

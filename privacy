@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en" class="has-uc-site-nav">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BBEQYLCZDX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){window.dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BBEQYLCZDX');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Privacy Policy for Kinto, the 77-Day Challenge, and Unmasked Culture digital services.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://unmaskedculture.org/privacy">
+  <title>Privacy Policy | Kinto by Unmasked Culture</title>
+
+  <link rel="icon" href="/challenge/assets/kinto-favicon/kinto-favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/challenge/assets/kinto-favicon/kinto-favicon.svg">
+  <link rel="apple-touch-icon" href="/challenge/assets/kinto-favicon/kinto-apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/site-nav.css">
+  <script src="/assets/js/site-nav-loader.js" defer></script>
+
+  <style>
+    :root {
+      --ink: #201f1c;
+      --ink-soft: #58554e;
+      --cream: #f5f0e8;
+      --cream-deep: #e9dfd0;
+      --paper: #fffdf9;
+      --gold: #bd8c2f;
+      --gold-soft: #d8b66c;
+      --sage: #708474;
+      --line: rgba(42, 38, 30, 0.13);
+      --black: #0c0d0c;
+      --white: #ffffff;
+      --shadow: 0 24px 70px rgba(45, 38, 24, 0.11);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+    }
+    a { color: inherit; }
+    img { max-width: 100%; }
+
+    .privacy-hero {
+      position: relative;
+      min-height: 490px;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 78% 28%, rgba(216, 182, 108, 0.22), transparent 23%),
+        linear-gradient(125deg, #151714 0%, #20211d 56%, #121310 100%);
+      color: var(--white);
+    }
+    .privacy-hero::before,
+    .privacy-hero::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+    }
+    .privacy-hero::before {
+      width: 720px;
+      height: 340px;
+      right: -180px;
+      top: -120px;
+      border: 2px solid rgba(216, 182, 108, 0.48);
+      border-radius: 50%;
+      transform: rotate(-14deg);
+    }
+    .privacy-hero::after {
+      inset: auto 0 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .hero-inner {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 72px 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 260px;
+      align-items: center;
+      gap: 70px;
+      position: relative;
+      z-index: 1;
+    }
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--gold-soft);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .privacy-hero h1 {
+      margin: 0;
+      font-family: "DM Serif Display", Georgia, serif;
+      font-size: clamp(3.2rem, 8vw, 6.7rem);
+      font-weight: 400;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+    }
+    .hero-lead {
+      max-width: 710px;
+      margin: 24px 0 0;
+      color: rgba(255,255,255,0.72);
+      font-size: clamp(1rem, 2vw, 1.18rem);
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 22px;
+      margin-top: 28px;
+      color: rgba(255,255,255,0.58);
+      font-size: 0.87rem;
+    }
+    .hero-mark {
+      position: relative;
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 42% 42% 44% 44%;
+      background: rgba(255,255,255,0.05);
+      box-shadow: 0 28px 80px rgba(0,0,0,0.35);
+    }
+    .hero-mark img {
+      display: block;
+      width: 100%;
+      border-radius: 30%;
+    }
+
+    .policy-shell {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 72px 0 96px;
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 58px;
+      align-items: start;
+    }
+    .policy-nav {
+      position: sticky;
+      top: 110px;
+      padding: 25px;
+      background: rgba(255,253,249,0.75);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      backdrop-filter: blur(12px);
+    }
+    .policy-nav strong {
+      display: block;
+      margin-bottom: 13px;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .policy-nav a {
+      display: block;
+      padding: 7px 0;
+      color: var(--ink-soft);
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+    .policy-nav a:hover { color: var(--gold); }
+    .policy-nav .back-link {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .policy-content {
+      padding: clamp(28px, 5vw, 64px);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+    .summary-card {
+      margin-bottom: 48px;
+      padding: 28px;
+      border-left: 4px solid var(--gold);
+      border-radius: 0 14px 14px 0;
+      background: linear-gradient(110deg, rgba(216,182,108,0.14), rgba(112,132,116,0.08));
+    }
+    .summary-card h2 {
+      margin-top: 0;
+      font-size: 1.15rem;
+    }
+    .summary-card p:last-child { margin-bottom: 0; }
+    .policy-section {
+      scroll-margin-top: 110px;
+      padding: 44px 0;
+      border-top: 1px solid var(--line);
+    }
+    .policy-section:first-of-type { border-top: 0; }
+    .section-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(189,140,47,0.42);
+      border-radius: 50%;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+    .policy-section h2 {
+      margin: 0 0 18px;
+      font-family: "DM Serif Display", Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      line-height: 1.08;
+    }
+    .policy-section h3 {
+      margin: 28px 0 8px;
+      font-size: 1rem;
+    }
+    .policy-section p { color: var(--ink-soft); }
+    .policy-section ul {
+      margin: 16px 0 0;
+      padding-left: 1.25rem;
+      color: var(--ink-soft);
+    }
+    .policy-section li { margin: 10px 0; padding-left: 5px; }
+    .policy-section strong { color: var(--ink); }
+    .data-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .data-card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .data-card h3 { margin: 0 0 7px; }
+    .data-card p { margin: 0; font-size: 0.94rem; }
+    .contact-card {
+      margin-top: 24px;
+      padding: 26px;
+      border-radius: 16px;
+      background: var(--black);
+      color: var(--white);
+    }
+    .contact-card p { margin: 5px 0; color: rgba(255,255,255,0.7); }
+    .contact-card a { color: var(--gold-soft); }
+
+    .site-footer {
+      padding: 58px 24px 30px;
+      background: #000;
+      color: #fff;
+    }
+    .footer-inner { width: min(1180px, 100%); margin: 0 auto; }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      align-items: flex-start;
+    }
+    .footer-brand {
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+    .footer-brand span:first-child { color: #ff0000; }
+    .footer-copy { max-width: 460px; margin: 14px 0 0; color: rgba(255,255,255,0.6); }
+    .footer-actions { display: flex; flex-wrap: wrap; gap: 12px 22px; }
+    .footer-actions a { color: rgba(255,255,255,0.75); text-decoration: none; }
+    .footer-actions a:hover { color: #fff; }
+    .footer-bottom {
+      margin-top: 42px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.48);
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 860px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 35px; }
+      .hero-mark { width: 180px; }
+      .policy-shell { grid-template-columns: 1fr; }
+      .policy-nav { position: static; }
+      .policy-nav a:not(.back-link) { display: none; }
+      .policy-nav strong { margin: 0; }
+      .policy-nav .back-link { display: inline-block; margin-top: 12px; }
+      .data-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .privacy-hero { min-height: 0; }
+      .hero-inner, .policy-shell { width: min(100% - 28px, 1180px); }
+      .hero-inner { padding: 52px 0; }
+      .hero-mark { width: 140px; }
+      .policy-shell { padding: 40px 0 64px; gap: 22px; }
+      .policy-content { border-radius: 18px; }
+      .footer-top { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <div id="site-nav-root"></div>
+
+  <main>
+    <header class="privacy-hero">
+      <div class="hero-inner">
+        <div>
+          <p class="eyebrow">Kinto by Unmasked Culture</p>
+          <h1>Privacy,<br>with clarity.</h1>
+          <p class="hero-lead">Kinto is built for honest reflection. This policy explains what information we collect, why we use it, when it may be shared, and the choices you have.</p>
+          <div class="hero-meta">
+            <span>Effective August 30, 2026</span>
+            <span>Last updated August 30, 2026</span>
+          </div>
+        </div>
+        <div class="hero-mark" aria-hidden="true">
+          <img src="/challenge/assets/kinto-favicon/kinto-app-icon-512.png" alt="">
+        </div>
+      </div>
+    </header>
+
+    <div class="policy-shell">
+      <aside class="policy-nav" aria-label="Privacy policy sections">
+        <strong>On this page</strong>
+        <a href="#scope">Scope</a>
+        <a href="#information">Information we collect</a>
+        <a href="#use">How we use information</a>
+        <a href="#sharing">How we share information</a>
+        <a href="#choices">Your choices</a>
+        <a href="#retention">Retention and security</a>
+        <a href="#children">Children's privacy</a>
+        <a href="#changes">Policy changes</a>
+        <a href="#contact">Contact us</a>
+        <a class="back-link" href="/kinto">Back to Kinto &rarr;</a>
+      </aside>
+
+      <article class="policy-content">
+        <div class="summary-card">
+          <h2>The short version</h2>
+          <p>We use your information to operate Kinto and Unmasked Culture services, protect accounts, personalize wellness features, support community tools, and communicate with you. We do not sell your personal information. Kinto does not use your wellness or journal information for targeted advertising.</p>
+        </div>
+
+        <section class="policy-section" id="scope">
+          <span class="section-number">01</span>
+          <h2>Scope</h2>
+          <p>This Privacy Policy applies to the Kinto web and Android applications—including Kinto's signature 77-day journey—unmaskedculture.org, and related digital services operated by Unmasked Culture Foundation (collectively, the “Services”).</p>
+          <p>The Android application displays Kinto's secure web service, so information you submit in the app is processed through the same Kinto account and systems used by the web application.</p>
+        </section>
+
+        <section class="policy-section" id="information">
+          <span class="section-number">02</span>
+          <h2>Information we collect</h2>
+          <p>The information we collect depends on the features you choose to use.</p>
+
+          <div class="data-grid">
+            <div class="data-card">
+              <h3>Account and profile</h3>
+              <p>Email address, password in hashed form, name, date of birth, time zone, profile photo, biography, profile prompts, avatar choices, and account preferences.</p>
+            </div>
+            <div class="data-card">
+              <h3>Wellness and activity</h3>
+              <p>Daily checklist progress, streaks, mood entries, journal reflections, water intake, workouts, weight, height, BMI, challenge level, goals, and related insights you choose to record.</p>
+            </div>
+            <div class="data-card">
+              <h3>Community content</h3>
+              <p>Circle memberships and invitations, messages, reactions, mentions, encouragement saved to a Jar, and profile information you choose to make visible.</p>
+            </div>
+            <div class="data-card">
+              <h3>Device and usage</h3>
+              <p>Session cookies, browser or device information, notification subscription details, notification preferences, approximate activity times, and diagnostic or security logs.</p>
+            </div>
+          </div>
+
+          <h3>Website forms and communications</h3>
+          <p>When you contact us, volunteer, subscribe, apply to participate, or use another website form, we collect the information you submit, such as your name, email address, contact preferences, and message.</p>
+
+          <h3>Website analytics</h3>
+          <p>Our public website uses Google Analytics to help us understand visits and improve the site. Analytics may collect information such as pages viewed, general device and browser details, referring pages, approximate location derived from an IP address, and interactions with the site. Google may process this information under its own privacy terms. You can limit analytics through browser controls, privacy tools, or Google's opt-out options.</p>
+
+          <h3>Information you choose to share</h3>
+          <p>Journal entries and private wellness logs are intended for your account. Messages and reactions posted in a Circle are visible to members of that Circle. Profile details or a public profile are visible according to the settings and sharing choices you select. Please avoid posting information you do not want others in the selected audience to see.</p>
+        </section>
+
+        <section class="policy-section" id="use">
+          <span class="section-number">03</span>
+          <h2>How we use information</h2>
+          <p>We use information to:</p>
+          <ul>
+            <li>create, authenticate, maintain, and secure your account;</li>
+            <li>provide daily check-ins, journaling, mood and health tracking, streaks, personalized goals, insights, profiles, avatars, Circles, and other requested features;</li>
+            <li>deliver service messages, password resets, reminders, push notifications, and emails you have requested or can control;</li>
+            <li>respond to support requests, feedback, website forms, and other communications;</li>
+            <li>monitor reliability, prevent fraud or abuse, troubleshoot errors, and improve the Services;</li>
+            <li>enforce our terms, protect users and the public, and comply with legal obligations; and</li>
+            <li>create aggregated or de-identified insights that do not reasonably identify an individual.</li>
+          </ul>
+          <p><strong>Kinto is a wellness and personal-growth tool, not a medical provider.</strong> The Services do not provide medical diagnosis, emergency response, or professional healthcare advice.</p>
+        </section>
+
+        <section class="policy-section" id="sharing">
+          <span class="section-number">04</span>
+          <h2>How we share information</h2>
+          <p>We do not sell your personal information. We may disclose information only as described below:</p>
+          <ul>
+            <li><strong>With people you choose:</strong> Circle content is shared with Circle members, and profile information is shared according to your visibility settings.</li>
+            <li><strong>With service providers:</strong> Trusted providers may process information for hosting, databases, email delivery, push notifications, analytics, form processing, security, and technical support. They may use the information only to perform services for us or as permitted by their agreements and applicable law.</li>
+            <li><strong>For legal and safety reasons:</strong> We may disclose information when reasonably necessary to comply with law, respond to lawful requests, protect rights or safety, investigate abuse, or secure the Services.</li>
+            <li><strong>During organizational changes:</strong> Information may be transferred as part of a merger, reorganization, financing, or transfer of all or part of the Services, subject to appropriate protections.</li>
+            <li><strong>With your direction or consent:</strong> We may share information when you ask us to or clearly authorize it.</li>
+          </ul>
+          <p>We do not use private journal entries, mood logs, body measurements, or other wellness information for targeted advertising.</p>
+        </section>
+
+        <section class="policy-section" id="choices">
+          <span class="section-number">05</span>
+          <h2>Your choices and controls</h2>
+          <ul>
+            <li><strong>Review and update:</strong> You can update profile, wellness, journal, Circle, and notification settings inside Kinto.</li>
+            <li><strong>Profile visibility:</strong> You control whether supported profile details are made visible through Kinto's profile settings.</li>
+            <li><strong>Notifications:</strong> You can adjust Kinto notification settings and device-level notification permission at any time.</li>
+            <li><strong>Journal export:</strong> Where available, you may export your journal history from within Kinto.</li>
+            <li><strong>Delete your account:</strong> In Kinto, open <em>Profile → Account &amp; Data → Delete Account</em>. Account deletion permanently removes the account and associated checklist, journal, mood, health, Circle, message, notification, and profile data covered by our deletion process. If you cannot access Kinto, use our public <a href="/kinto-delete-account"><strong>account deletion request page</strong></a>.</li>
+            <li><strong>Privacy request:</strong> You may contact us to ask about access, correction, or deletion of your information. We may need to verify your identity before completing a request.</li>
+          </ul>
+          <p>Your rights may vary based on where you live. We will respond to valid privacy requests as required by applicable law.</p>
+        </section>
+
+        <section class="policy-section" id="retention">
+          <span class="section-number">06</span>
+          <h2>Retention and security</h2>
+          <p>We retain information for as long as your account is active or as reasonably necessary to provide the Services, maintain security and records, resolve disputes, enforce agreements, and meet legal obligations. When you delete your account, associated data covered by the account-deletion process is removed from active systems. Limited information may remain temporarily in backups, security records, or records we must retain by law.</p>
+          <p>We use administrative, technical, and physical safeguards designed to protect information, including encrypted network connections, access controls, and hashed passwords. No method of storage or transmission is completely secure, so we cannot guarantee absolute security.</p>
+        </section>
+
+        <section class="policy-section" id="children">
+          <span class="section-number">07</span>
+          <h2>Children's privacy</h2>
+          <p>The Services are not directed to children under 13, and we do not knowingly collect personal information from children under 13. If you believe a child has provided personal information without appropriate authorization, contact us so we can investigate and delete it.</p>
+        </section>
+
+        <section class="policy-section" id="changes">
+          <span class="section-number">08</span>
+          <h2>Changes to this policy</h2>
+          <p>We may update this Privacy Policy as Kinto and our other Services evolve. We will post the revised policy at this URL and update the “Last updated” date. If a change materially affects how we use personal information, we will provide additional notice when appropriate.</p>
+        </section>
+
+        <section class="policy-section" id="contact">
+          <span class="section-number">09</span>
+          <h2>Contact us</h2>
+          <p>Contact Unmasked Culture Foundation with privacy questions, concerns, or requests.</p>
+          <div class="contact-card">
+            <strong>Unmasked Culture Foundation</strong>
+            <p>Email: <a href="mailto:unfiltered@unmaskedculture.org">unfiltered@unmaskedculture.org</a></p>
+            <p>Web: <a href="https://unmaskedculture.org/contact">unmaskedculture.org/contact</a></p>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <a class="footer-brand" href="/"><span>UNMASKED</span> <span>CULTURE</span></a>
+          <p class="footer-copy">Promoting holistic mental health through vulnerability, authenticity, and community.</p>
+        </div>
+        <nav class="footer-actions" aria-label="Footer">
+          <a href="/kinto">Kinto</a>
+          <a href="/kinto#signin">Sign in to Kinto</a>
+          <a href="/kinto-delete-account">Delete Account</a>
+          <a href="/contact">Contact</a>
+          <a href="/privacy" aria-current="page">Privacy</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">&copy; 2026 Unmasked Culture Foundation. All rights reserved.</div>
+    </div>
+  </footer>
+</body>
+</html>

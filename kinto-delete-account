@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en" class="has-uc-site-nav">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Request deletion of your Kinto account and associated data, or delete your account directly in the Kinto app.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://unmaskedculture.org/kinto-delete-account">
+  <title>Delete Your Kinto Account | Unmasked Culture</title>
+
+  <link rel="icon" href="/challenge/assets/kinto-favicon/kinto-favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/challenge/assets/kinto-favicon/kinto-favicon.svg">
+  <link rel="apple-touch-icon" href="/challenge/assets/kinto-favicon/kinto-apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/site-nav.css">
+  <script src="/assets/js/site-nav-loader.js" defer></script>
+
+  <style>
+    :root {
+      --ink: #201f1c;
+      --ink-soft: #5d5951;
+      --cream: #f5f0e8;
+      --paper: #fffdf9;
+      --gold: #bd8c2f;
+      --gold-soft: #d8b66c;
+      --sage: #708474;
+      --line: rgba(42, 38, 30, 0.13);
+      --black: #0c0d0c;
+      --white: #fff;
+      --danger: #9f2e28;
+      --shadow: 0 24px 70px rgba(45, 38, 24, 0.11);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+    a { color: inherit; }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 88px 20px 82px;
+      background:
+        radial-gradient(circle at 82% 24%, rgba(216,182,108,.22), transparent 24%),
+        linear-gradient(125deg, #151714 0%, #20211d 56%, #11120f 100%);
+      color: var(--white);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(1040px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 180px;
+      gap: 64px;
+      align-items: center;
+    }
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--gold-soft);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    h1 {
+      max-width: 800px;
+      margin: 0;
+      font-family: "DM Serif Display", Georgia, serif;
+      font-size: clamp(2.8rem, 7vw, 5.6rem);
+      font-weight: 400;
+      line-height: .98;
+      letter-spacing: -.03em;
+    }
+    .hero p:last-child {
+      max-width: 720px;
+      margin: 24px 0 0;
+      color: rgba(255,255,255,.72);
+      font-size: 1.08rem;
+    }
+    .app-mark {
+      width: 180px;
+      padding: 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 34%;
+      background: rgba(255,255,255,.05);
+      box-shadow: 0 28px 70px rgba(0,0,0,.38);
+    }
+    .app-mark img { display: block; width: 100%; border-radius: 28%; }
+
+    main { width: min(1040px, calc(100% - 40px)); margin: 0 auto; padding: 64px 0 88px; }
+    .notice {
+      margin-bottom: 28px;
+      padding: 18px 22px;
+      border-left: 4px solid var(--gold);
+      border-radius: 0 12px 12px 0;
+      background: rgba(216,182,108,.15);
+      color: var(--ink-soft);
+    }
+    .notice strong { color: var(--ink); }
+    .methods { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+    .card {
+      padding: clamp(26px, 4vw, 40px);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+    .card.featured { border-top: 4px solid var(--gold); }
+    .step {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--black);
+      color: var(--gold-soft);
+      font-size: .8rem;
+      font-weight: 800;
+    }
+    h2 {
+      margin: 15px 0 10px;
+      font-family: "DM Serif Display", Georgia, serif;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 400;
+      line-height: 1.08;
+    }
+    .card p, .detail p, .detail li { color: var(--ink-soft); }
+    .steps { margin: 18px 0 0; padding-left: 1.25rem; }
+    .steps li { margin: 9px 0; padding-left: 4px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 18px;
+      padding: 13px 20px;
+      border: 1px solid var(--black);
+      border-radius: 999px;
+      background: var(--black);
+      color: var(--white);
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform .18s ease, background .18s ease;
+    }
+    .button:hover { transform: translateY(-2px); background: #292a27; }
+    .help { margin-top: 16px; font-size: .9rem; }
+    .help strong { color: var(--ink); }
+    .deletion-form { margin-top: 22px; }
+    .form-field { margin-top: 16px; }
+    .form-field:first-child { margin-top: 0; }
+    .form-field label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--ink);
+      font-size: .9rem;
+      font-weight: 800;
+    }
+    .form-field input,
+    .form-field textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid rgba(42,38,30,.24);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+    }
+    .form-field textarea { min-height: 104px; resize: vertical; }
+    .form-field input:focus,
+    .form-field textarea:focus {
+      outline: 3px solid rgba(189,140,47,.2);
+      border-color: var(--gold);
+    }
+    .field-note { display: block; margin-top: 6px; color: var(--ink-soft); font-size: .8rem; }
+    .confirmation {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      align-items: start;
+      margin-top: 18px;
+      color: var(--ink-soft);
+      font-size: .88rem;
+    }
+    .confirmation input { width: 18px; height: 18px; margin: 4px 0 0; accent-color: var(--black); }
+    .form-error {
+      margin: 14px 0 0;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: rgba(159,46,40,.1);
+      color: var(--danger) !important;
+      font-size: .88rem;
+      font-weight: 700;
+    }
+    .details {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 22px;
+    }
+    .detail {
+      padding: clamp(25px, 4vw, 38px);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255,253,249,.72);
+    }
+    .detail h2 { font-size: 2rem; }
+    .detail ul { margin: 12px 0 0; padding-left: 1.2rem; }
+    .detail li { margin: 8px 0; }
+    .warning { color: var(--danger) !important; font-weight: 700; }
+    .text-link { color: #735217; font-weight: 700; }
+
+    .site-footer { padding: 48px 24px 28px; background: #000; color: #fff; }
+    .footer-inner { width: min(1040px, 100%); margin: 0 auto; }
+    .footer-top { display: flex; justify-content: space-between; gap: 35px; }
+    .footer-brand { font-weight: 800; letter-spacing: .04em; text-decoration: none; }
+    .footer-brand span:first-child { color: #f00; }
+    .footer-copy { max-width: 480px; margin: 12px 0 0; color: rgba(255,255,255,.6); }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 12px 22px; }
+    .footer-links a { color: rgba(255,255,255,.75); text-decoration: none; }
+    .footer-bottom { margin-top: 36px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.12); color: rgba(255,255,255,.48); font-size: .88rem; }
+
+    @media (max-width: 760px) {
+      .hero { padding: 58px 20px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 30px; }
+      .app-mark { width: 120px; }
+      .methods, .details { grid-template-columns: 1fr; }
+      main { padding: 40px 0 62px; }
+      .footer-top { flex-direction: column; }
+    }
+    @media (max-width: 420px) { main { width: min(100% - 28px, 1040px); } }
+    @media (prefers-reduced-motion: reduce) { .button { transition: none; } }
+  </style>
+</head>
+<body>
+  <div id="site-nav-root"></div>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">Kinto by Unmasked Culture Foundation</p>
+        <h1>Delete your Kinto account and data.</h1>
+        <p>Use either option below to permanently delete your Kinto account and the associated data. You do not need to reinstall or access the app to submit a request.</p>
+      </div>
+      <div class="app-mark" aria-hidden="true">
+        <img src="/challenge/assets/kinto-favicon/kinto-app-icon-512.png" alt="">
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="notice"><strong>Before you continue:</strong> Account deletion is permanent and cannot be undone. If you only want to change notifications or profile details, you can do that in Kinto settings instead.</div>
+
+    <section class="methods" aria-label="Account deletion methods">
+      <article class="card">
+        <span class="step">1</span>
+        <h2>Delete in Kinto</h2>
+        <p>If you can sign in, you can delete your account immediately from the app or Kinto website.</p>
+        <ol class="steps">
+          <li>Sign in to Kinto.</li>
+          <li>Open <strong>Profile</strong>.</li>
+          <li>Choose <strong>Account &amp; Data</strong>.</li>
+          <li>Select <strong>Delete Account</strong> and follow the confirmation steps.</li>
+        </ol>
+        <a class="button" href="/kinto#signin">Sign in to Kinto</a>
+      </article>
+
+      <article class="card featured">
+        <span class="step">2</span>
+        <h2>Request account deletion</h2>
+        <p>If you cannot sign in or no longer have Kinto installed, submit this form to prepare a deletion request for Unmasked Culture Foundation.</p>
+
+        <!-- Formcan-ready front end: replace the submit handler with the Formcan endpoint when configured. -->
+        <form class="deletion-form" id="account-deletion-form" method="post" action="#" novalidate>
+          <input type="hidden" name="request_type" value="Kinto account deletion">
+
+          <div class="form-field">
+            <label for="account-email">Kinto account email</label>
+            <input id="account-email" name="account_email" type="email" autocomplete="email" inputmode="email" required>
+            <span class="field-note">Use the email address associated with the account you want deleted.</span>
+          </div>
+
+          <div class="form-field">
+            <label for="confirm-email">Confirm account email</label>
+            <input id="confirm-email" name="confirm_account_email" type="email" autocomplete="email" inputmode="email" required>
+          </div>
+
+          <div class="form-field">
+            <label for="request-note">Additional information <span class="field-note">(optional)</span></label>
+            <textarea id="request-note" name="additional_information" maxlength="800" aria-describedby="request-note-help"></textarea>
+            <span class="field-note" id="request-note-help">Do not include your password, journal entries, or health data.</span>
+          </div>
+
+          <label class="confirmation" for="deletion-confirmation">
+            <input id="deletion-confirmation" name="permanent_deletion_confirmed" type="checkbox" value="Yes" required>
+            <span>I understand that deleting my Kinto account and associated data is permanent and cannot be undone.</span>
+          </label>
+
+          <p class="form-error" id="form-error" role="alert" hidden></p>
+          <button class="button" type="submit">Prepare deletion request</button>
+        </form>
+
+        <p class="help">Until our secure web submission service is connected, this form opens a prepared email in your email app. Send it from the address associated with your Kinto account. We may request reasonable identity verification.</p>
+      </article>
+    </section>
+
+    <section class="details" aria-label="Deletion details">
+      <article class="detail">
+        <h2>What is deleted</h2>
+        <p>After your request is verified, your Kinto account and associated data covered by our deletion process are removed from active systems, including:</p>
+        <ul>
+          <li>account and profile information, preferences, and uploaded profile photo;</li>
+          <li>daily checklist progress, goals, and streaks;</li>
+          <li>journal reflections, mood entries, water intake, workouts, weight, and BMI records;</li>
+          <li>Circle memberships, messages, reactions, mentions, and saved encouragement; and</li>
+          <li>notification subscriptions and Kinto notification preferences.</li>
+        </ul>
+      </article>
+
+      <article class="detail">
+        <h2>Retention and timing</h2>
+        <p>Limited information may remain temporarily in backups, security records, or records Unmasked Culture Foundation must retain for legal purposes. Retained information is not used to continue providing or marketing Kinto to you.</p>
+        <p class="warning">Deletion is permanent. Your account and deleted data cannot be restored.</p>
+        <p>For more information, read the <a class="text-link" href="/privacy">Kinto Privacy Policy</a> or contact <a class="text-link" href="mailto:unfiltered@unmaskedculture.org">unfiltered@unmaskedculture.org</a>.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <a class="footer-brand" href="/"><span>UNMASKED</span> <span>CULTURE</span></a>
+          <p class="footer-copy">Kinto is created and operated by Unmasked Culture Foundation, a nonprofit promoting holistic mental health through vulnerability, authenticity, and community.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="/kinto">Kinto</a>
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">&copy; 2026 Unmasked Culture Foundation. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const form = document.getElementById('account-deletion-form');
+      const email = document.getElementById('account-email');
+      const confirmEmail = document.getElementById('confirm-email');
+      const note = document.getElementById('request-note');
+      const confirmation = document.getElementById('deletion-confirmation');
+      const error = document.getElementById('form-error');
+
+      if (!form) return;
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        error.hidden = true;
+
+        if (!email.validity.valid || !confirmEmail.validity.valid) {
+          error.textContent = 'Enter a valid email address in both email fields.';
+          error.hidden = false;
+          email.focus();
+          return;
+        }
+
+        if (email.value.trim().toLowerCase() !== confirmEmail.value.trim().toLowerCase()) {
+          error.textContent = 'The email addresses do not match.';
+          error.hidden = false;
+          confirmEmail.focus();
+          return;
+        }
+
+        if (!confirmation.checked) {
+          error.textContent = 'Confirm that you understand account deletion is permanent.';
+          error.hidden = false;
+          confirmation.focus();
+          return;
+        }
+
+        const subject = 'Kinto account deletion request';
+        const body = [
+          'Please delete my Kinto account and associated data.',
+          '',
+          'Kinto account email: ' + email.value.trim(),
+          'Permanent deletion confirmed: Yes',
+          note.value.trim() ? 'Additional information: ' + note.value.trim() : '',
+          '',
+          'I understand that account deletion is permanent.'
+        ].filter(Boolean).join('\n');
+
+        window.location.href = 'mailto:unfiltered@unmaskedculture.org?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      });
+    })();
+  </script>
+</body>
+</html>

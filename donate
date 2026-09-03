@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en" class="has-uc-site-nav">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BBEQYLCZDX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-BBEQYLCZDX');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Support Unmasked Culture. Your gift fuels mental health programs, community restoration, and The Vision Center in Fort Wayne.">
+  <title>Donate | Unmasked Culture</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/site-nav.css">
+  <script src="/assets/js/site-nav-loader.js" defer></script>
+  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+
+  <style>
+    :root {
+      --vc-red: #e5232f;
+      --vc-red-deep: #b91722;
+      --vc-black: #0b0b0b;
+      --vc-ink: #141414;
+      --vc-soft: #f6f4f2;
+      --vc-muted: #6b6762;
+      --vc-line: rgba(20, 20, 20, 0.12);
+      --vc-white: #ffffff;
+      --font-sans: 'Manrope', system-ui, sans-serif;
+      --font-display: 'Source Serif 4', Georgia, serif;
+      --nav-h: 80px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--vc-ink);
+      background: var(--vc-soft);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+
+    .vc-wrap {
+      width: min(1120px, calc(100% - 2.5rem));
+      margin-inline: auto;
+    }
+
+    .vc-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--vc-red);
+      margin-bottom: 1rem;
+    }
+
+    .vc-display {
+      font-family: var(--font-display);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.12;
+    }
+
+    .vc-lead {
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
+      color: var(--vc-muted);
+      max-width: 38rem;
+    }
+
+    .vc-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 48px;
+      padding: 0.85rem 1.4rem;
+      border-radius: 7px;
+      font-weight: 700;
+      font-size: 0.76rem;
+      letter-spacing: 0.075em;
+      min-width: 160px;
+      text-decoration: none;
+      text-transform: uppercase;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .vc-btn::after { content: '→'; transition: transform 0.2s ease; }
+    .vc-btn:hover { transform: translateY(-3px); text-decoration: none; }
+    .vc-btn:hover::after { transform: translateX(4px); }
+    .vc-btn:focus-visible { outline: 3px solid var(--vc-red); outline-offset: 3px; }
+
+    .vc-btn--primary {
+      background: var(--vc-red);
+      color: var(--vc-white);
+    }
+
+    .vc-btn--primary:hover {
+      background: var(--vc-red-deep);
+      color: var(--vc-white);
+    }
+
+    .vc-btn--ghost {
+      border-color: rgba(255,255,255,0.45);
+      color: var(--vc-white);
+    }
+
+    .vc-btn--ghost:hover {
+      border-color: #fff;
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+    }
+
+    .vc-btn--dark {
+      background: var(--vc-black);
+      color: var(--vc-white);
+    }
+
+    .vc-btn--dark:hover {
+      background: #222;
+      color: #fff;
+    }
+
+    .vc-btn--outline-dark {
+      background: transparent;
+      border-color: var(--vc-black);
+      color: var(--vc-black);
+    }
+
+    .vc-btn--outline-dark:hover {
+      background: var(--vc-black);
+      color: #fff;
+    }
+
+    .vc-btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .vc-section {
+      padding: clamp(3.5rem, 8vw, 6rem) 0;
+    }
+
+    .vc-section--white { background: var(--vc-white); }
+    .vc-section--dark {
+      background: var(--vc-black);
+      color: var(--vc-white);
+    }
+
+    .vc-section__head {
+      margin-bottom: 2.25rem;
+      max-width: 40rem;
+    }
+
+    .vc-section__head h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.85rem, 4vw, 2.75rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+
+    .vc-reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .vc-reveal.is-in {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* Hero */
+    .dn-hero {
+      position: relative;
+      min-height: min(78vh, 720px);
+      display: flex;
+      align-items: flex-end;
+      padding: calc(var(--nav-h) + 3rem) 0 4rem;
+      color: #fff;
+      overflow: hidden;
+      background: #0b0b0b;
+    }
+
+    .dn-hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .dn-hero__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.55;
+    }
+
+    .dn-hero__bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(11,11,11,0.35) 0%, rgba(11,11,11,0.82) 70%, #0b0b0b 100%),
+        radial-gradient(ellipse at 20% 30%, rgba(225,6,0,0.28), transparent 55%);
+    }
+
+    .dn-hero .vc-wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    .dn-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      max-width: 14ch;
+      margin-bottom: 1rem;
+    }
+
+    .dn-hero p {
+      max-width: 36rem;
+      color: rgba(255,255,255,0.78);
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
+    }
+
+    /* Give panels */
+    .dn-give-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 800px) {
+      .dn-give-grid { grid-template-columns: 1fr; }
+    }
+
+    .dn-panel {
+      background: var(--vc-white);
+      border: 1px solid var(--vc-line);
+      border-radius: 1.25rem;
+      padding: clamp(1.5rem, 3vw, 2.25rem);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .dn-panel:hover { border-color: rgba(229,35,47,0.42); box-shadow: 0 18px 45px rgba(0,0,0,0.08); transform: translateY(-4px); }
+
+    .dn-panel h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 600;
+      margin-bottom: 0.65rem;
+      letter-spacing: -0.02em;
+    }
+
+    .dn-panel > p {
+      color: var(--vc-muted);
+      margin-bottom: 1.5rem;
+      max-width: 34rem;
+    }
+
+    .dn-panel small {
+      display: block;
+      margin-top: 1.25rem;
+      color: var(--vc-muted);
+      font-size: 0.8rem;
+    }
+
+    .dn-stripe-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem;
+      align-items: start;
+    }
+
+    @media (max-width: 520px) {
+      .dn-stripe-row { grid-template-columns: 1fr; }
+      .vc-btn-row .vc-btn { width: 100%; }
+    }
+
+    .dn-stripe-cell {
+      align-items: center;
+      background: var(--vc-soft);
+      border: 1px solid var(--vc-line);
+      border-radius: 0.75rem;
+      display: flex;
+      justify-content: center;
+      min-height: 76px;
+      overflow: hidden;
+      padding: 0.75rem;
+      transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .dn-stripe-cell:hover { background: #fff; border-color: var(--vc-red); transform: translateY(-2px); }
+
+    stripe-buy-button {
+      display: block;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    .dn-one-time-actions { align-items: flex-start; display: flex; flex-direction: column; gap: 0.8rem; }
+    .dn-one-time-actions .vc-btn { width: 100%; }
+
+    /* Impact */
+    .dn-impact {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    @media (max-width: 960px) {
+      .dn-impact { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 520px) {
+      .dn-impact { grid-template-columns: 1fr; }
+    }
+
+    .dn-impact article {
+      padding: 1.35rem 1.25rem;
+      border-top: 2px solid var(--vc-red);
+      background: var(--vc-white);
+      border-radius: 0 0 0.85rem 0.85rem;
+      border-right: 1px solid var(--vc-line);
+      border-bottom: 1px solid var(--vc-line);
+      border-left: 1px solid var(--vc-line);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .dn-impact article:hover { border-color: rgba(229,35,47,0.55); box-shadow: 0 14px 34px rgba(0,0,0,0.08); transform: translateY(-5px); }
+
+    .dn-impact h3 {
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      font-weight: 600;
+      color: var(--vc-red);
+      margin-bottom: 0.45rem;
+      letter-spacing: -0.02em;
+    }
+
+    .dn-impact p {
+      font-size: 0.95rem;
+      color: var(--vc-muted);
+    }
+
+    /* Mission split */
+    .dn-split {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: clamp(1.5rem, 4vw, 3rem);
+      align-items: center;
+    }
+
+    @media (max-width: 860px) {
+      .dn-split { grid-template-columns: 1fr; }
+    }
+
+    .dn-split__media {
+      border-radius: 1.25rem;
+      overflow: hidden;
+      min-height: 280px;
+      background: #111;
+    }
+
+    .dn-split__media img {
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      object-fit: cover;
+    }
+
+    .dn-list {
+      list-style: none;
+      display: grid;
+      gap: 0.85rem;
+      margin-top: 1.5rem;
+    }
+
+    .dn-list li {
+      padding-left: 1.15rem;
+      position: relative;
+      color: var(--vc-muted);
+    }
+
+    .dn-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 0.45rem;
+      height: 0.45rem;
+      border-radius: 50%;
+      background: var(--vc-red);
+    }
+
+    /* Recognition */
+    .dn-recog {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    @media (max-width: 800px) {
+      .dn-recog { grid-template-columns: 1fr; }
+    }
+
+    .dn-recog article {
+      padding: 1.5rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 1rem;
+      transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    }
+    .dn-recog article:hover { background: rgba(255,255,255,0.08); border-color: rgba(229,35,47,0.7); transform: translateY(-5px); }
+
+    .dn-recog h3 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .dn-recog p {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.98rem;
+    }
+
+    /* Quotes */
+    .dn-quotes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    @media (max-width: 900px) {
+      .dn-quotes { grid-template-columns: 1fr; }
+    }
+
+    .dn-quote {
+      padding: 1.5rem;
+      background: var(--vc-soft);
+      border-radius: 1rem;
+      border: 1px solid var(--vc-line);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .dn-quote:hover { border-color: rgba(229,35,47,0.5); box-shadow: 0 14px 35px rgba(0,0,0,0.07); transform: translateY(-5px); }
+
+    .dn-quote p {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      line-height: 1.45;
+      margin-bottom: 1rem;
+    }
+
+    .dn-quote cite {
+      font-style: normal;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--vc-muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* FAQ */
+    .dn-faq {
+      display: grid;
+      gap: 0.65rem;
+      max-width: 48rem;
+    }
+
+    .dn-faq details {
+      background: var(--vc-white);
+      border: 1px solid var(--vc-line);
+      border-radius: 0.85rem;
+      padding: 1rem 1.15rem;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .dn-faq details:hover { border-color: rgba(229,35,47,0.55); box-shadow: 0 8px 24px rgba(0,0,0,0.05); }
+
+    .dn-scroll-progress { background: var(--vc-red); height: 3px; left: 0; position: fixed; top: 80px; transform: scaleX(0); transform-origin: left; width: 100%; z-index: 10030; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+      .vc-reveal { opacity: 1; transform: none; }
+    }
+
+    .dn-faq summary {
+      cursor: pointer;
+      font-weight: 700;
+      list-style: none;
+    }
+
+    .dn-faq summary::-webkit-details-marker { display: none; }
+
+    .dn-faq summary::after {
+      content: '+';
+      float: right;
+      color: var(--vc-red);
+      font-weight: 700;
+    }
+
+    .dn-faq details[open] summary::after { content: '–'; }
+
+    .dn-faq details p {
+      margin-top: 0.85rem;
+      color: var(--vc-muted);
+      padding-right: 1.5rem;
+    }
+
+    .dn-faq a {
+      color: var(--vc-red);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .dn-faq a:hover { text-decoration: underline; }
+
+    /* Final CTA */
+    .dn-final {
+      padding: clamp(4rem, 10vw, 7rem) 0;
+      background:
+        radial-gradient(ellipse at 70% 20%, rgba(225,6,0,0.22), transparent 50%),
+        var(--vc-black);
+      color: #fff;
+      text-align: center;
+    }
+
+    .dn-final h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      max-width: 18ch;
+      margin: 0 auto 1rem;
+      line-height: 1.12;
+    }
+
+    .dn-final > .vc-wrap > p {
+      max-width: 36rem;
+      margin: 0 auto;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .dn-final .vc-btn-row {
+      justify-content: center;
+    }
+
+    .dn-ein {
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .vc-page-footer {
+      background: #070707;
+      color: rgba(255,255,255,0.55);
+      padding: 1.5rem 0;
+      font-size: 0.9rem;
+    }
+
+    .vc-page-footer__row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.5rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .vc-page-footer a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+    }
+
+    .vc-page-footer a:hover { color: #fff; }
+  </style>
+</head>
+<body>
+  <div id="site-nav-root"></div>
+  <div class="dn-scroll-progress" aria-hidden="true"></div>
+
+  <main>
+    <section class="dn-hero">
+      <div class="dn-hero__bg" aria-hidden="true">
+        <img src="/assets/images/vision-center/family.png" alt="" width="1600" height="1000">
+      </div>
+      <div class="vc-wrap vc-reveal">
+        <p class="vc-eyebrow" style="color:#ffb3ae;">Give with purpose</p>
+        <h1>Support Unmasked Culture</h1>
+        <p>Your generosity helps people remove the mask, find real support, and rebuild with dignity—through mental health programs today and The Vision Center tomorrow.</p>
+        <div class="vc-btn-row">
+          <a class="vc-btn vc-btn--primary" href="#give">Choose a gift</a>
+          <a class="vc-btn vc-btn--ghost" href="#impact">See your impact</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="vc-section" id="give">
+      <div class="vc-wrap vc-reveal">
+        <div class="vc-section__head">
+          <p class="vc-eyebrow">Ways to give</p>
+          <h2>Choose one-time or monthly support.</h2>
+          <p class="vc-lead">Secure payment processing by Stripe. Your financial information is never stored on our servers. All gifts are tax-deductible under our 501(c)(3) status.</p>
+        </div>
+
+        <div class="dn-give-grid">
+          <div class="dn-panel">
+            <h2>Monthly supporter</h2>
+            <p>Recurring gifts give us reliable capacity to plan programs, grow The Vision Center, and stay present for people who need steady support.</p>
+            <div class="dn-stripe-row">
+              <div class="dn-stripe-cell">
+                <stripe-buy-button
+                  buy-button-id="buy_btn_1R2FvnCoopJ76RzneH2S9oPE"
+                  publishable-key="pk_live_kRUqkWfJZCz9vKlVttJnlAQD00xNYpa3xc">
+                </stripe-buy-button>
+              </div>
+              <div class="dn-stripe-cell">
+                <stripe-buy-button
+                  buy-button-id="buy_btn_1R2FwaCoopJ76RznkeXBWxth"
+                  publishable-key="pk_live_kRUqkWfJZCz9vKlVttJnlAQD00xNYpa3xc">
+                </stripe-buy-button>
+              </div>
+              <div class="dn-stripe-cell">
+                <stripe-buy-button
+                  buy-button-id="buy_btn_1R2Fx8CoopJ76Rznr3dfKXbC"
+                  publishable-key="pk_live_kRUqkWfJZCz9vKlVttJnlAQD00xNYpa3xc">
+                </stripe-buy-button>
+              </div>
+              <div class="dn-stripe-cell">
+                <stripe-buy-button
+                  buy-button-id="buy_btn_1R2FuUCoopJ76RznoryP6pbr"
+                  publishable-key="pk_live_kRUqkWfJZCz9vKlVttJnlAQD00xNYpa3xc">
+                </stripe-buy-button>
+              </div>
+            </div>
+            <small>Secure payment processing by Stripe.</small>
+          </div>
+
+          <div class="dn-panel">
+            <h2>One-time gift</h2>
+            <p>Make a single contribution toward mental health resources, community restoration, and Vision Center planning. You’ll receive a tax receipt immediately after donating.</p>
+            <div class="dn-one-time-actions">
+              <a class="vc-btn vc-btn--primary" href="https://donate.stripe.com/8wM2c84cl2Uygta4gh?locale=en&amp;__embed_source=buy_btn_1QxEjwCoopJ76Rznrh7sZT7c">Make a one-time gift</a>
+              <a class="vc-btn vc-btn--outline-dark" href="/contact">Talk with our team</a>
+            </div>
+            <small>Unmasked Culture Foundation · EIN 85-1172097</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="vc-section vc-section--white" id="impact">
+      <div class="vc-wrap vc-reveal">
+        <div class="vc-section__head">
+          <p class="vc-eyebrow">Impact</p>
+          <h2>Your gift makes healing possible.</h2>
+          <p class="vc-lead">Every dollar fuels real-world impact—awareness, creative resources, restoration pathways, and spiritual encouragement across our community.</p>
+        </div>
+        <div class="dn-impact">
+          <article>
+            <h3>$25</h3>
+            <p>Supports one month of 77-Day Challenge journaling and check-ins for a user in need.</p>
+          </article>
+          <article>
+            <h3>$50</h3>
+            <p>Helps underwrite community outreach materials and gathering hospitality.</p>
+          </article>
+          <article>
+            <h3>$100</h3>
+            <p>Funds a full-length podcast episode or short film focused on mental health and faith.</p>
+          </article>
+          <article>
+            <h3>$250</h3>
+            <p>Sponsors a community workshop with outreach, materials, and facilitation support.</p>
+          </article>
+          <article>
+            <h3>$500</h3>
+            <p>Supports a month of counseling referrals, partnerships, and wellness initiatives.</p>
+          </article>
+          <article>
+            <h3>$1,000</h3>
+            <p>Invests in Challenge app development and digital mental health tools.</p>
+          </article>
+          <article>
+            <h3>$2,500+</h3>
+            <p>Helps fund larger media and workshop initiatives; optional Founding Donor recognition.</p>
+          </article>
+          <article>
+            <h3>$10K+</h3>
+            <p>Advances Vision Center planning—feasibility, partnerships, and capital readiness.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="vc-section">
+      <div class="vc-wrap dn-split vc-reveal">
+        <div>
+          <p class="vc-eyebrow">Our mission</p>
+          <h2 class="vc-display" style="font-size:clamp(1.9rem,4vw,2.8rem);margin-bottom:0.85rem;">A world where no one has to hide behind a mask.</h2>
+          <p class="vc-lead" style="margin-bottom:1rem;">Unmasked Culture is a nonprofit dedicated to breaking stigma around mental health through education, community, and creative expression—while building places of restoration like The Vision Center.</p>
+          <ul class="dn-list">
+            <li><strong>Founding Donors</strong> — Recognized for major contributions that launch core initiatives.</li>
+            <li><strong>Monthly Givers</strong> — Receive quarterly updates and may be listed on our donor wall (unless anonymous).</li>
+            <li><strong>Business Sponsors</strong> — Spotlighted at events, on social, and in partner communications.</li>
+          </ul>
+        </div>
+        <div class="dn-split__media">
+          <img src="/assets/images/vision-center/work.png" alt="Hands at work in a restoration and community setting" width="900" height="700" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="vc-section vc-section--dark">
+      <div class="vc-wrap vc-reveal">
+        <div class="vc-section__head">
+          <p class="vc-eyebrow" style="color:#ffb3ae;">Donor recognition</p>
+          <h2>We are deeply grateful for every supporter who stands with us.</h2>
+        </div>
+        <div class="dn-recog">
+          <article>
+            <h3>Founding Donors</h3>
+            <p>Major gifts that help launch core initiatives and Vision Center momentum.</p>
+          </article>
+          <article>
+            <h3>Monthly Givers</h3>
+            <p>Steady partners who keep programs running and planning possible year-round.</p>
+          </article>
+          <article>
+            <h3>Business Sponsors</h3>
+            <p>Companies that amplify the mission through events, media, and community presence.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="vc-section vc-section--white">
+      <div class="vc-wrap vc-reveal">
+        <div class="vc-section__head">
+          <p class="vc-eyebrow">Community voice</p>
+          <h2>Why people give and stay involved.</h2>
+        </div>
+        <div class="dn-quotes">
+          <blockquote class="dn-quote">
+            <p>“Unmasked Culture is a great organization to volunteer for! The team really cares about you as an individual. Unmasked Culture is a safe place to learn more about mental health and find the support you need.”</p>
+            <cite>Annalise G.</cite>
+          </blockquote>
+          <blockquote class="dn-quote">
+            <p>“UC encourages bringing hard things to light and sharing the burden. It brings awareness to mental health in a positive way that promotes change. UC is a community.”</p>
+            <cite>Suzanne K.</cite>
+          </blockquote>
+          <blockquote class="dn-quote">
+            <p>“As someone who has struggled with my mental health, Unmasked Culture provided a way to feel part of a community and gave me the assurance that I am not alone.”</p>
+            <cite>Noah A.</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="vc-section">
+      <div class="vc-wrap vc-reveal">
+        <div class="vc-section__head">
+          <p class="vc-eyebrow">FAQ</p>
+          <h2>Common questions about giving.</h2>
+        </div>
+        <div class="dn-faq">
+          <details>
+            <summary>Is my donation tax-deductible?</summary>
+            <p>Yes. Unmasked Culture is a registered 501(c)(3) nonprofit. Your donation is tax-deductible to the extent allowed by law. You will receive a receipt for your records immediately after your donation.</p>
+          </details>
+          <details>
+            <summary>Can I make a recurring donation?</summary>
+            <p>Absolutely. Use the monthly supporter options above to set up a recurring gift. This helps us plan for the future and sustain mental health programs and Vision Center development.</p>
+          </details>
+          <details>
+            <summary>How is my donation used?</summary>
+            <p>We are committed to transparency and responsible stewardship. Gifts support mental health programs, educational resources, volunteer training, media, and Vision Center planning and capital readiness.</p>
+          </details>
+          <details>
+            <summary>How can I get involved beyond donating?</summary>
+            <p>You can <a href="/volunteer">volunteer</a>, become an advocate, share our resources, or request a partner conversation about The Vision Center. Visit our <a href="/volunteer">volunteer page</a> or <a href="/contact">contact us</a>.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="dn-final" id="join">
+      <div class="vc-wrap vc-reveal">
+        <p class="vc-eyebrow" style="color:#ffb3ae;">Join our community</p>
+        <h2>Believe with us in a world where mental health is prioritized.</h2>
+        <p>Your gift is more than a transaction—it is a statement that people should not have to hide behind a mask. Stand with Unmasked Culture and help build what comes next.</p>
+        <div class="vc-btn-row">
+          <a class="vc-btn vc-btn--primary" href="https://donate.stripe.com/8wM2c84cl2Uygta4gh?locale=en&amp;__embed_source=buy_btn_1QxEjwCoopJ76Rznrh7sZT7c">Make a gift</a>
+          <a class="vc-btn vc-btn--ghost" href="#give">Choose monthly support</a>
+        </div>
+        <p class="dn-ein">Unmasked Culture Foundation is a 501(c)(3) nonprofit organization. EIN: 85-1172097</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="vc-page-footer">
+    <div class="vc-wrap vc-page-footer__row">
+      <p>&copy; <span id="yc"></span> Unmasked Culture</p>
+      <p>
+        <a href="/">Home</a> ·
+        <a href="/visioncenter">Vision Center</a> ·
+        <a href="/contact">Contact</a> ·
+        <a href="https://app.candid.org/profile/9890997" target="_blank" rel="noopener">Candid Profile</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('yc').textContent = new Date().getFullYear();
+
+    (function () {
+      var staggered = document.querySelectorAll('.dn-panel, .dn-impact article, .dn-recog article, .dn-quote, .dn-faq details');
+      staggered.forEach(function (node, index) {
+        node.classList.add('vc-reveal');
+        node.style.transitionDelay = ((index % 4) * 70) + 'ms';
+      });
+      var nodes = document.querySelectorAll('.vc-reveal');
+      if (!nodes.length) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        nodes.forEach(function (n) { n.classList.add('is-in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
+      nodes.forEach(function (n) { io.observe(n); });
+
+      var progress = document.querySelector('.dn-scroll-progress');
+      var heroImage = document.querySelector('.dn-hero__bg img');
+      var ticking = false;
+      function updateScrollMotion() {
+        var scrollable = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+        if (progress) progress.style.transform = 'scaleX(' + Math.min(window.scrollY / scrollable, 1) + ')';
+        if (heroImage) heroImage.style.transform = 'translate3d(0,' + Math.min(window.scrollY * 0.06, 38) + 'px,0) scale(1.035)';
+        ticking = false;
+      }
+      window.addEventListener('scroll', function () {
+        if (!ticking) { window.requestAnimationFrame(updateScrollMotion); ticking = true; }
+      }, { passive: true });
+      updateScrollMotion();
+    })();
+  </script>
+</body>
+</html>

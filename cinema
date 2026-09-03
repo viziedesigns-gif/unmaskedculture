@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en" class="has-uc-site-nav">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BBEQYLCZDX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-BBEQYLCZDX');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="This page is coming soon. Unmasked Culture is working to bring you new content.">
+  <title>Coming Soon | Unmasked Culture</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-red: #ff0000;
+      --accent-red: #ff4d4d;
+      --hover-red: #cc0000;
+      --dark-red: #990000;
+      --primary-black: #000000;
+      --primary-white: #ffffff;
+      --dark-bg: #0a0a0a;
+      --card-bg: rgba(20, 20, 20, 0.95);
+      --text-muted: rgba(255, 255, 255, 0.7);
+      --navbar-height: 80px;
+      --transition: all 0.3s ease;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--primary-white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ========================================
+       ANIMATED BACKGROUND
+       ======================================== */
+    .background-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    /* Gradient orbs */
+    .gradient-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.4;
+      animation: orbFloat 20s ease-in-out infinite;
+    }
+
+    .orb-1 {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--primary-red) 0%, transparent 70%);
+      top: -200px;
+      right: -200px;
+      animation-delay: 0s;
+    }
+
+    .orb-2 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, var(--dark-red) 0%, transparent 70%);
+      bottom: -150px;
+      left: -150px;
+      animation-delay: -7s;
+    }
+
+    .orb-3 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, var(--accent-red) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation-delay: -14s;
+      opacity: 0.2;
+    }
+
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(30px, -30px) scale(1.05); }
+      50% { transform: translate(-20px, 20px) scale(0.95); }
+      75% { transform: translate(20px, 10px) scale(1.02); }
+    }
+
+    /* Grid pattern overlay */
+    .grid-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: gridMove 30s linear infinite;
+    }
+
+    @keyframes gridMove {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(50px, 50px); }
+    }
+
+    /* Floating particles */
+    .particles-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      background: var(--primary-red);
+      border-radius: 50%;
+      opacity: 0;
+      animation: particleRise linear infinite;
+    }
+
+    @keyframes particleRise {
+      0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.8;
+      }
+      90% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-100px) scale(1);
+        opacity: 0;
+      }
+    }
+
+    /* ========================================
+       NAVBAR
+       ======================================== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--navbar-height);
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid rgba(255, 0, 0, 0.2);
+    }
+
+    .navbar-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: var(--transition);
+    }
+
+    .navbar-logo:hover {
+      transform: scale(1.05);
+    }
+
+    .logo-red { color: var(--primary-red); }
+    .logo-white { color: var(--primary-white); }
+
+    /* ========================================
+       MAIN CONTENT
+       ======================================== */
+    .main-content {
+      position: relative;
+      z-index: 10;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 20px 60px;
+    }
+
+    .content-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 0, 0, 0.2);
+      border-radius: 24px;
+      padding: 60px;
+      max-width: 700px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.5),
+        0 0 100px rgba(255, 0, 0, 0.1);
+      animation: cardAppear 0.8s ease-out;
+    }
+
+    @keyframes cardAppear {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Glowing border effect */
+    .content-card::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, var(--primary-red), transparent, var(--primary-red), transparent);
+      border-radius: 25px;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .content-card:hover::before {
+      opacity: 0.5;
+      animation: borderGlow 3s linear infinite;
+    }
+
+    @keyframes borderGlow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Logo */
+    .logo-container {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 40px;
+      position: relative;
+    }
+
+    .logo-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(255, 0, 0, 0.3) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: logoGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes logoGlow {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+      50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+    }
+
+    .logo-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      position: relative;
+      z-index: 1;
+      animation: logoFloat 4s ease-in-out infinite;
+      filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.3));
+    }
+
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    /* Status badge */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 0, 0, 0.15);
+      border: 1px solid rgba(255, 0, 0, 0.3);
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+      color: var(--accent-red);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--primary-red);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+    }
+
+    /* Typography */
+    .main-title {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, var(--primary-white) 0%, var(--text-muted) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      line-height: 1.8;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Progress section */
+    .progress-section {
+      margin-bottom: 40px;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--primary-red), var(--accent-red));
+      border-radius: 10px;
+      position: relative;
+      animation: progressFill 2s ease-out forwards;
+      animation-delay: 0.5s;
+    }
+
+    @keyframes progressFill {
+      to { width: 65%; }
+    }
+
+    .progress-bar::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+      );
+      animation: shimmer 2s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    /* Buttons */
+    .button-group {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
+      color: var(--primary-white);
+      box-shadow: 0 4px 20px rgba(255, 0, 0, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(255, 0, 0, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary-white);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--primary-white);
+      transform: translateY(-3px);
+    }
+
+    .btn-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Features preview */
+    .features-preview {
+      margin-top: 50px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .features-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text-muted);
+      margin-bottom: 25px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+      transition: var(--transition);
+    }
+
+    .feature-item:hover {
+      background: rgba(255, 0, 0, 0.1);
+      transform: translateY(-3px);
+    }
+
+    .feature-icon {
+      font-size: 1.8rem;
+    }
+
+    .feature-text {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* ========================================
+       RESPONSIVE
+       ======================================== */
+    @media (max-width: 768px) {
+      .content-card {
+        padding: 40px 25px;
+        margin: 0 15px;
+      }
+
+      .main-title {
+        font-size: 2.2rem;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+      }
+
+      .logo-container {
+        width: 110px;
+        height: 110px;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .feature-item {
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      .button-group {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .main-title {
+        font-size: 1.8rem;
+      }
+
+      .status-badge {
+        font-size: 0.75rem;
+        padding: 6px 15px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="/assets/css/site-nav.css">
+  <script src="/assets/js/site-nav-loader.js" defer></script>
+</head>
+<body>
+  <!-- Animated Background -->
+  <div class="background-container">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+    <div class="grid-overlay"></div>
+    <div class="particles-container" id="particles"></div>
+  </div>
+
+  <!-- Navbar -->
+  <div id="site-nav-root"></div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="content-card">
+      <!-- Logo -->
+      <div class="logo-container">
+        <div class="logo-glow"></div>
+        <img src="https://res.cloudinary.com/dtrk4dyly/image/upload/v1737163764/White_Transparent_PFP_1_fmrfqq.png" alt="Unmasked Culture Logo" class="logo-image">
+      </div>
+
+      <!-- Status Badge -->
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        <span>In Development</span>
+      </div>
+
+      <!-- Title -->
+      <h1 class="main-title">Coming Soon</h1>
+      <p class="subtitle">We're crafting something meaningful. This page is being built with care to better serve our mental health community.</p>
+
+      <!-- Progress -->
+      <div class="progress-section">
+        <div class="progress-label">
+          <span>Development Progress</span>
+          <span>65%</span>
+        </div>
+        <div class="progress-bar-container">
+          <div class="progress-bar"></div>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="button-group">
+        <a href="/" class="btn btn-primary">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          Return Home
+        </a>
+        <a href="/contact" class="btn btn-secondary">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          Contact Us
+        </a>
+      </div>
+
+      <!-- Features Preview -->
+      <div class="features-preview">
+        <p class="features-title">What's Coming</p>
+        <div class="features-grid">
+          <div class="feature-item">
+            <span class="feature-icon">🎯</span>
+            <span class="feature-text">New Resources</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">💡</span>
+            <span class="feature-text">Fresh Content</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">🤝</span>
+            <span class="feature-text">Community Tools</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Particle Animation Script -->
+  <script>
+    (function() {
+      'use strict';
+      
+      const container = document.getElementById('particles');
+      const particleCount = 25;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        // Random properties
+        const size = Math.random() * 4 + 2;
+        const posX = Math.random() * 100;
+        const duration = Math.random() * 15 + 10;
+        const delay = Math.random() * 10;
+        const opacity = Math.random() * 0.5 + 0.2;
+        
+        particle.style.cssText = `
+          left: ${posX}%;
+          width: ${size}px;
+          height: ${size}px;
+          opacity: ${opacity};
+          animation-duration: ${duration}s;
+          animation-delay: ${delay}s;
+        `;
+        
+        container.appendChild(particle);
+      }
+    })();
+  </script>
+</body>
+</html>

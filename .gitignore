@@ -1,0 +1,19 @@
+challenge/config/newsletter.php
+challenge/config/push.php
+challenge/config/mail.php
+private/formcan-config.php
+
+# Local tooling and temporary review files
+.codex-docx-review-*/
+tmp/
+
+# Generated dependencies and build caches
+challenge/keystore/
+challenge/node_modules/
+challenge/vendor/
+**/.idea/
+
+# Runtime-generated user content
+uploads/
+challenge/uploads/
+private/profile-pictures/

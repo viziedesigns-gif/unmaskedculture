@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" class="has-uc-site-nav">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BBEQYLCZDX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-BBEQYLCZDX');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volunteer With Us | Unmasked Culture Foundation</title>
+  <meta name="description" content="Volunteer with Unmasked Culture Foundation and use your skills to strengthen honest conversations about mental health, faith, healing, and community.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/site-nav.css">
+  <script src="/assets/js/site-nav-loader.js" defer></script>
+  <style>
+    :root{--ink:#0a0a0a;--paper:#fff;--soft:#f4f2ef;--muted:#686868;--red:#e5232f;--red-dark:#b91722;--rule:#dedbd6}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Inter",Arial,sans-serif;-webkit-font-smoothing:antialiased}button,input,select,textarea{font:inherit}
+    .hero{background:var(--ink);color:#fff;overflow:hidden;position:relative}.hero:after{background:radial-gradient(circle,rgba(229,35,47,.24) 0 1.2px,transparent 1.7px);background-size:18px 18px;content:"";height:480px;opacity:.75;pointer-events:none;position:absolute;right:-70px;top:-170px;transform:rotate(-11deg);width:600px}.hero-inner,.section-inner,.form-inner,.footer-inner{margin:0 auto;max-width:1200px;padding-left:30px;padding-right:30px}.hero-inner{padding-bottom:88px;padding-top:76px;position:relative;z-index:1}.eyebrow{color:var(--red);font-size:.74rem;font-weight:800;letter-spacing:.15em;margin:0 0 22px;text-transform:uppercase}.hero h1{font-size:clamp(3.25rem,8vw,6.3rem);font-weight:850;letter-spacing:-.065em;line-height:.94;margin:0;max-width:980px}.hero-copy{color:#c7c7c7;font-size:clamp(1rem,2vw,1.25rem);line-height:1.7;margin:30px 0 0;max-width:700px}.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}.hero-button{border:2px solid #fff;border-radius:6px;color:#fff;font-size:.76rem;font-weight:800;letter-spacing:.09em;padding:14px 20px;text-decoration:none;text-transform:uppercase;transition:.2s}.hero-button.primary{background:var(--red);border-color:var(--red)}.hero-button:hover{background:#fff;color:var(--ink);transform:translateY(-2px)}.hero-button.primary:hover{background:var(--red-dark);border-color:var(--red-dark);color:#fff}
+    .impact{background:var(--soft);padding:70px 0}.section-heading{align-items:end;display:flex;gap:34px;justify-content:space-between;margin-bottom:30px}.section-heading h2{font-size:clamp(2rem,4.5vw,3.5rem);letter-spacing:-.05em;line-height:1.05;margin:0;max-width:650px}.section-heading p{color:var(--muted);line-height:1.65;margin:0;max-width:470px}.impact-grid{display:grid;gap:16px;grid-template-columns:repeat(3,1fr)}.impact-card{background:#fff;border:1px solid var(--rule);padding:28px}.impact-number{color:var(--red);font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.impact-card h3{font-size:1.22rem;letter-spacing:-.025em;margin:16px 0 10px}.impact-card p{color:var(--muted);font-size:.88rem;line-height:1.65;margin:0}
+    .roles{padding:76px 0}.role-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}.role-list span{background:var(--ink);border-radius:999px;color:#fff;font-size:.74rem;font-weight:750;letter-spacing:.03em;padding:11px 16px}.role-list span:nth-child(3n+1){background:var(--red)}
+    .application{background:var(--soft);padding:78px 0 100px}.form-inner{display:grid;gap:28px;grid-template-columns:minmax(250px,.65fr) minmax(0,1.35fr)}.form-aside{background:var(--ink);color:#fff;display:flex;flex-direction:column;padding:40px}.form-aside h2{font-size:clamp(1.75rem,3vw,2.55rem);letter-spacing:-.045em;line-height:1.08;margin:0 0 18px}.form-aside>p{color:#b9b9b9;line-height:1.7;margin:0}.steps{border-top:1px solid #353535;display:grid;gap:24px;margin-top:32px;padding-top:28px}.step{display:grid;gap:13px;grid-template-columns:34px 1fr}.step-number{align-items:center;background:var(--red);border-radius:50%;display:flex;font-size:.7rem;font-weight:850;height:30px;justify-content:center;width:30px}.step strong{display:block;font-size:.88rem;margin:2px 0 5px}.step p{color:#a9a9a9;font-size:.78rem;line-height:1.5;margin:0}.aside-note{border-left:4px solid var(--red);color:#d0d0d0;font-size:.82rem;line-height:1.6;margin-top:auto;padding:4px 0 4px 16px}
+    .form-card{background:#fff;border:1px solid var(--rule);box-shadow:0 18px 45px rgba(0,0,0,.07);padding:44px}.form-card h2{font-size:clamp(1.8rem,3vw,2.55rem);letter-spacing:-.045em;margin:0 0 12px}.form-intro{color:var(--muted);line-height:1.65;margin:0 0 32px}.form-section-title{border-bottom:2px solid var(--ink);font-size:.8rem;font-weight:850;letter-spacing:.12em;margin:36px 0 22px;padding-bottom:12px;text-transform:uppercase}.form-section-title:first-of-type{margin-top:0}.error-banner{background:#fff0f1;border-left:4px solid var(--red);color:#7f1119;font-size:.9rem;font-weight:650;line-height:1.5;margin:0 0 26px;padding:14px 16px}.field-grid{display:grid;gap:20px;grid-template-columns:1fr 1fr}.field{display:flex;flex-direction:column;gap:8px}.field.full{grid-column:1/-1}.field label,.group-label{font-size:.74rem;font-weight:800;letter-spacing:.055em;line-height:1.4;text-transform:uppercase}.required{color:var(--red)}.field input,.field select,.field textarea{background:#fafafa;border:1px solid #c9c6c1;border-radius:0;color:var(--ink);outline:0;padding:14px 15px;width:100%}.field input,.field select{min-height:52px}.field select{cursor:pointer}.field textarea{min-height:145px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{background:#fff;border-color:var(--ink);box-shadow:0 0 0 3px rgba(229,35,47,.13)}.field small,.group-help{color:var(--muted);font-size:.73rem;line-height:1.45}.interest-group{grid-column:1/-1}.interest-grid{display:grid;gap:9px;grid-template-columns:repeat(3,1fr);margin-top:10px}.interest-option{align-items:center;background:#fafafa;border:1px solid #d4d1cc;cursor:pointer;display:flex;font-size:.78rem;font-weight:650;gap:9px;line-height:1.35;min-height:48px;padding:10px 12px;transition:.2s}.interest-option:hover{border-color:var(--red)}.interest-option:has(input:checked){background:#fff0f1;border-color:var(--red);color:#8a1018}.interest-option input{accent-color:var(--red);height:17px;margin:0;min-width:17px;width:17px}
+    .agreement{background:var(--ink);color:#fff;grid-column:1/-1;margin-top:10px;padding:24px}.agreement p{color:#c8c8c8;font-size:.8rem;line-height:1.65;margin:0 0 18px}.agreement-check{align-items:flex-start;display:flex;gap:11px}.agreement-check input{accent-color:var(--red);height:19px;margin:2px 0 0;min-width:19px;width:19px}.agreement-check label{font-size:.8rem;font-weight:700;line-height:1.5}.signature-field{grid-column:1/-1}.signature-wrap{background:#fafafa;border:1px solid #c9c6c1;padding:10px}.signature-pad{background:#fff;cursor:crosshair;display:block;height:190px;touch-action:none;width:100%}.signature-line{border-top:1px solid #aaa;color:#777;font-size:.68rem;letter-spacing:.08em;margin:0 10px;padding-top:6px;text-transform:uppercase}.signature-actions{align-items:center;display:flex;justify-content:space-between;margin-top:9px}.clear-signature{background:transparent;border:0;color:var(--red-dark);cursor:pointer;font-size:.72rem;font-weight:800;letter-spacing:.08em;padding:6px 0;text-transform:uppercase}.clear-signature:hover{text-decoration:underline}.signature-status{color:var(--muted);font-size:.72rem}.submit-button{align-items:center;background:var(--red);border:2px solid var(--red);border-radius:6px;color:#fff;cursor:pointer;display:inline-flex;font-size:.78rem;font-weight:800;gap:12px;justify-content:center;letter-spacing:.1em;margin-top:30px;min-height:54px;padding:15px 24px;text-transform:uppercase;transition:.2s}.submit-button:hover{background:var(--red-dark);border-color:var(--red-dark);transform:translateY(-2px)}.submit-button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}.privacy-note{color:#777;font-size:.71rem;line-height:1.5;margin:15px 0 0}.website-field{height:0;left:-9999px;overflow:hidden;position:absolute;width:0}
+    .uc-footer{background:var(--ink);color:#fff;padding:58px 0 24px}.footer-grid{display:grid;gap:42px;grid-template-columns:2fr repeat(3,1fr)}.footer-brand{font-size:1.35rem;font-weight:800;letter-spacing:.04em;text-decoration:none}.footer-brand .red{color:var(--red)}.footer-brand .white{color:#fff}.footer-about{color:#aaa;font-size:.86rem;line-height:1.65;max-width:430px}.footer-column h3{font-size:.75rem;letter-spacing:.12em;margin:0 0 16px;text-transform:uppercase}.footer-column a{color:#aaa;display:block;font-size:.86rem;margin-bottom:10px;text-decoration:none}.footer-column a:hover{color:#fff}.footer-bottom{border-top:1px solid #282828;color:#747474;font-size:.75rem;margin-top:42px;padding-top:22px}
+    @media(max-width:900px){.impact-grid{grid-template-columns:1fr}.form-inner{grid-template-columns:1fr}.form-aside{min-height:520px}.interest-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:620px){.hero-inner,.section-inner,.form-inner,.footer-inner{padding-left:20px;padding-right:20px}.hero-inner{padding-bottom:66px;padding-top:58px}.hero h1{font-size:3.15rem}.section-heading{align-items:start;flex-direction:column;gap:14px}.impact,.roles{padding:52px 0}.application{padding:52px 0 72px}.form-aside,.form-card{padding:28px 22px}.form-aside{min-height:500px}.field-grid,.interest-grid{grid-template-columns:1fr}.field.full,.interest-group,.agreement,.signature-field{grid-column:auto}.submit-button{width:100%}.footer-grid{grid-template-columns:1fr}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+  </style>
+</head>
+<body>
+  <div id="site-nav-root"></div>
+  <main>
+    <section class="hero" aria-labelledby="volunteer-title">
+      <div class="hero-inner">
+        <p class="eyebrow">Volunteer with Unmasked Culture</p>
+        <h1 id="volunteer-title">Bring your gifts. Help people feel less alone.</h1>
+        <p class="hero-copy">Join a community committed to honest conversations, practical support, and a culture where mental health can be discussed without shame.</p>
+        <div class="hero-actions"><a class="hero-button primary" href="#volunteer-form">Start your application</a><a class="hero-button" href="#ways-to-help">Explore ways to help</a></div>
+      </div>
+    </section>
+
+    <section class="impact" aria-labelledby="impact-title">
+      <div class="section-inner">
+        <div class="section-heading"><h2 id="impact-title">Your time can move the mission forward.</h2><p>We welcome people with professional experience, creative talent, lived experience, or simply a willingness to learn and serve.</p></div>
+        <div class="impact-grid">
+          <article class="impact-card"><span class="impact-number">01 / Impact</span><h3>Make meaningful change</h3><p>Support work that challenges mental-health stigma and makes honest resources easier to find.</p></article>
+          <article class="impact-card"><span class="impact-number">02 / Growth</span><h3>Develop your skills</h3><p>Gain practical experience, learn alongside others, and contribute to projects with real community value.</p></article>
+          <article class="impact-card"><span class="impact-number">03 / Community</span><h3>Build lasting connections</h3><p>Work with people who believe vulnerability, dignity, and authentic relationships can transform culture.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="roles" id="ways-to-help" aria-labelledby="roles-title">
+      <div class="section-inner">
+        <div class="section-heading"><h2 id="roles-title">There is room for what you do well.</h2><p>Our needs evolve with each project. Tell us where you would most like to contribute in the application below.</p></div>
+        <div class="role-list" aria-label="Volunteer areas"><span>Social media</span><span>Fundraising</span><span>Public relations</span><span>Technology</span><span>Administration</span><span>Marketing</span><span>Grant writing</span><span>Accounting</span><span>Content creation</span><span>Podcasting</span><span>Community engagement</span><span>Advocacy</span><span>Videography</span><span>Script writing</span><span>Audio / visual</span><span>Acting</span></div>
+      </div>
+    </section>
+
+    <section class="application" id="volunteer-form" aria-labelledby="application-title">
+      <div class="form-inner">
+        <aside class="form-aside">
+          <div><p class="eyebrow">Application process</p><h2>Let’s find where you fit.</h2><p>Complete the application and tell us about your interests, experience, and connection to the mission.</p><div class="steps"><div class="step"><span class="step-number">1</span><div><strong>Share your information</strong><p>Tell us how to reach you and when you are available.</p></div></div><div class="step"><span class="step-number">2</span><div><strong>Tell us your why</strong><p>Help us understand the skills and passion you want to bring.</p></div></div><div class="step"><span class="step-number">3</span><div><strong>Connect with the team</strong><p>We will review your application and follow up about next steps.</p></div></div></div></div>
+          <p class="aside-note">Application information is submitted securely through Formcan and reviewed by the Unmasked Culture Foundation team.</p>
+        </aside>
+
+        <section class="form-card">
+          <h2 id="application-title">Volunteer application</h2>
+          <p class="form-intro">Required fields are marked with an asterisk. Enter “N/A” for a required field that does not apply to you.</p>
+          <div class="error-banner" id="form-error" role="alert" hidden></div>
+          <form id="volunteer-application" action="/api/submit-volunteer.php" method="post" novalidate>
+            <div class="website-field" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+            <p class="form-section-title">Contact information</p>
+            <div class="field-grid">
+              <div class="field"><label for="first-name">First name <span class="required" aria-hidden="true">*</span></label><input id="first-name" name="first_name" type="text" autocomplete="given-name" maxlength="100" required></div>
+              <div class="field"><label for="last-name">Last name <span class="required" aria-hidden="true">*</span></label><input id="last-name" name="last_name" type="text" autocomplete="family-name" maxlength="100" required></div>
+              <div class="field"><label for="email">Email <span class="required" aria-hidden="true">*</span></label><input id="email" name="email" type="email" autocomplete="email" maxlength="254" required></div>
+              <div class="field"><label for="phone">Phone <span class="required" aria-hidden="true">*</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" minlength="10" maxlength="20" pattern="[0-9() .+\-]{10,20}" placeholder="260-555-0123" required><small>Enter a 10-digit U.S. phone number.</small></div>
+              <div class="field full"><label for="social-media">Social media handles <span class="required" aria-hidden="true">*</span></label><input id="social-media" name="social_media" type="text" maxlength="250" placeholder="@username or N/A" required></div>
+              <div class="field full"><label for="street-address">Street address <span class="required" aria-hidden="true">*</span></label><input id="street-address" name="street_address" type="text" autocomplete="street-address" maxlength="250" required></div>
+              <div class="field"><label for="city">City <span class="required" aria-hidden="true">*</span></label><input id="city" name="city" type="text" autocomplete="address-level2" maxlength="120" required></div>
+              <div class="field"><label for="state">State <span class="required" aria-hidden="true">*</span></label><input id="state" name="state" type="text" autocomplete="address-level1" maxlength="80" required></div>
+              <div class="field"><label for="zip">ZIP code <span class="required" aria-hidden="true">*</span></label><input id="zip" name="zip" type="text" autocomplete="postal-code" inputmode="numeric" minlength="5" maxlength="5" pattern="\d{5}" placeholder="46802" required></div>
+              <div class="field"><label for="best-time">Best time to contact <span class="required" aria-hidden="true">*</span></label><select id="best-time" name="best_time" required><option value="">Please choose one</option><option value="Morning">Morning</option><option value="Afternoon">Afternoon</option><option value="Evening">Evening</option></select></div>
+            </div>
+
+            <p class="form-section-title">Your interests and experience</p>
+            <div class="field-grid">
+              <div class="field full"><label for="why-volunteer">Why are you passionate about mental health, and why do you want to work with Unmasked Culture? <span class="required" aria-hidden="true">*</span></label><textarea id="why-volunteer" name="why_volunteer" maxlength="5000" required></textarea></div>
+              <div class="field full"><label for="skills">What special talents or skills could benefit Unmasked Culture?</label><textarea id="skills" name="skills" maxlength="5000"></textarea></div>
+              <fieldset class="interest-group"><legend class="group-label">Where are you interested in volunteering? <span class="required" aria-hidden="true">*</span></legend><p class="group-help">Choose at least one.</p><div class="interest-grid">
+                <label class="interest-option"><input type="checkbox" name="interests[]" value="Social Media">Social Media</label><label class="interest-option"><input type="checkbox" name="interests[]" value="Fundraising">Fundraising</label><label class="interest-option"><input type="checkbox" name="interests[]" value="Public Relations">Public Relations</label><label class="interest-option"><input type="checkbox" name="interests[]" value="Tech">Tech</label><label class="interest-option"><input type="checkbox" name="interests[]" value="Administration">Administration</label><label class="interest-option"><input type="checkbox" name="interests[]" value="Marketing">Marketing</label><label class="interest-option"><input type="checkbox" name="interests[]" value="Grant Writing">Grant Writing</label><label class="interest-option"><input type="checkbox" name="interests[]" value="Accounting">Accounting</label><label class="interest-option"><input type="checkbox" name="interests[]" value="Content Creation">Content Creation</label><label class="interest-option"><input type="checkbox" name="interests[]" value="Podcasts">Podcasts</label><label class="interest-option"><input type="checkbox" name="interests[]" value="Community Engagement">Community Engagement</label><label class="interest-option"><input type="checkbox" name="interests[]" value="Advocacy">Advocacy</label><label class="interest-option"><input type="checkbox" name="interests[]" value="Videographer">Videographer</label><label class="interest-option"><input type="checkbox" name="interests[]" value="Script Writer">Script Writer</label><label class="interest-option"><input type="checkbox" name="interests[]" value="A/V Manager">A/V Manager</label><label class="interest-option"><input type="checkbox" name="interests[]" value="Actor">Actor</label><label class="interest-option"><input type="checkbox" name="interests[]" value="Other">Other</label>
+              </div></fieldset>
+            </div>
+
+            <p class="form-section-title">Volunteer agreement</p>
+            <div class="field-grid">
+              <div class="agreement"><p>As a volunteer, I agree to follow Unmasked Culture Foundation policies and procedures. I understand that I volunteer at my own risk; the organization, its employees, and affiliates cannot assume responsibility for accidents, injuries, or health problems arising from volunteer work. I understand this work is unpaid and that content created for the organization belongs to the organization, including its associated rights and uses.</p><div class="agreement-check"><input id="agreement" name="agreement" type="checkbox" value="1" required><label for="agreement">I have read and agree to the volunteer terms above. <span class="required" aria-hidden="true">*</span></label></div></div>
+              <div class="signature-field"><span class="group-label" id="signature-label">Signature <span class="required" aria-hidden="true">*</span></span><div class="signature-wrap"><canvas class="signature-pad" id="signature-pad" width="900" height="240" role="img" aria-labelledby="signature-label" tabindex="0"></canvas><div class="signature-line">Sign above</div></div><div class="signature-actions"><button class="clear-signature" id="clear-signature" type="button">Clear signature</button><span class="signature-status" id="signature-status" aria-live="polite">Signature required</span></div><input id="signature-data" name="signature_data" type="hidden"></div>
+              <div class="field full"><label for="signature-date">Date <span class="required" aria-hidden="true">*</span></label><input id="signature-date" name="signature_date" type="date" required></div>
+            </div>
+            <button class="submit-button" type="submit">Submit application <span aria-hidden="true">→</span></button>
+            <p class="privacy-note">Your application is sent securely to Formcan and used only for volunteer review and follow-up.</p>
+          </form>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="uc-footer"><div class="footer-inner"><div class="footer-grid"><div><a class="footer-brand" href="/"><span class="red">UNMASKED</span> <span class="white">CULTURE</span></a><p class="footer-about">Creating honest spaces for mental health, faith, healing, and community.</p></div><div class="footer-column"><h3>Explore</h3><a href="/about">About</a><a href="/team">Our team</a><a href="/contact">Contact</a></div><div class="footer-column"><h3>Resources</h3><a href="/podcast">Podcast</a><a href="/blogs">Blogs</a><a href="/help">Find help</a></div><div class="footer-column"><h3>Get involved</h3><a href="/volunteer">Volunteer</a><a href="/donate">Donate</a><a href="/kinto">Kinto</a></div></div><div class="footer-bottom">© 2026 Unmasked Culture Foundation. All rights reserved.</div></div></footer>
+
+  <script>
+    (function(){
+      var params=new URLSearchParams(window.location.search),code=params.get('submit_error');
+      if(code){var messages={validation:'Please review the application and complete every required field.',config:'The volunteer application is temporarily unavailable. Please try again later.',auth:'The volunteer application service could not be authorized.',payload:'Formcan could not accept one or more application fields. Please contact the site administrator.',form:'The volunteer application form could not be found.',rate:'Too many applications were submitted at once. Please wait a moment and try again.',connection:'The website could not connect to Formcan. Please try again shortly.',formcan:'We could not submit your application right now. Please try again later.'},fieldNames={fid4:'first name',fid5:'last name',fid8:'email',fid32:'phone',fid21:'social media',fid9:'street address',fid17:'city',fid18:'state',fid19:'ZIP code',fid37:'best contact time',fid23:'motivation',fid24:'skills',fid35:'volunteer interests',fid29:'signature',fid30:'date'},field=params.get('field'),box=document.getElementById('form-error');box.textContent=code==='payload'&&fieldNames[field]?'Formcan could not accept the '+fieldNames[field]+' field. Please contact the site administrator.':(messages[code]||messages.formcan);box.hidden=false;box.scrollIntoView({behavior:'smooth',block:'center'});}
+
+      var form=document.getElementById('volunteer-application'),canvas=document.getElementById('signature-pad'),ctx=canvas.getContext('2d'),signatureData=document.getElementById('signature-data'),status=document.getElementById('signature-status'),drawing=false,signed=false,last={x:0,y:0};
+      ctx.lineCap='round';ctx.lineJoin='round';ctx.lineWidth=3;ctx.strokeStyle='#111';
+      function point(event){var rect=canvas.getBoundingClientRect(),source=event.touches?event.touches[0]:event;return{x:(source.clientX-rect.left)*(canvas.width/rect.width),y:(source.clientY-rect.top)*(canvas.height/rect.height)}}
+      function start(event){event.preventDefault();drawing=true;last=point(event);if(event.pointerId!==undefined)canvas.setPointerCapture(event.pointerId)}
+      function move(event){if(!drawing)return;event.preventDefault();var next=point(event);ctx.beginPath();ctx.moveTo(last.x,last.y);ctx.lineTo(next.x,next.y);ctx.stroke();last=next;signed=true;status.textContent='Signature captured'}
+      function end(event){if(!drawing)return;drawing=false;if(signed)signatureData.value=canvas.toDataURL('image/png');if(event&&event.pointerId!==undefined&&canvas.hasPointerCapture(event.pointerId))canvas.releasePointerCapture(event.pointerId)}
+      canvas.addEventListener('pointerdown',start);canvas.addEventListener('pointermove',move);canvas.addEventListener('pointerup',end);canvas.addEventListener('pointercancel',end);canvas.addEventListener('pointerleave',end);
+      document.getElementById('clear-signature').addEventListener('click',function(){ctx.clearRect(0,0,canvas.width,canvas.height);signatureData.value='';signed=false;status.textContent='Signature required';canvas.focus()});
+      form.addEventListener('submit',function(event){var interests=form.querySelectorAll('input[name="interests[]"]:checked'),error=document.getElementById('form-error');if(!form.checkValidity()||interests.length===0||!signed){event.preventDefault();error.textContent=interests.length===0?'Choose at least one volunteer interest.':(!signed?'Please provide your signature before submitting.':'Please review the application and complete every required field.');error.hidden=false;error.scrollIntoView({behavior:'smooth',block:'center'});form.reportValidity();return}signatureData.value=canvas.toDataURL('image/png')});
+    }());
+  </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" class="has-uc-site-nav">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BBEQYLCZDX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-BBEQYLCZDX');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mental Health Check-In: Grief, Family, and Showing Up | The Unmasked Podcast</title>
+  <meta name="description" content="Mikel, Zach, and Josh talk honestly about anticipatory grief, family history, difficult emotions, and the value of showing up for one another.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/site-nav.css">
+  <link rel="stylesheet" href="/assets/css/podcast-episode.css?v=20260822-3">
+  <script src="/assets/js/site-nav-loader.js" defer></script>
+</head>
+<body>
+  <div id="site-nav-root"></div>
+  <main>
+    <section class="podcast-hero" aria-labelledby="episode-title">
+      <div class="hero-inner">
+        <a class="show-mark" href="/podcast" aria-label="The Unmasked Podcast">
+          <span class="show-mark-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 14.5a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v5.5a3 3 0 0 0 3 3Z" stroke="currentColor" stroke-width="2"/><path d="M6.5 11.5a5.5 5.5 0 0 0 11 0M12 17v4M9 21h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+          <span class="show-mark-text">The Unmasked<br>Podcast</span>
+        </a>
+        <h1 class="episode-heading" id="episode-title">Mental Health Check-In: Grief, Family, and Showing Up</h1>
+        <div class="player" data-audio-player>
+          <audio id="episodeAudio" preload="metadata" src="/podcasts/Episode%202.mp3"></audio>
+          <button class="play-button" type="button" aria-label="Play Episode 2" aria-pressed="false"><svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg></button>
+          <span class="time current">00:00</span>
+          <input class="progress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Episode progress">
+          <span class="time duration">--:--</span>
+          <a class="download-link" href="/podcasts/Episode%202.mp3" download><i class="fa-solid fa-download" aria-hidden="true"></i><span>Download</span></a>
+        </div>
+        <div class="episode-meta"><span><strong>Episode 02</strong></span><span>With Mikel, Zach &amp; Josh</span><span>Mental Health Check-In</span></div>
+      </div>
+    </section>
+
+    <nav class="episode-stepper" aria-label="Chronological episode navigation"><a class="episode-stepper__link" href="/podcasts/episode-1"><small>← Previous episode</small><strong>Unmasking Unmasked Culture</strong></a><a class="episode-stepper__link next" href="/podcasts/episode-3"><small>Next episode →</small><strong>Why We Started</strong></a></nav>
+
+    <div class="content-inner">
+      <article class="story">
+        <p class="eyebrow">About this episode</p>
+        <h2>Sometimes showing up is the most important thing a friend can do.</h2>
+        <div class="content-note"><strong>Content note</strong>This episode includes discussion of serious illness, anticipatory grief, childhood trauma, complicated family relationships, depression, and end-of-life decisions. Please listen with care and seek support from someone you trust if these topics affect you.</div>
+        <p class="lede">In the first installment of the podcast’s mental-health check-ins, Mikel and Zach are joined by their friend Josh for a vulnerable conversation about grief, family, and what it means to be present for one another.</p>
+        <p>Josh shares the emotional weight of his father’s declining health and the complicated feelings that come with a difficult family history. What begins as an unexpected recording becomes an honest look at anticipatory grief, emotions that arrive without warning, and the tension between wanting relief and knowing painful feelings still need to be faced.</p>
+        <p>Together, the friends discuss why emotions can feel especially difficult in male-dominated workplaces, how a simple task can create enough space to regroup, and the difference between taking a healthy step back and continually suppressing what hurts. They also reflect on faith, end-of-life uncertainty, and the limits of trying to find perfect words for someone who is grieving.</p>
+        <p>By the end of the conversation, Josh describes feeling better—not because every problem has been solved, but because he did not have to carry it alone.</p>
+
+        <h3>In this episode</h3>
+        <ul class="topic-list">
+          <li>Anticipatory grief when a parent’s health is declining</li>
+          <li>How childhood experiences complicate family loss and forgiveness</li>
+          <li>Why emotions can feel unsafe or unwelcome in some workplaces</li>
+          <li>The difference between pausing to regroup and avoiding emotions indefinitely</li>
+          <li>How everyday tasks can provide a needed mental reset</li>
+          <li>The uncertainty families face around serious illness and end-of-life care</li>
+          <li>Why listening and staying present can matter more than finding perfect advice</li>
+          <li>How sharing a personal story can remind someone else they are not alone</li>
+        </ul>
+      </article>
+
+      <aside class="sidebar" aria-label="Podcast and support links">
+        <h3>Need support?</h3>
+        <p>You do not have to carry grief or difficult emotions alone. Reach out to someone you trust or explore Unmasked Culture’s support resources.</p>
+        <div class="platform-links">
+          <a class="platform-link" href="/help"><span><i class="fa-solid fa-heart" aria-hidden="true"></i>&nbsp; Get help</span><span aria-hidden="true">→</span></a>
+          <a class="platform-link" href="/contact"><span><i class="fa-solid fa-comments" aria-hidden="true"></i>&nbsp; Start a conversation</span><span aria-hidden="true">→</span></a>
+          <a class="platform-link" href="/donate"><span><i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>&nbsp; Support the mission</span><span aria-hidden="true">→</span></a>
+        </div>
+        <hr class="sidebar-divider">
+        <h3>Follow the podcast</h3><p>Subscribe on your favorite platform for future conversations.</p>
+        <div class="platform-links">
+          <a class="platform-link" href="https://open.spotify.com/show/4oU7M1LWyn87ooVcC5i1P1" target="_blank" rel="noopener"><span><i class="fa-brands fa-spotify"></i>&nbsp; Spotify</span><span aria-hidden="true">↗</span></a>
+          <a class="platform-link" href="https://podcasts.apple.com/us/podcast/the-unmasked-podcast/id1746422573" target="_blank" rel="noopener"><span><i class="fa-solid fa-podcast"></i>&nbsp; Apple Podcasts</span><span aria-hidden="true">↗</span></a>
+        </div>
+      </aside>
+    </div>
+    <nav class="sequence-nav" aria-label="Podcast actions"><a class="sequence-link" href="/podcast"><small>Podcast home</small><strong>Browse all episodes</strong></a><button class="sequence-link next" type="button" data-podcast-guest><small>Share your story</small><strong>Be a guest</strong></button></nav>
+  </main>
+
+  <div class="plato-form-widget" data-pf-id="fr1mrcjbmfd" data-pf-host="form.formcan.com/" data-pf-display-mode="modal"></div>
+  <script src="https://static.formcan.com/assets/dist/formbuilder.js?v=20"></script>
+
+  <footer class="uc-footer"><div class="footer-inner"><div class="footer-grid">
+    <div><a class="footer-brand" href="/"><span class="red">UNMASKED</span> <span class="white">CULTURE</span></a><p class="footer-about">Unmasked Culture Foundation is a 501(c)(3) nonprofit promoting holistic mental health through a community that values vulnerability and authenticity.</p></div>
+    <div class="footer-column"><h4>Explore</h4><a href="/about">About Us</a><a href="/team">Our Team</a><a href="/volunteer">Volunteer</a><a href="/contact">Contact</a></div>
+    <div class="footer-column"><h4>Resources</h4><a href="/podcast">Podcast</a><a href="/blogs">Blogs</a><a href="/help">Get Help</a><a href="/visioncenter">Vision Center</a></div>
+    <div class="footer-column"><h4>Support</h4><a href="/donate">Donate</a><a href="https://www.instagram.com/unmaskedculture" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/unmaskedculture" target="_blank" rel="noopener">Facebook</a></div>
+  </div><div class="footer-bottom">&copy; 2026 Unmasked Culture Foundation. All rights reserved.</div></div></footer>
+
+  <script>
+    (function(){
+      const player=document.querySelector('[data-audio-player]'),audio=document.getElementById('episodeAudio'),playButton=player.querySelector('.play-button'),progress=player.querySelector('.progress'),current=player.querySelector('.current'),duration=player.querySelector('.duration');
+      function formatTime(seconds){if(!Number.isFinite(seconds))return'--:--';const minutes=Math.floor(seconds/60),remainder=Math.floor(seconds%60);return String(minutes).padStart(2,'0')+':'+String(remainder).padStart(2,'0')}
+      function setPlaying(isPlaying){playButton.classList.toggle('is-playing',isPlaying);playButton.setAttribute('aria-pressed',String(isPlaying));playButton.setAttribute('aria-label',isPlaying?'Pause Episode 2':'Play Episode 2')}
+      function updateProgress(){const percent=audio.duration?(audio.currentTime/audio.duration)*100:0;progress.value=percent;progress.style.setProperty('--progress',percent+'%');current.textContent=formatTime(audio.currentTime)}
+      playButton.addEventListener('click',()=>audio.paused?audio.play():audio.pause());audio.addEventListener('play',()=>setPlaying(true));audio.addEventListener('pause',()=>setPlaying(false));audio.addEventListener('ended',()=>setPlaying(false));audio.addEventListener('timeupdate',updateProgress);audio.addEventListener('loadedmetadata',()=>duration.textContent=formatTime(audio.duration));progress.addEventListener('input',()=>{if(audio.duration)audio.currentTime=(Number(progress.value)/100)*audio.duration;updateProgress()});
+      document.querySelector('[data-podcast-guest]').addEventListener('click',()=>{if(window.Plato&&Plato.openFormModal)Plato.openFormModal('fr1mrcjbmfd')});
+    }());
+  </script>
+</body>
+</html>

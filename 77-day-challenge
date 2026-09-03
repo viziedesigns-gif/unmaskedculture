@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://unmaskedculture.org/kinto">
+  <meta http-equiv="refresh" content="0; url=/kinto">
+  <title>Kinto | Unmasked Culture</title>
+</head>
+<body>
+  <p>The 77-Day Challenge is now part of <a href="/kinto">Kinto by Unmasked Culture</a>.</p>
+  <script>window.location.replace('/kinto');</script>
+</body>
+</html>

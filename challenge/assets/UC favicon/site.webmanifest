@@ -1,0 +1,28 @@
+{
+  "name": "Unmasked Challenge",
+  "short_name": "Unmasked",
+  "description": "Unmasked Challenge daily check-ins, journaling, mood insights, and community support.",
+  "id": "/challenge/app/dashboard.php",
+  "start_url": "/challenge/app/dashboard.php",
+  "scope": "/challenge/",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "portrait",
+  "background_color": "#f7fbfa",
+  "theme_color": "#0f766e",
+  "categories": ["health", "lifestyle", "productivity"],
+  "icons": [
+    {
+      "src": "/challenge/assets/UC%20favicon/uc-app-icon-192-v83.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/challenge/assets/UC%20favicon/uc-app-icon-512-v83.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

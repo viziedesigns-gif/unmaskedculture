@@ -1,0 +1,18 @@
+{
+  "appId": "org.unmaskedculture.kinto",
+  "appName": "Kinto",
+  "webDir": "www",
+  "server": {
+    "url": "https://unmaskedculture.org/challenge/",
+    "allowNavigation": [
+      "unmaskedculture.org",
+      "www.unmaskedculture.org"
+    ],
+    "cleartext": false,
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": false,
+    "backgroundColor": "#F5F0E8"
+  }
+}

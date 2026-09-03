@@ -1,0 +1,71 @@
+<nav class="uc-site-nav" id="uc-site-nav" aria-label="Primary">
+  <div class="uc-site-nav__backdrop" data-uc-nav-backdrop hidden></div>
+  <div class="uc-site-nav__inner">
+    <a href="/" class="uc-site-nav__logo" aria-label="Unmasked Culture home">
+      <span class="uc-site-nav__logo-red">UNMASKED</span>&nbsp;<span class="uc-site-nav__logo-white">CULTURE</span>
+    </a>
+
+    <button
+      class="uc-site-nav__toggle"
+      id="uc-nav-toggle"
+      type="button"
+      aria-label="Open menu"
+      aria-controls="uc-nav-menu"
+      aria-expanded="false"
+    >
+      <span class="uc-site-nav__toggle-bars" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+
+    <ul class="uc-site-nav__menu" id="uc-nav-menu">
+      <li class="uc-site-nav__item">
+        <a href="/" class="uc-site-nav__link" data-nav="home">Home</a>
+      </li>
+      <li class="uc-site-nav__item">
+        <a href="/about" class="uc-site-nav__link" data-nav="about">About</a>
+      </li>
+      <li class="uc-site-nav__item">
+        <a href="/team" class="uc-site-nav__link" data-nav="team">Team</a>
+      </li>
+
+      <li class="uc-site-nav__item" data-dropdown>
+        <button type="button" class="uc-site-nav__link" aria-expanded="false" aria-controls="uc-nav-get-involved">
+          Get Involved <span class="uc-site-nav__chevron" aria-hidden="true"></span>
+        </button>
+        <ul class="uc-site-nav__dropdown" id="uc-nav-get-involved">
+          <li><a href="/volunteer">Volunteer</a></li>
+          <li><a href="/help">Help</a></li>
+        </ul>
+      </li>
+
+      <li class="uc-site-nav__item" data-dropdown>
+        <button type="button" class="uc-site-nav__link" aria-expanded="false" aria-controls="uc-nav-resources">
+          Resources <span class="uc-site-nav__chevron" aria-hidden="true"></span>
+        </button>
+        <ul class="uc-site-nav__dropdown" id="uc-nav-resources">
+          <li><a href="/podcast">Podcast</a></li>
+          <li><a href="/blogs">Blogs</a></li>
+          <li><a href="/cinema">Cinema</a></li>
+        </ul>
+      </li>
+
+      <li class="uc-site-nav__item" data-dropdown>
+        <button type="button" class="uc-site-nav__link" aria-expanded="false" aria-controls="uc-nav-programs">
+          Programs <span class="uc-site-nav__chevron" aria-hidden="true"></span>
+        </button>
+        <ul class="uc-site-nav__dropdown" id="uc-nav-programs">
+          <li><a href="/visioncenter">Vision Center</a></li>
+          <li><a href="/kinto">Kinto</a></li>
+        </ul>
+      </li>
+
+      <li class="uc-site-nav__item">
+        <a href="/contact" class="uc-site-nav__link" data-nav="contact">Contact</a>
+      </li>
+      <li class="uc-site-nav__item">
+        <a href="/donate" class="uc-site-nav__link uc-site-nav__donate" data-nav="donate">Donate</a>
+      </li>
+    </ul>
+  </div>
+</nav>

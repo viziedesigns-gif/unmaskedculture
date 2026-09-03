@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 120" role="img" aria-labelledby="logoTitle">
+  <title id="logoTitle">Unmasked Challenge</title>
+  <defs>
+    <linearGradient id="waveGradient" x1="72" y1="68" x2="496" y2="68" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#14b8a6"/>
+      <stop offset=".58" stop-color="#0f766e"/>
+      <stop offset="1" stop-color="#0d9488"/>
+    </linearGradient>
+  </defs>
+  <path d="M66 82c36-25 72-25 108 0 37 25 75 25 112 0 37-24 75-24 113 0 33 21 64 24 95 8" fill="none" stroke="url(#waveGradient)" stroke-width="12" stroke-linecap="round"/>
+  <path d="M72 95c37-17 72-15 107 6 38 22 75 20 111-4 37-24 73-24 109 0 30 20 61 22 93 6" fill="none" stroke="#ccfbf1" stroke-width="6" stroke-linecap="round" opacity=".95"/>
+  <text x="280" y="58" text-anchor="middle" font-family="Libre Franklin, Arial, sans-serif" font-size="42" font-weight="800" letter-spacing="0" fill="#111111">Unmasked</text>
+  <text x="280" y="102" text-anchor="middle" font-family="Libre Franklin, Arial, sans-serif" font-size="34" font-weight="800" letter-spacing="0" fill="#0f766e">Challenge</text>
+</svg>

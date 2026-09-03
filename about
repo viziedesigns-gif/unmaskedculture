@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en" class="has-uc-site-nav">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BBEQYLCZDX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-BBEQYLCZDX');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn about Unmasked Culture - dedicated to promoting holistic mental health by fostering a community that values wellness and authenticity.">
+  <title>About Us | Unmasked Culture</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  
+  <style>
+    /* ========================================
+       CSS VARIABLES & RESET
+       ======================================== */
+    :root {
+      --primary-red: #ff0000;
+      --accent-color: #ff4d4d;
+      --hover-red: #cc0000;
+      --primary-black: #000000;
+      --primary-white: #ffffff;
+      --dark-bg: #1a1a1a;
+      --light-bg: #ffffff;
+      --secondary-color: #f5f5f5;
+      --text-color: #333333;
+      --navbar-height: 80px;
+      --transition-speed: 0.3s;
+      --transition: all 0.3s ease;
+      --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      --border-radius: 8px;
+      --footer-border: rgba(255, 255, 255, 0.1);
+      --blue-accent: #4a90e2;
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      color: var(--text-color);
+      line-height: 1.6;
+      padding-top: var(--navbar-height);
+    }
+
+    body.nav-open { overflow: hidden; }
+
+    a { text-decoration: none; }
+    ul { list-style: none; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ========================================
+       NAVBAR STYLES
+       ======================================== */
+    .navbar {
+      background-color: var(--primary-black);
+      height: var(--navbar-height);
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+  
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      padding: 0 50px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+  
+    .navbar-logo,
+    .footer-logo a {
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-red { color: var(--primary-red); }
+    .logo-white { color: var(--primary-white); }
+  
+    .navbar-logo:hover,
+    .footer-logo a:hover { transform: scale(1.05); }
+  
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+  
+    .nav-item {
+      position: relative;
+      height: var(--navbar-height);
+      display: flex;
+      align-items: center;
+    }
+  
+    .nav-link {
+      color: var(--primary-white);
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      padding: 0 15px;
+      height: 100%;
+      font-size: 1rem;
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 20px;
+      left: 15px;
+      background-color: var(--primary-red);
+      transition: width var(--transition-speed) ease;
+    }
+    
+    .nav-link:hover::after { width: calc(100% - 30px); }
+    .nav-link:hover { color: var(--primary-red); }
+  
+    .dropdown-icon {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      margin-left: 6px;
+      vertical-align: middle;
+      border-top: 4px solid var(--primary-white);
+      border-right: 4px solid transparent;
+      border-left: 4px solid transparent;
+      transition: transform var(--transition-speed) ease;
+    }
+    
+    .dropdown.active .dropdown-icon { transform: rotate(180deg); }
+  
+    .dropdown-menu {
+      position: absolute;
+      top: var(--navbar-height);
+      left: 0;
+      background-color: var(--primary-black);
+      min-width: 220px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: var(--transition);
+      padding: 10px 0;
+      border-radius: 0 0 4px 4px;
+      list-style: none;
+      border-top: 2px solid var(--primary-red);
+      z-index: 1000;
+    }
+  
+    .dropdown:hover .dropdown-menu,
+    .dropdown:focus-within .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  
+    .dropdown-menu li { padding: 0; }
+  
+    .dropdown-menu a {
+      color: var(--primary-white);
+      padding: 10px 20px;
+      display: block;
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 0.9rem;
+    }
+  
+    .dropdown-menu a:hover {
+      background-color: rgba(255, 0, 0, 0.1);
+      color: var(--primary-red);
+      padding-left: 25px;
+    }
+  
+    .donate-btn {
+      background-color: var(--primary-red);
+      color: var(--primary-white);
+      padding: 10px 20px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      margin-left: 15px;
+      border-radius: 25px;
+      box-shadow: 0 4px 8px rgba(255, 0, 0, 0.2);
+      display: inline-block;
+    }
+  
+    .donate-btn:hover {
+      background-color: var(--hover-red);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(255, 0, 0, 0.3);
+    }
+  
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      z-index: 1001;
+      padding: 10px;
+      background-color: transparent;
+      border: none;
+      outline: none;
+    }
+  
+    .menu-toggle .bar {
+      width: 25px;
+      height: 3px;
+      margin: 5px auto;
+      transition: var(--transition);
+      background-color: var(--primary-white);
+      display: block;
+      border-radius: 2px;
+    }
+
+    /* ========================================
+       PAGE HERO
+       ======================================== */
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+      background-size: cover;
+      background-position: center;
+      color: var(--primary-white);
+      padding: 100px 0;
+      text-align: center;
+    }
+    
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--blue-accent);
+      color: var(--primary-white);
+      padding: 12px 28px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    
+    .btn:hover {
+      background-color: #3a7bc8;
+      transform: translateY(-2px);
+    }
+
+    /* ========================================
+       ABOUT SECTION
+       ======================================== */
+    .about-section {
+      padding: 80px 0;
+      background-color: var(--light-bg);
+    }
+    
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    
+    .about-text h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: var(--text-color);
+      font-weight: 700;
+    }
+    
+    .about-text p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+    
+    .about-image img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ========================================
+       MISSION SECTION
+       ======================================== */
+    .mission-section {
+      padding: 80px 0;
+      background-color: #f8f9fa;
+    }
+    
+    .mission-content {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .mission-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: var(--text-color);
+      font-weight: 700;
+    }
+    
+    .mission-content p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+    
+    .values {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      gap: 30px;
+      margin-top: 50px;
+    }
+    
+    .value-card {
+      background-color: var(--light-bg);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      flex: 1;
+      min-width: 0;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .value-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .value-card i {
+      font-size: 2.5rem;
+      color: var(--blue-accent);
+      margin-bottom: 20px;
+    }
+    
+    .value-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--text-color);
+      font-weight: 600;
+    }
+
+    /* ========================================
+       STATS SECTION
+       ======================================== */
+    .stats-section {
+      padding: 80px 0;
+      background-color: var(--light-bg);
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding: 0 1rem;
+    }
+    
+    .section-title h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--text-color);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 0.5rem;
+    }
+    
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--blue-accent);
+    }
+    
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .stat-box {
+      background: var(--light-bg);
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .stat-box:hover {
+      transform: translateY(-5px);
+    }
+    
+    .stat-fraction, .stat-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--blue-accent);
+      margin-bottom: 1rem;
+    }
+    
+    .stat-description {
+      font-size: 1.1rem;
+      color: var(--text-color);
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    /* ========================================
+       HOLISTIC HEALTH SECTION
+       ======================================== */
+    .holistic-health {
+      padding: 80px 0;
+      background-color: #f8f9fa;
+    }
+
+    .holistic-health .section-title {
+      margin-bottom: 0;
+    }
+
+    .holistic-intro {
+      text-align: center;
+      max-width: 800px;
+      margin: 20px auto 50px;
+      font-size: 1.1rem;
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    
+    .grid-item {
+      background-color: var(--light-bg);
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+    
+    .grid-item:hover {
+      transform: translateY(-10px);
+    }
+    
+    .icon-container {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    
+    .icon-container i {
+      font-size: 2rem;
+      color: var(--primary-white);
+    }
+    
+    .grid-item-title {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    
+    .grid-item-description {
+      color: #666;
+    }
+    
+    .bg-physical { background-color: #4a90e2; }
+    .bg-mental { background-color: #9c27b0; }
+    .bg-spiritual { background-color: #ff9800; }
+    .bg-social { background-color: #4caf50; }
+    
+    .text-physical { color: #4a90e2; }
+    .text-mental { color: #9c27b0; }
+    .text-spiritual { color: #ff9800; }
+    .text-social { color: #4caf50; }
+
+    /* ========================================
+       SERVICES SECTION
+       ======================================== */
+    .services-section {
+      padding: 80px 0;
+      background-color: var(--light-bg);
+    }
+
+    .services-intro {
+      text-align: center;
+      max-width: 800px;
+      margin: 20px auto 50px;
+      font-size: 1.1rem;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    
+    .service-card {
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .service-image {
+      height: 250px;
+      overflow: hidden;
+    }
+    
+    .service-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    
+    .service-card:hover .service-image img {
+      transform: scale(1.1);
+    }
+    
+    .service-info {
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .service-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+      color: var(--text-color);
+      font-weight: 600;
+    }
+    
+    .service-info p {
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .services-closing {
+      text-align: center;
+      max-width: 800px;
+      margin: 50px auto 0;
+      font-style: italic;
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+
+    /* ========================================
+       FOOTER STYLES
+       ======================================== */
+    .footer {
+      background-color: var(--primary-black);
+      color: var(--primary-white);
+      padding: 60px 0 30px;
+      width: 100%;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 50px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo { margin-bottom: 30px; }
+
+    .footer-tagline {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .footer-nav-column h3 {
+      color: var(--primary-white);
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+      position: relative;
+    }
+
+    .footer-nav-column h3::after {
+      content: '';
+      position: absolute;
+      width: 30px;
+      height: 2px;
+      background-color: var(--primary-red);
+      bottom: -5px;
+      left: 0;
+    }
+
+    .footer-nav-column ul { list-style: none; }
+    .footer-nav-column ul li { margin-bottom: 10px; }
+
+    .footer-nav-column ul li a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 0.9rem;
+    }
+
+    .footer-nav-column ul li a:hover {
+      color: var(--primary-red);
+      padding-left: 5px;
+    }
+
+    .footer-middle {
+      display: flex;
+      justify-content: space-between;
+      padding: 30px 0;
+      border-top: 1px solid var(--footer-border);
+      border-bottom: 1px solid var(--footer-border);
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .candid-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .candid-seal img {
+      max-width: 200px;
+      height: auto;
+      transition: transform var(--transition-speed) ease;
+    }
+
+    .candid-seal:hover img { transform: scale(1.05); }
+
+    .candid-profile {
+      color: var(--primary-white);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color var(--transition-speed) ease;
+    }
+
+    .candid-profile:hover { color: var(--primary-red); }
+
+    .footer-social-links h3 {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--primary-white);
+      transition: var(--transition);
+    }
+
+    .social-icon:hover {
+      background-color: var(--primary-red);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .footer-info p {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover { color: var(--primary-red); }
+
+    .footer-donate .donate-btn { margin-left: 0; }
+
+    /* ========================================
+       RESPONSIVE STYLES
+       ======================================== */
+    @media screen and (max-width: 1024px) {
+      .navbar-container,
+      .footer-container { padding: 0 20px; }
+      
+      .nav-link {
+        padding: 0 10px;
+        font-size: 0.95rem;
+      }
+      
+      .donate-btn {
+        padding: 8px 16px;
+        margin-left: 10px;
+      }
+
+      .footer-nav { gap: 30px; }
+    }
+    
+    @media screen and (max-width: 960px) {
+      .nav-menu {
+        flex-direction: column;
+        width: 100%;
+        position: fixed;
+        top: var(--navbar-height);
+        right: -100%;
+        opacity: 0;
+        transition: all 0.5s ease;
+        background-color: rgba(0, 0, 0, 0.95);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        align-items: center;
+        height: calc(100vh - var(--navbar-height));
+        overflow-y: auto;
+        backdrop-filter: blur(5px);
+        z-index: 1000;
+      }
+  
+      .nav-menu.active {
+        right: 0;
+        opacity: 1;
+        padding: 20px 0;
+      }
+  
+      .nav-item {
+        height: auto;
+        width: 90%;
+        margin: 5px 0;
+      }
+  
+      .nav-link {
+        padding: 15px;
+        width: 100%;
+        display: block;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      .nav-link::after { display: none; }
+  
+      .dropdown-toggle {
+        position: relative;
+        width: 100%;
+        cursor: pointer;
+        justify-content: center;
+      }
+      
+      .dropdown-menu {
+        position: static;
+        background-color: rgba(255, 255, 255, 0.05);
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease, opacity 0.3s ease;
+        padding: 0;
+        box-shadow: none;
+        opacity: 0;
+        visibility: hidden;
+        transform: none;
+        border-radius: 4px;
+        margin-top: 5px;
+        border-top: none;
+      }
+      
+      .dropdown.active .dropdown-menu {
+        max-height: 500px;
+        padding: 5px 0;
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .dropdown-icon {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        border-top: 8px solid var(--primary-white);
+        border-right: 8px solid transparent;
+        border-left: 8px solid transparent;
+        pointer-events: none;
+        margin-left: 0;
+      }
+      
+      .dropdown.active .dropdown-icon {
+        transform: translateY(-50%) rotate(180deg);
+      }
+  
+      .dropdown-menu a {
+        padding: 12px 15px;
+        text-align: center;
+      }
+      
+      .dropdown-menu a:hover { padding-left: 15px; }
+  
+      .menu-toggle {
+        display: block;
+        position: relative;
+        z-index: 1001;
+        padding: 15px;
+        margin-right: -15px;
+      }
+      
+      .menu-toggle .bar {
+        width: 30px;
+        height: 4px;
+        margin: 6px auto;
+      }
+      
+      .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(10px) rotate(45deg);
+      }
+      
+      .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+      
+      .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-10px) rotate(-45deg);
+      }
+  
+      .nav-item .donate-btn {
+        margin: 15px 0;
+        width: 80%;
+        text-align: center;
+      }
+
+      /* Footer responsive */
+      .footer-top { flex-direction: column; }
+      .footer-logo { margin-bottom: 40px; }
+      .footer-nav { width: 100%; justify-content: space-between; }
+      .footer-middle { flex-direction: column; align-items: center; }
+      .candid-section, .footer-social-links { width: 100%; max-width: 100%; align-items: center; }
+      .footer-social-links { margin-top: 30px; }
+    }
+
+    @media screen and (max-width: 768px) {
+      .about-content { grid-template-columns: 1fr; }
+      .about-image { order: -1; }
+      
+      .stats-container {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+      }
+      
+      .stat-box { padding: 1.5rem; }
+      
+      .hero h1 { font-size: 2.5rem; }
+      
+      .values { flex-direction: column; }
+      .value-card { width: 100%; margin-bottom: 20px; }
+
+      .footer-nav { flex-wrap: wrap; gap: 40px 20px; }
+      .footer-nav-column { width: calc(50% - 20px); }
+      .footer-bottom { flex-direction: column-reverse; text-align: center; }
+      .footer-info { flex-direction: column; width: 100%; }
+      .footer-links { justify-content: center; width: 100%; }
+    }
+    
+    @media screen and (max-width: 480px) {
+      .navbar-logo, .footer-logo a { font-size: 1.2rem; }
+      .nav-menu, .nav-item { width: 100%; }
+      .footer { padding: 40px 0 20px; }
+      .footer-nav-column { width: 100%; }
+      .social-icons { justify-content: center; }
+    }
+  </style>
+  <link rel="stylesheet" href="/assets/css/site-nav.css">
+  <script src="/assets/js/site-nav-loader.js" defer></script>
+</head>
+<body>
+  <div id="site-nav-root"></div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1>About Unmasked Culture</h1>
+        <p>Dedicated to promoting holistic mental health by shedding light on daily struggles and fostering a community that values wellness.</p>
+        <a href="/contact" class="btn">Get Involved</a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-text">
+            <h2>Our Story</h2>
+            <p>Unmasked Culture was founded with a vision to empower every individual on their journey of self-improvement and betterment by providing essential opportunities, resources, and guidance.</p>
+            <p>Acknowledging the socio-economic barriers that hinder access to proper treatment, we are dedicated to bridging this gap, facilitating a holistic approach for all to pursue a healthy mindset and lifestyle.</p>
+            <p>We believe in second chances and provide tools for success to those who have faced adversity. Through our program, individuals gain life skills, employment opportunities, access to spiritual growth curricula, financial coaching, and a testimony of triumph.</p>
+          </div>
+          <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Community support" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+      <div class="container">
+        <div class="mission-content">
+          <h2>Our Mission & Vision</h2>
+          <p>Unmasked Culture is dedicated to promoting holistic mental health by shedding light on daily struggles by fostering a community that values wellness.</p>
+          <p>Our vision is to empower every individual on their journey of self-improvement by providing essential opportunities, resources, and guidance they need, while acknowledging and addressing the socio-economic barriers that hinder access to proper treatment.</p>
+          
+          <div class="values">
+            <div class="value-card">
+              <i class="fas fa-heart"></i>
+              <h3>Holistic Approach</h3>
+              <p>We embrace a balanced focus on physical, mental, spiritual, and social aspects of life to achieve complete wellness.</p>
+            </div>
+            <div class="value-card">
+              <i class="fas fa-hands-helping"></i>
+              <h3>Accessibility</h3>
+              <p>We are committed to bridging socio-economic gaps, making mental health resources available to all who need them.</p>
+            </div>
+            <div class="value-card">
+              <i class="fas fa-lightbulb"></i>
+              <h3>Second Chances</h3>
+              <p>We believe in providing tools for success to those who have faced adversity, helping them build a brighter future.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>The Mental Health Crisis Is Real</h2>
+        </div>
+        
+        <div class="stats-container">
+          <div class="stat-box">
+            <div class="stat-fraction">1/5</div>
+            <p class="stat-description">U.S. adults experience mental illness each year</p>
+          </div>
+        
+          <div class="stat-box">
+            <div class="stat-fraction">1/20</div>
+            <p class="stat-description">U.S. adults experience serious mental illness each year</p>
+          </div>
+        
+          <div class="stat-box">
+            <div class="stat-fraction">1/6</div>
+            <p class="stat-description">U.S. youth aged 6-17 experience a mental health disorder each year</p>
+          </div>
+        
+          <div class="stat-box">
+            <div class="stat-number">50%</div>
+            <p class="stat-description">of all lifetime mental illness begins by age 14, and 75% by age 24</p>
+          </div>
+        
+          <div class="stat-box">
+            <div class="stat-number">51%</div>
+            <p class="stat-description">U.S. youth aged 6-17 with a mental health disorder received treatment in 2016</p>
+          </div>
+        
+          <div class="stat-box">
+            <div class="stat-number">8mil</div>
+            <p class="stat-description">people in the U.S. provide care to an adult with a mental or emotional health issue</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Holistic Health Section -->
+    <section class="holistic-health">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Holistic Approach</h2>
+        </div>
+        <p class="holistic-intro">Our community center embodies a holistic ethos, encouraging a balanced focus on all aspects of wellbeing to help individuals thrive.</p>
+        <div class="grid">
+          <div class="grid-item">
+            <div class="icon-container bg-physical">
+              <i class="fas fa-heartbeat"></i>
+            </div>
+            <h3 class="grid-item-title text-physical">Physical Health</h3>
+            <p class="grid-item-description">Collaborating with healthcare providers to identify and address physical health issues, offering tailored solutions for prime physical well-being.</p>
+          </div>
+          <div class="grid-item">
+            <div class="icon-container bg-mental">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h3 class="grid-item-title text-mental">Mental Health</h3>
+            <p class="grid-item-description">Recognizing the profound impact of mental health on personal development, we emphasize early intervention and awareness.</p>
+          </div>
+          <div class="grid-item">
+            <div class="icon-container bg-spiritual">
+              <i class="fas fa-peace"></i>
+            </div>
+            <h3 class="grid-item-title text-spiritual">Spiritual Health</h3>
+            <p class="grid-item-description">Partnering with faith-based organizations to connect individuals with like-minded communities, fostering spiritual growth and consistent support systems.</p>
+          </div>
+          <div class="grid-item">
+            <div class="icon-container bg-social">
+              <i class="fas fa-user-friends"></i>
+            </div>
+            <h3 class="grid-item-title text-social">Social Health</h3>
+            <p class="grid-item-description">Organizing informative and friendly community events to foster connections that propel individuals towards a brighter future.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Community Services</h2>
+        </div>
+        <p class="services-intro">To serve the community comprehensively, we offer essential services that address various needs and foster growth.</p>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-image">
+              <img src="https://images.unsplash.com/photo-1607748862156-7c548e7e98f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Food Bank" loading="lazy">
+            </div>
+            <div class="service-info">
+              <h3>Food Bank</h3>
+              <p>Providing essential nutrition to those in need</p>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-image">
+              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Vocational Assistance" loading="lazy">
+            </div>
+            <div class="service-info">
+              <h3>Vocational Assistance</h3>
+              <p>Helping individuals develop skills for employment</p>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-image">
+              <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Mental Health Services" loading="lazy">
+            </div>
+            <div class="service-info">
+              <h3>Mental Health Services</h3>
+              <p>Access to professional mental health providers</p>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-image">
+              <img src="https://images.unsplash.com/photo-1556484687-30636164638b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Financial Coaching" loading="lazy">
+            </div>
+            <div class="service-info">
+              <h3>Financial Coaching</h3>
+              <p>Guidance for financial stability and growth</p>
+            </div>
+          </div>
+        </div>
+        <p class="services-closing">Unmasked Culture is more than an organization; it's a catalyst for positive change. Join us in creating a world where everyone has the opportunity to thrive.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <a href="/">
+            <span class="logo-red">UNMASKED</span>&nbsp;<span class="logo-white">CULTURE</span>
+          </a>
+          <p class="footer-tagline">Empowering authentic cultural expression</p>
+        </div>
+        
+        <div class="footer-nav">
+          <div class="footer-nav-column">
+            <h3>About</h3>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/the-mission">Mission</a></li>
+              <li><a href="/team">Team</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-nav-column">
+            <h3>Community</h3>
+            <ul>
+              <li><a href="/volunteer">Volunteer</a></li>
+              <li><a href="/help">Help</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-nav-column">
+            <h3>Resources</h3>
+            <ul>
+              <li><a href="/podcast">Podcast</a></li>
+              <li><a href="/blogs">Blogs</a></li>
+              <li><a href="/cinema">Cinema</a></li>
+              </ul>
+          </div>
+          
+          <div class="footer-nav-column">
+            <h3>Programs</h3>
+            <ul>
+              <li><a href="/visioncenter">Vision Center</a></li>
+              <li><a href="/kinto">Kinto</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-middle">
+        <div class="candid-section">
+          <a href="https://app.candid.org/profile/9890997" target="_blank" rel="noopener noreferrer" class="candid-seal">
+            <img src="https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/9890997/svg" alt="Candid Seal of Transparency" width="200" height="200" loading="lazy">
+          </a>
+          <a href="https://app.candid.org/profile/9890997/?pkId=ca294a35-976d-4957-8a7e-95d2cde41ee5&isActive=true" target="_blank" rel="noopener noreferrer" class="candid-profile">
+            View our Candid Profile
+          </a>
+        </div>
+        
+        <div class="footer-social-links">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="24" height="24" aria-hidden="true">
+                <path fill="currentColor" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/>
+              </svg>
+            </a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24" aria-hidden="true">
+                <path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/>
+              </svg>
+            </a>
+            <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="24" height="24" aria-hidden="true">
+                <path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+              </svg>
+            </a>
+            <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="24" height="24" aria-hidden="true">
+                <path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/>
+              </svg>
+            </a>
+            <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="24" height="24" aria-hidden="true">
+                <path fill="currentColor" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-info">
+          <p>&copy; 2025 Unmasked Culture. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+            <a href="/accessibility">Accessibility</a>
+          </div>
+        </div>
+        
+        <div class="footer-donate">
+          <a href="/donate" class="donate-btn">Donate</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    (function() {
+      'use strict';
+      
+      // Mobile menu
+      const menuToggle = document.getElementById('mobile-menu');
+      const __legacyNavMenu = document.getElementById('nav-menu');
+      if (!menuToggle || !__legacyNavMenu) return; // shared site-nav
+      const navMenu = document.getElementById('nav-menu');
+      
+      const dropdowns = Array.from(document.querySelectorAll('.dropdown'));
+
+      function setDropdownState(dropdown, isOpen) {
+        dropdown.classList.toggle('active', isOpen);
+        dropdown.querySelector('.dropdown-toggle').setAttribute('aria-expanded', String(isOpen));
+      }
+
+      function closeDropdowns(except) {
+        dropdowns.forEach(dropdown => {
+          if (dropdown !== except) setDropdownState(dropdown, false);
+        });
+      }
+
+      function setMenuState(isOpen, returnFocus) {
+        menuToggle.classList.toggle('active', isOpen);
+        navMenu.classList.toggle('active', isOpen);
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+        if (!isOpen) closeDropdowns();
+        if (returnFocus) menuToggle.focus();
+      }
+
+      menuToggle.addEventListener('click', function() {
+        setMenuState(!navMenu.classList.contains('active'));
+      });
+
+      document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+          if (window.innerWidth <= 960) {
+            e.preventDefault();
+            e.stopPropagation();
+            const dropdown = toggle.closest('.dropdown');
+            const willOpen = !dropdown.classList.contains('active');
+            closeDropdowns(dropdown);
+            setDropdownState(dropdown, willOpen);
+          }
+        });
+      });
+      
+      document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 960 && navMenu.classList.contains('active') &&
+            !navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+          setMenuState(false);
+        }
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          if (navMenu.classList.contains('active')) setMenuState(false, true);
+          else closeDropdowns();
+        }
+      });
+      
+      window.addEventListener('resize', function() {
+        if (window.innerWidth > 960) setMenuState(false);
+      });
+
+      // Video background handling
+      const video = document.querySelector('.video-background');
+      const heroSection = document.querySelector('.hero-section');
+      
+      if (video && heroSection) {
+        video.load();
+        
+        const fallbackBg = 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")';
+        
+        setTimeout(function() {
+          if (video.readyState === 0 || video.networkState === 3) {
+            heroSection.style.backgroundImage = fallbackBg;
+            heroSection.style.backgroundSize = 'cover';
+            heroSection.style.backgroundPosition = 'center';
+            video.style.display = 'none';
+          }
+        }, 3000);
+        
+        video.addEventListener('canplaythrough', function() {
+          video.play().catch(function() {
+            heroSection.style.backgroundImage = fallbackBg;
+            heroSection.style.backgroundSize = 'cover';
+            heroSection.style.backgroundPosition = 'center';
+          });
+        });
+        
+        video.addEventListener('error', function() {
+          heroSection.style.backgroundImage = fallbackBg;
+          heroSection.style.backgroundSize = 'cover';
+          heroSection.style.backgroundPosition = 'center';
+          video.style.display = 'none';
+        });
+      }
+      
+    })();
+  </script>
+</body>
+</html>
