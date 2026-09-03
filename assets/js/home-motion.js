@@ -42,11 +42,12 @@
         var travel=Math.max(1,rect.height-window.innerHeight);
         var progress=Math.max(0,Math.min(1,-rect.top/travel));
         missionWords.forEach(function(word,index){
-          var start=(index/missionWords.length)*.82;
-          var wordProgress=Math.max(0,Math.min(1,(progress-start)/.18));
+          var start=(index/missionWords.length)*.74;
+          var wordProgress=Math.max(0,Math.min(1,(progress-start)/.26));
           var eased=wordProgress*wordProgress*(3-2*wordProgress);
-          word.style.opacity=String(.13+(.87*eased));
-          word.style.transform='translateY('+((1-eased)*.16)+'em)';
+          word.style.opacity=String(.12+(.88*eased));
+          word.style.filter='blur('+((1-eased)*9)+'px) brightness('+(.55+(.45*eased))+')';
+          word.style.transform='translateY('+((1-eased)*.22)+'em) scale('+(0.985+(.015*eased))+')';
         });
       }
       ticking=false;
