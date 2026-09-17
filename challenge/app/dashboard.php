@@ -144,6 +144,7 @@ include __DIR__ . '/../includes/header.php';
             </div>
             <div class="streak-count"><?= $streakStatus['current_streak'] ?></div>
             <div class="streak-label">Day Streak</div>
+            <a href="/challenge/app/streaks.php" class="streaks-entry">View streaks &amp; calendar &rarr;</a>
         </div>
         
         <div class="streak-stats">

@@ -77,6 +77,7 @@ include __DIR__ . '/../includes/header.php';
             <div class="feed-progress-banner__top">
                 <div class="feed-progress-banner__title">
                     <span class="feed-circle-name"><?= h($circle['name']) ?></span>
+                    <a href="/challenge/app/streaks.php?circle=<?= $circleId ?>" class="streaks-entry"><i data-lucide="flame" aria-hidden="true"></i> Streak leaderboard</a>
                 </div>
                 <a id="feedSettingsLink" href="/challenge/app/settings/circles.php?circle=<?= $circleId ?>" class="feed-settings-link" title="Circle settings">
                     <i data-lucide="settings"></i>

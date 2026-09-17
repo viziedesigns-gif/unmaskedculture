@@ -635,10 +635,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add loading state to forms
     document.querySelectorAll('form').forEach(form => {
-        form.addEventListener('submit', function() {
-            const submitBtn = form.querySelector('button[type="submit"]');
+        form.addEventListener('submit', function(event) {
+            if (event.defaultPrevented) return;
+            const submitBtn = event.submitter;
             if (submitBtn && !submitBtn.disabled) {
-                submitBtn.disabled = true;
+                // Keep the submitter enabled until the browser has serialized its
+                // name/value (for example action=skip on the circle setup form).
+                setTimeout(() => {
+                    if (!event.defaultPrevented) submitBtn.disabled = true;
+                }, 0);
                 submitBtn.dataset.originalText = submitBtn.innerHTML;
                 submitBtn.innerHTML = '<span class="loading-spinner"></span> Processing...';
             }

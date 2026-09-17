@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'] ?? '';
 
     if ($action === 'skip') {
-        unset($_SESSION['pending_invite_code'], $_SESSION['pending_circle_name']);
+        unset($_SESSION['pending_invite_code'], $_SESSION['pending_circle_name'], $_SESSION['pending_circle_join']);
         redirect('/challenge/onboarding/step3.php');
     } elseif ($action === 'continue_invite') {
         if ($pendingCircle) {

@@ -48,6 +48,7 @@ include __DIR__ . '/../includes/header.php';
 <div class="profile-page settings-hub-page">
     <div class="page-header">
         <h1>Settings</h1>
+        <a class="btn btn-secondary" href="/challenge/app/streaks.php"><i data-lucide="flame" aria-hidden="true"></i> Your streaks</a>
     </div>
 
     <?php renderSettingsAlerts($error, $success); ?>

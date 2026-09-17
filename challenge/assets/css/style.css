@@ -11382,3 +11382,34 @@ select:focus {
 .shop-avatar-link strong,
 .shop-avatar-link small { display: block; }
 .shop-avatar-link small { margin-top: .15rem; color: var(--text-secondary); font-size: .78rem; }
+
+/* Kinto streak calendar and circle leaderboard */
+.streaks-page{max-width:1080px;margin:0 auto;padding:24px 16px 110px}
+.streaks-heading,.streaks-hero,.streaks-month{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.streaks-heading h1{font-size:clamp(2rem,5vw,3rem)}
+.streaks-eyebrow{color:var(--accent-muted);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase}
+.streaks-tabs{display:flex;gap:8px;overflow-x:auto;padding:22px 0}
+.streaks-tabs a{flex-shrink:0;padding:10px 18px;border:1px solid var(--border);border-radius:30px;color:var(--text)}
+.streaks-tabs a[aria-current]{background:var(--primary);color:var(--background)}
+.streaks-hero{justify-content:flex-start;padding:28px;border-radius:24px;background:var(--primary);color:var(--background);border:1px solid var(--accent)}
+.streaks-hero strong{display:block;font-family:var(--font-display);font-size:4rem;line-height:1.2;color:var(--accent-light)}
+.streaks-hero strong span{font:500 1.2rem var(--font-sans)}
+.streaks-repair{display:flex;gap:18px;margin:18px 0 26px;padding:22px;background:var(--surface);border:1px solid var(--border);border-radius:20px}
+.streaks-repair>svg{flex-shrink:0;color:var(--accent)}
+.streaks-repair h2{font-size:1.5rem}.streaks-repair p{margin:6px 0;font-size:.9rem}
+.streaks-layout{display:grid;grid-template-columns:1fr 1.2fr;gap:20px;margin-top:24px}
+.streaks-panel{min-width:0;padding:24px;border:1px solid var(--border);border-radius:22px;background:var(--surface)}
+.streaks-panel h2{font-size:1.8rem}.streaks-note{font-size:.85rem;color:var(--text-secondary);margin:8px 0 18px}
+.streaks-leaders{list-style:none}.streaks-leaders a{display:flex;align-items:center;gap:12px;padding:15px 10px;border-bottom:1px solid var(--border);color:var(--text);border-radius:10px}
+.streaks-leaders a[aria-current]{background:var(--surface-hover)}
+.streaks-rank{color:var(--accent-muted);min-width:26px;font-weight:700}.streaks-person{flex:1;min-width:0;overflow-wrap:anywhere}
+.streaks-person small{display:block;color:var(--text-secondary)}.streaks-score{display:flex;align-items:center;gap:4px;font-weight:700}
+.streaks-score svg{width:18px;color:var(--accent)}.streaks-score small{font-weight:400}
+.streaks-month{margin:20px 0}.streaks-month h3{font-size:1rem}
+.streaks-calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;text-align:center}
+.streaks-weekday{font-size:.7rem;color:var(--text-secondary);padding-bottom:8px}
+.streaks-day{aspect-ratio:1;display:grid;place-items:center;border-radius:50%;font-size:.85rem;border:2px solid transparent}
+.streaks-day.is-complete{background:var(--accent);color:#1A1714;font-weight:700}.streaks-day.is-today{border-color:var(--text)}.streaks-day.is-future{opacity:.4}
+.streaks-legend{display:flex;align-items:center;gap:8px;margin:20px 0 8px;font-size:.75rem}.streaks-legend span{width:12px;height:12px;border-radius:50%;background:var(--accent)}
+.streaks-entry{display:inline-flex;align-items:center;gap:6px;font-size:.8rem}.streaks-entry svg{width:16px;height:16px}
+@media(max-width:700px){.streaks-layout{grid-template-columns:1fr}.streaks-heading{align-items:flex-start}.streaks-panel{padding:18px}.streaks-hero{padding:22px}.streaks-hero img{width:65px}.streaks-score small{display:none}}
