@@ -107,7 +107,7 @@ if (page) {
             document.body.style.overflow = 'hidden';
             document.getElementById('jarReturnButton')?.focus();
         } catch (error) {
-            alert(error.message);
+            showFlash('error', error.message);
         } finally {
             pullButton.disabled = entryCount < 1;
             if (label) label.textContent = entryCount > 0 ? 'Pull a random note' : 'Add your first note';
@@ -125,7 +125,7 @@ if (page) {
     history?.addEventListener('click', async (event) => {
         const button = event.target.closest('[data-delete-jar-entry]');
         if (!button) return;
-        if (!window.confirm('Remove this note from your Jar? This cannot be undone.')) return;
+        if (!await confirmKinto('Remove this note from your Jar? This cannot be undone.', 'Remove note')) return;
         button.disabled = true;
         try {
             await post('/challenge/api/jar_delete.php', { entry_id: Number(button.dataset.deleteJarEntry) });
@@ -134,7 +134,7 @@ if (page) {
             window.KintoJarScene?.setCount(entryCount);
             if (!history.querySelector('.jar-history-card')) location.href = page.id === 'jarHistoryPage' ? '/challenge/app/jar_history.php' : '/challenge/app/jar.php';
         } catch (error) {
-            alert(error.message);
+            showFlash('error', error.message);
             button.disabled = false;
         }
     });

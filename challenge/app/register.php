@@ -57,6 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['auth_version'] = 1;
             $_SESSION['login_time'] = time();
             session_regenerate_id(true);
+            rememberDeviceLogin((int) $result, 1);
             clearFlash();
 
             $welcomeDelivery = sendWelcomeEmail((int) $result);

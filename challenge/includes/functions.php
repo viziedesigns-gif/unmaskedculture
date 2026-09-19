@@ -93,38 +93,15 @@ function h(?string $string): string {
  */
 function profilePicUrl(?string $profilePic): string {
     $profilePic = trim($profilePic ?? '');
-    if ($profilePic === '') {
-        return '';
-    }
-
+    if ($profilePic === '') return '';
     if (preg_match('#^https?://#i', $profilePic)) {
-        return $profilePic;
+        $host = parse_url($profilePic, PHP_URL_HOST);
+        if (!in_array(strtolower((string) $host), ['unmaskedculture.org', 'www.unmaskedculture.org'], true)) return $profilePic;
+        $profilePic = (string) parse_url($profilePic, PHP_URL_PATH);
     }
-
-    if (str_starts_with($profilePic, '/')) {
-        return $profilePic;
-    }
-
-    $profilePic = ltrim($profilePic, '/');
-
-    if (str_starts_with($profilePic, 'uploads/profile-pictures/')) {
-        return '/' . $profilePic;
-    }
-
-    if (str_starts_with($profilePic, 'profile-pictures/')) {
-        return '/uploads/' . $profilePic;
-    }
-
-    if (str_starts_with($profilePic, 'uploads/')) {
-        $durableProfilePicPath = PROFILE_PIC_UPLOAD_PATH . basename($profilePic);
-        if (is_file($durableProfilePicPath)) {
-            return PROFILE_PIC_UPLOAD_URL . basename($profilePic);
-        }
-
-        return '/challenge/' . $profilePic;
-    }
-
-    return '/challenge/' . $profilePic;
+    $filename = basename(str_replace('\\', '/', $profilePic));
+    if (!preg_match('/\A[a-zA-Z0-9_.-]+\.(?:jpe?g|png|gif|webp)\z/i', $filename)) return '';
+    return rtrim(SITE_URL, '/') . '/challenge/profile-picture.php?file=' . rawurlencode($filename);
 }
 
 /**
@@ -152,34 +129,13 @@ function withProfilePicUrls(array $messages): array {
  * @return string|null
  */
 function profilePicFilesystemPath(?string $profilePic): ?string {
-    $profilePic = trim($profilePic ?? '');
-    if ($profilePic === '' || preg_match('#^https?://#i', $profilePic)) {
-        return null;
+    $filename = basename(str_replace('\\', '/', trim($profilePic ?? '')));
+    if (!preg_match('/\A[a-zA-Z0-9_.-]+\.(?:jpe?g|png|gif|webp)\z/i', $filename)) return null;
+    foreach ([PROFILE_PIC_UPLOAD_PATH, __DIR__ . '/../../private/profile-pictures/', __DIR__ . '/../uploads/'] as $directory) {
+        $root = realpath($directory);
+        $path = realpath($directory . $filename);
+        if ($root && $path && dirname($path) === $root && is_file($path)) return $path;
     }
-
-    $profilePic = ltrim($profilePic, '/');
-
-    if (str_starts_with($profilePic, 'uploads/profile-pictures/')) {
-        return PROFILE_PIC_UPLOAD_PATH . basename($profilePic);
-    }
-
-    if (str_starts_with($profilePic, 'profile-pictures/')) {
-        return PROFILE_PIC_UPLOAD_PATH . basename($profilePic);
-    }
-
-    if (str_starts_with($profilePic, 'challenge/uploads/')) {
-        return __DIR__ . '/../uploads/' . basename($profilePic);
-    }
-
-    if (str_starts_with($profilePic, 'uploads/')) {
-        $durableProfilePicPath = PROFILE_PIC_UPLOAD_PATH . basename($profilePic);
-        if (is_file($durableProfilePicPath)) {
-            return $durableProfilePicPath;
-        }
-
-        return __DIR__ . '/../' . $profilePic;
-    }
-
     return null;
 }
 

@@ -181,7 +181,7 @@ document.getElementById('insightsWeightForm')?.addEventListener('submit', async 
     const input = document.getElementById('insightsWeightInput');
     const weightLbs = parseFloat(input ? input.value : '');
     if (!weightLbs || weightLbs < 50 || weightLbs > 700) {
-        alert('Enter a valid weight between 50 and 700 lbs');
+        showFlash('error', 'Enter a valid weight between 50 and 700 lbs');
         input?.focus();
         return;
     }
@@ -198,11 +198,11 @@ document.getElementById('insightsWeightForm')?.addEventListener('submit', async 
         if (data.success) {
             location.reload();
         } else {
-            alert(data.error || 'Failed to save weight');
+            showFlash('error', data.error || 'Failed to save weight');
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('Failed to save weight');
+        showFlash('error', 'Failed to save weight');
     }
 });
 </script>

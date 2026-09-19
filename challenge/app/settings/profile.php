@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!file) return;
         if (file.size > 5 * 1024 * 1024) {
             photo.value = '';
-            window.alert('Choose a profile photo under 5 MB.');
+            showFlash('error', 'Choose a profile photo under 5 MB.');
             return;
         }
         const url = URL.createObjectURL(file);

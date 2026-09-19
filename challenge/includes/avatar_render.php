@@ -41,7 +41,11 @@ function renderKintoAvatar(array $config, array $options = []): string {
     $html .= avatarBrowsSvg($layers['hair'], $line);
     $html .= avatarMouthSvg($line);
     $html .= '</g></g>';
-    $html .= avatarHairFrontSvg($layers['hair']);
+    $hairFront = avatarHairFrontSvg($layers['hair']);
+    if (in_array($layers['hat']['shape'] ?? '', ['cap', 'beanie', 'beret'], true)) {
+        $hairFront = '<svg x="0" y="64" width="200" height="176" viewBox="0 64 200 176" overflow="hidden">' . $hairFront . '</svg>';
+    }
+    $html .= $hairFront;
     $html .= avatarLeafClipSvg($layers['extra']);
     $html .= avatarHatSvg($layers['hat']);
     $html .= avatarGlassesSvg($layers['accessory']);
@@ -116,7 +120,7 @@ function avatarHeadSvg(array $skin): string {
     return '<g class="kinto-avatar__skin">'
         . '<ellipse class="kinto-avatar__ear kinto-avatar__ear--l" cx="48" cy="90" rx="11" ry="14" fill="' . $fill . '" stroke="' . $stroke . '" stroke-width="2"/>'
         . '<ellipse class="kinto-avatar__ear kinto-avatar__ear--r" cx="152" cy="90" rx="11" ry="14" fill="' . $fill . '" stroke="' . $stroke . '" stroke-width="2"/>'
-        . '<circle cx="100" cy="86" r="54" fill="' . $fill . '" stroke="' . $stroke . '" stroke-width="2.4"/>'
+        . '<path d="M49 79Q49 34 100 34Q151 34 151 79L147 104Q139 138 100 142Q61 138 53 104Z" fill="' . $fill . '" stroke="' . $stroke . '" stroke-width="2.4"/>'
         . '</g>';
 }
 
@@ -124,8 +128,8 @@ function avatarBodySvg(array $skin): string {
     $fill = h((string) $skin['fill']);
     $stroke = h((string) ($skin['stroke'] ?? $skin['fill2']));
     return '<g class="kinto-avatar__body">'
-        . '<rect x="90" y="132" width="20" height="16" rx="7" fill="' . $fill . '" stroke="' . $stroke . '" stroke-width="2"/>'
-        . '<ellipse cx="100" cy="188" rx="44" ry="36" fill="' . $fill . '" stroke="' . $stroke . '" stroke-width="2.2"/>'
+        . '<path d="M87 128H113V148Q100 158 87 148Z" fill="' . $fill . '" stroke="' . $stroke . '" stroke-width="2"/>'
+        . '<path d="M52 174Q40 178 45 197Q48 207 56 204L66 183Z M148 174Q160 178 155 197Q152 207 144 204L134 183Z" fill="' . $fill . '" stroke="' . $stroke . '" stroke-width="2.2"/>'
         . '</g>';
 }
 
@@ -159,11 +163,11 @@ function avatarHairFrontSvg(?array $hair): string {
 
     switch ($shape) {
         case 'short':
-            $out .= '<path d="M48 86c2-42 28-62 52-62s50 20 52 62c-14-18-30-26-52-26S62 68 48 86z" fill="' . $fill . '"/>';
+            $out .= '<path d="M47 88Q39 48 63 31Q91 12 120 27Q156 28 154 83L143 72L139 53Q116 71 82 60L60 73L56 92Z" fill="' . $fill . '"/>';
             break;
         case 'bob':
-            $out .= '<path d="M42 92c4-48 30-70 58-70s54 22 58 70c-12-10-28-16-58-16S54 82 42 92z" fill="' . $fill . '"/>';
-            $out .= '<path d="M46 118c6 18 18 28 54 28s48-10 54-28c-10 8-28 14-54 14s-44-6-54-14z" fill="' . $fill2 . '"/>';
+            $out .= '<path d="M42 105Q35 28 91 23Q153 14 158 88L148 117L139 68Q114 71 88 48Q74 69 58 71L54 115Z" fill="' . $fill . '"/>';
+            $out .= '<path d="M43 95L55 91L58 136L43 142Z M145 91L157 95L157 142L142 136Z" fill="' . $fill2 . '"/>';
             break;
         case 'curl':
             $out .= '<path d="M48 84c4-40 26-58 52-58s48 18 52 58c-10-14-24-22-52-22S58 70 48 84z" fill="' . $fill . '"/>';
@@ -171,8 +175,8 @@ function avatarHairFrontSvg(?array $hair): string {
             $out .= '<circle cx="114" cy="38" r="16" fill="' . $fill . '"/><circle cx="140" cy="52" r="14" fill="' . $fill2 . '"/>';
             break;
         case 'wave':
-            $out .= '<path d="M44 90c6-46 30-68 56-68s50 22 56 68c-14-16-32-24-56-24S58 74 44 90z" fill="' . $fill . '"/>';
-            $out .= '<path d="M38 100c8 8 14 4 20-2 8 10 18 8 26 0 8 10 20 8 28 0 8 8 18 10 26 2 8 8 16 10 24 0-6 22-18 38-50 38s-46-14-54-38z" fill="' . $fill2 . '" opacity=".55"/>';
+            $out .= '<path d="M43 99Q27 49 66 29Q117 4 151 44Q169 67 153 105L142 88L143 61Q119 72 91 48Q76 64 60 68L60 91Z" fill="' . $fill . '"/>';
+            $out .= '<path d="M42 76Q31 113 48 146L60 137Q45 115 55 83Z M151 76Q168 113 151 146L139 137Q155 115 145 83Z" fill="' . $fill2 . '" opacity=".55"/>';
             break;
         case 'bun':
             $out .= '<circle cx="100" cy="28" r="18" fill="' . $fill . '"/>';
@@ -182,17 +186,17 @@ function avatarHairFrontSvg(?array $hair): string {
         case 'locs':
             $out .= '<path d="M48 84c4-40 28-58 52-58s48 18 52 58c-12-16-30-24-52-24S60 68 48 84z" fill="' . $fill . '"/>';
             foreach ([58, 72, 86, 100, 114, 128, 142] as $i => $x) {
-                $hgt = 46 + ($i % 3) * 8;
+                $hgt = 20 + ($i % 3) * 3;
                 $out .= '<rect x="' . ($x - 5) . '" y="42" width="10" height="' . $hgt . '" rx="5" fill="' . ($i % 2 ? $fill2 : $fill) . '"/>';
             }
             break;
         case 'fade':
             $out .= '<path d="M54 88c2-36 24-50 46-50s44 14 46 50c-12-12-26-18-46-18S66 76 54 88z" fill="' . $fill . '"/>';
-            $out .= '<path d="M46 96c8-8 16-12 22-8 0 14-6 28-22 34-4-8-4-18 0-26z" fill="' . $fill2 . '"/>';
-            $out .= '<path d="M154 96c-8-8-16-12-22-8 0 14 6 28 22 34 4-8 4-18 0-26z" fill="' . $fill2 . '"/>';
+            $out .= '<path d="M48 63L59 59L57 88L48 88Z" fill="' . $fill2 . '"/>';
+            $out .= '<path d="M152 63L141 59L143 88L152 88Z" fill="' . $fill2 . '"/>';
             break;
         case 'long':
-            $out .= '<path d="M46 88c6-46 30-66 54-66s48 20 54 66c-16-18-34-26-54-26S62 70 46 88z" fill="' . $fill . '"/>';
+            $out .= '<path d="M43 105Q33 22 100 22Q167 22 157 105L145 90L138 57Q112 55 100 40Q89 57 62 64L55 99Z" fill="' . $fill . '"/>';
             break;
         case 'braid':
             $out .= '<path d="M48 86c4-42 28-60 52-60s48 18 52 60c-14-16-30-24-52-24S62 70 48 86z" fill="' . $fill . '"/>';
@@ -200,7 +204,7 @@ function avatarHairFrontSvg(?array $hair): string {
             $out .= '<circle cx="78" cy="52" r="6" fill="#F6E7B2"/><circle cx="100" cy="56" r="6" fill="#F6E7B2"/><circle cx="122" cy="52" r="6" fill="#F6E7B2"/>';
             break;
         default:
-            $out .= '<path d="M48 86c2-42 28-62 52-62s50 20 52 62c-14-18-30-26-52-26S62 68 48 86z" fill="' . $fill . '"/>';
+            $out .= '<path d="M47 88Q39 48 63 31Q91 12 120 27Q156 28 154 83L143 72L139 53Q116 71 82 60L60 73L56 92Z" fill="' . $fill . '"/>';
     }
 
     $out .= '</g>';
@@ -216,7 +220,7 @@ function avatarOutfitSvg(?array $outfit): string {
     $accent = h((string) ($outfit['stroke'] ?? $outfit['fill2'] ?? $outfit['fill']));
     $shape = (string) $outfit['shape'];
     $out = '<g class="kinto-avatar__outfit">';
-    $out .= '<path d="M56 164c8-18 20-28 44-28s36 10 44 28c6 16 8 36 0 48H56c-8-12-6-32 0-48z" fill="' . $fill . '"/>';
+    $out .= '<path d="M86 140Q100 151 114 140L138 150Q149 158 154 182L137 190L131 176L134 220Q100 230 66 220L69 176L63 190L46 182Q51 158 62 150Z" fill="' . $fill . '"/>';
 
     switch ($shape) {
         case 'henley':
@@ -290,12 +294,12 @@ function avatarEyesSvg(?array $eyes): string {
 function avatarBrowsSvg(?array $hair, string $line): string {
     $color = h((string) ($hair['fill'] ?? $line));
     return '<g class="kinto-avatar__brows" stroke="' . $color . '" stroke-width="3.2" stroke-linecap="round" fill="none">'
-        . '<path d="M68 72q12-8 24 0"/><path d="M108 72q12-8 24 0"/>'
+        . '<path d="M70 74q10-5 20 0"/><path d="M110 74q10-5 20 0"/>'
         . '</g>';
 }
 
 function avatarMouthSvg(string $line): string {
-    return '<path class="kinto-avatar__mouth" d="M88 112q12 10 24 0" fill="none" stroke="' . h($line) . '" stroke-width="2.8" stroke-linecap="round"/>';
+    return '<path class="kinto-avatar__mouth" d="M89 112Q100 121 111 112" fill="none" stroke="' . h($line) . '" stroke-width="2.8" stroke-linecap="round"/>';
 }
 
 function avatarBlushSvg(?array $extra): string {
@@ -318,22 +322,22 @@ function avatarHatSvg(?array $hat): string {
     $out = '<g class="kinto-avatar__hat">';
     switch ($shape) {
         case 'beanie':
-            $out .= '<path d="M52 70c6-38 28-54 48-54s42 16 48 54c-16-10-32-14-48-14S68 60 52 70z" fill="' . $fill . '"/>';
-            $out .= '<ellipse cx="100" cy="70" rx="50" ry="8" fill="' . $fill2 . '"/>';
+            $out .= '<path d="M42 64Q42 9 100 9Q158 9 158 64Q100 78 42 64Z" fill="' . $fill . '"/>';
+            $out .= '<ellipse cx="100" cy="65" rx="59" ry="10" fill="' . $fill2 . '"/>';
             $out .= '<circle cx="100" cy="18" r="6" fill="' . h((string) ($hat['stroke'] ?? $fill2)) . '"/>';
             break;
         case 'cap':
-            $out .= '<path d="M54 72c8-34 26-46 46-46s38 12 46 46H54z" fill="' . $fill . '"/>';
-            $out .= '<path d="M50 72h92c-8 8-28 12-46 12s-38-4-46-12z" fill="' . $fill2 . '"/>';
-            $out .= '<path d="M132 70c18 2 28 8 34 14-16 2-30 0-40-6z" fill="' . $fill . '"/>';
+            $out .= '<path d="M44 63Q42 16 100 16Q154 16 156 63Z" fill="' . $fill . '"/>';
+            $out .= '<path d="M43 62Q100 53 157 62L165 73Q107 84 43 73Z" fill="' . $fill2 . '"/>';
+            $out .= '<path d="M135 65Q170 64 177 76Q161 84 133 77Z" fill="' . $fill . '"/>';
             break;
         case 'leaf':
             $out .= '<path d="M58 48c18-22 40-18 42-2 2-16 24-20 42 2-18 8-32 16-42 16S76 56 58 48z" fill="' . $fill . '"/>';
             $out .= '<path d="M100 46c-8 8-14 16-16 24" fill="none" stroke="' . $fill2 . '" stroke-width="2"/>';
             break;
         case 'beret':
-            $out .= '<ellipse cx="96" cy="48" rx="46" ry="20" fill="' . $fill . '"/>';
-            $out .= '<ellipse cx="100" cy="62" rx="40" ry="8" fill="' . $fill2 . '"/>';
+            $out .= '<ellipse cx="96" cy="36" rx="61" ry="26" fill="' . $fill . '"/>';
+            $out .= '<ellipse cx="100" cy="59" rx="54" ry="8" fill="' . $fill2 . '"/>';
             $out .= '<circle cx="56" cy="42" r="5" fill="' . $fill . '"/>';
             break;
         case 'crown':
@@ -353,7 +357,7 @@ function avatarGlassesSvg(?array $accessory): string {
     $fill2 = h((string) ($accessory['fill2'] ?? $accessory['fill']));
     return '<g class="kinto-avatar__glasses" fill="none" stroke="' . $fill . '" stroke-width="3">'
         . '<circle cx="80" cy="88" r="14"/><circle cx="120" cy="88" r="14"/>'
-        . '<path d="M94 88h12" stroke="' . $fill2 . '" stroke-width="2.4"/>'
+        . '<path d="M94 88h12M46 83L66 86M134 86L154 83" stroke="' . $fill2 . '" stroke-width="2.4"/>'
         . '</g>';
 }
 

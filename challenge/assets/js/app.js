@@ -56,6 +56,11 @@ function closeModal(modalId) {
 // Close modal on Escape key
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
+        const noticeButton = document.querySelector('.flash-message.active button');
+        if (noticeButton) {
+            dismissFlash(noticeButton);
+            return;
+        }
         document.querySelectorAll('.modal.active').forEach(modal => {
             modal.classList.remove('active');
         });
@@ -66,6 +71,7 @@ document.addEventListener('keydown', function(e) {
 // Close modal on outside click
 document.addEventListener('click', function(e) {
     if (e.target.classList.contains('modal')) {
+        if (e.target.classList.contains('flash-message')) return;
         e.target.classList.remove('active');
         document.body.style.overflow = '';
     }
@@ -75,34 +81,84 @@ document.addEventListener('click', function(e) {
 // Flash Messages
 // ============================
 
-function showFlash(type, message) {
-    const existing = document.querySelector('.flash-message');
-    if (existing) {
-        existing.remove();
-    }
-    
-    const flash = document.createElement('div');
-    flash.className = `flash-message flash-${type}`;
-    flash.innerHTML = `
-        <span class="flash-text">${escapeHtml(message)}</span>
-        <button class="flash-close" onclick="this.parentElement.remove()">&times;</button>
-    `;
-    
-    document.body.appendChild(flash);
-
-    if (window.KintoHaptics) {
-        if (type === 'success') window.KintoHaptics.success();
-        if (type === 'error') window.KintoHaptics.error();
-        if (type === 'warning') window.KintoHaptics.warning();
-    }
-    
-    // Auto-remove after 5 seconds
-    setTimeout(() => {
-        if (flash.parentElement) {
-            flash.remove();
-        }
-    }, 5000);
+function dismissFlash(button) {
+    const flash = button.closest('.flash-message');
+    if (!flash) return;
+    const previousFocus = flash._previousFocus;
+    flash.remove();
+    if (flash._onDismiss) flash._onDismiss();
+    if (!document.querySelector('.modal.active')) document.body.style.overflow = '';
+    if (previousFocus && previousFocus.isConnected) previousFocus.focus();
 }
+
+function prepareFlash(flash) {
+    const message = flash.querySelector('.flash-text').textContent;
+    const type = ['success', 'error', 'warning'].find(value => flash.classList.contains('flash-' + value)) || 'info';
+    const title = {success: 'A step forward', error: 'Let’s try again', warning: 'Before you continue', info: 'Good to know'}[type];
+    flash.classList.add('modal', 'active');
+    flash.setAttribute('role', 'dialog');
+    flash.setAttribute('aria-modal', 'true');
+    flash.setAttribute('aria-labelledby', 'kintoNoticeTitle');
+    flash.setAttribute('aria-describedby', 'kintoNoticeText');
+    flash._previousFocus = document.activeElement;
+    flash.innerHTML = '<div class="modal-content kinto-notice"><div class="modal-body"><p class="kinto-notice-eyebrow">Kinto · Your daily rhythm</p><h2 id="kintoNoticeTitle">' + escapeHtml(title) + '</h2><p id="kintoNoticeText" class="flash-text">' + escapeHtml(message) + '</p><button class="btn btn-primary flash-close" type="button" onclick="dismissFlash(this)">Continue</button></div></div>';
+    // Keep fixed overlays outside any transformed app container.
+    document.body.appendChild(flash);
+    addModalBranding();
+    document.body.style.overflow = 'hidden';
+    flash.querySelector('button').focus();
+}
+
+function showFlash(type, message) {
+    document.querySelectorAll('.flash-message').forEach(el => {
+        const button = el.querySelector('button');
+        if (button) dismissFlash(button); else el.remove();
+    });
+    const flash = document.createElement('div');
+    flash.className = 'flash-message flash-' + (['success', 'error', 'warning'].includes(type) ? type : 'info');
+    flash.innerHTML = '<span class="flash-text">' + escapeHtml(message) + '</span>';
+    document.body.appendChild(flash);
+    prepareFlash(flash);
+    if (window.KintoHaptics && typeof window.KintoHaptics[type] === 'function') window.KintoHaptics[type]();
+}
+
+function confirmKinto(message, actionLabel = 'Confirm') {
+    return new Promise(resolve => {
+        showFlash('warning', message);
+        const flash = document.querySelector('.flash-message');
+        const action = flash.querySelector('button');
+        flash._onDismiss = () => resolve(false);
+        action.textContent = actionLabel;
+        action.onclick = () => {
+            flash._onDismiss = () => resolve(true);
+            dismissFlash(action);
+        };
+        const cancel = document.createElement('button');
+        cancel.className = 'btn btn-secondary';
+        cancel.textContent = 'Cancel';
+        cancel.type = 'button';
+        cancel.onclick = () => dismissFlash(cancel);
+        action.before(cancel);
+        cancel.focus();
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.flash-message').forEach(prepareFlash);
+});
+
+// Keep keyboard navigation within the uppermost open dialog.
+document.addEventListener('keydown', event => {
+    if (event.key !== 'Tab') return;
+    const dialogs = [...document.querySelectorAll('.modal.active')];
+    const dialog = dialogs.find(el => el.classList.contains('flash-message')) || dialogs[dialogs.length - 1];
+    if (!dialog) return;
+    const controls = [...dialog.querySelectorAll('a[href],button,input,select,textarea,[tabindex="0"]')].filter(el => !el.disabled && el.getClientRects().length);
+    if (!controls.length) return;
+    const first = controls[0], last = controls[controls.length - 1];
+    if (event.shiftKey && (document.activeElement === first || !dialog.contains(document.activeElement))) { event.preventDefault(); last.focus(); }
+    else if (!event.shiftKey && (document.activeElement === last || !dialog.contains(document.activeElement))) { event.preventDefault(); first.focus(); }
+});
 
 // ============================
 // API Helpers

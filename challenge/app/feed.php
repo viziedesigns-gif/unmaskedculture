@@ -339,7 +339,7 @@ async function toggleMessageHeart(messageId) {
         if (!data.success) throw new Error(data.error || 'Unable to react');
         applyReactionState(messageId, data.hearted, Number(data.heart_count) || 0);
     } catch (error) {
-        alert(error.message || 'Unable to heart this message');
+        showFlash('error', error.message || 'Unable to heart this message');
     } finally {
         pendingHeartRequests.delete(messageId);
     }
@@ -525,13 +525,13 @@ async function sendMessage(e) {
         } else {
             const optimistic = document.querySelector('.message.optimistic');
             if (optimistic) optimistic.remove();
-            alert(data.error || 'Failed to send');
+            showFlash('error', data.error || 'Failed to send');
         }
     } catch (error) {
         console.error(error);
         const optimistic = document.querySelector('.message.optimistic');
         if (optimistic) optimistic.remove();
-        alert('Failed to send message');
+        showFlash('error', 'Failed to send message');
     } finally {
         input.disabled = false;
         btn.disabled = false;

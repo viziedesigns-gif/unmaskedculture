@@ -11413,3 +11413,18 @@ select:focus {
 .streaks-legend{display:flex;align-items:center;gap:8px;margin:20px 0 8px;font-size:.75rem}.streaks-legend span{width:12px;height:12px;border-radius:50%;background:var(--accent)}
 .streaks-entry{display:inline-flex;align-items:center;gap:6px;font-size:.8rem}.streaks-entry svg{width:16px;height:16px}
 @media(max-width:700px){.streaks-layout{grid-template-columns:1fr}.streaks-heading{align-items:flex-start}.streaks-panel{padding:18px}.streaks-hero{padding:22px}.streaks-hero img{width:65px}.streaks-score small{display:none}}
+
+/* One full-screen notice system across web, PWA and Android. */
+.flash-message{inset:0;width:100%;height:100dvh;max-width:none;transform:none;padding:0;border-radius:0;animation:none;display:flex;align-items:stretch;justify-content:stretch;background:var(--surface);color:var(--text);z-index:1500}
+.flash-message .modal-content,.modal .modal-content.modal-large{width:100%;max-width:none;border-radius:0}
+.kinto-notice .modal-body{padding:clamp(24px,8vh,80px) 16px max(32px,env(safe-area-inset-bottom));text-align:center}
+.kinto-notice h2{font-size:clamp(2rem,6vw,3rem);line-height:1.15;margin:16px 0}
+.kinto-notice-eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--accent-muted)}
+.kinto-notice .flash-text{display:block;font-size:1.1rem;line-height:1.65;overflow-wrap:anywhere;margin:0 auto 32px;max-width:480px}
+.kinto-notice .flash-close{font-size:1rem;opacity:1;min-height:48px;min-width:160px;color:var(--background);background:var(--primary)}
+.modal-content{padding-bottom:env(safe-area-inset-bottom,0px)}
+.kinto-avatar__skin,.kinto-avatar__outfit{stroke-linejoin:round;stroke-linecap:round}
+.kinto-avatar__outfit{stroke:#1a171420;stroke-width:1.5px}
+.kinto-avatar--animate .kinto-avatar__look,.kinto-avatar--animate .kinto-avatar__mouth{animation:none}
+.celebration-overlay{z-index:1400}
+.kinto-notice .btn + .btn{margin-left:12px}

@@ -626,11 +626,11 @@ function copyInviteLink() {
     const input = document.getElementById('inviteLinkInput');
     if (!input) return;
     navigator.clipboard.writeText(input.value).then(() => {
-        alert('Invite link copied!');
+        showFlash('success', 'Invite link copied!');
     }).catch(() => {
         input.select();
         document.execCommand('copy');
-        alert('Invite link copied!');
+        showFlash('success', 'Invite link copied!');
     });
 }
 document.querySelectorAll('#createCircleModal, #joinCircleModal, #deleteCircleModal').forEach((modal) => {

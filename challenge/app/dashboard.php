@@ -850,12 +850,12 @@ async function submitWorkout() {
     const durationMinutes = parseInt(document.getElementById('workoutDuration').value, 10) || 30;
 
     if (!workoutType) {
-        alert('Choose a workout type');
+        showFlash('error', 'Choose a workout type');
         return;
     }
 
     if (workoutType === 'custom' && !customWorkout) {
-        alert('Enter your custom workout');
+        showFlash('error', 'Enter your custom workout');
         return;
     }
 
@@ -881,11 +881,11 @@ async function submitWorkout() {
             updateUI(data);
             closeModal('workoutModal');
         } else {
-            alert(data.error || 'Failed to save workout');
+            showFlash('error', data.error || 'Failed to save workout');
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('Failed to save workout');
+        showFlash('error', 'Failed to save workout');
     }
 }
 
@@ -906,11 +906,11 @@ async function toggleItem(itemId, checked) {
         if (data.success) {
             updateUI(data);
         } else {
-            alert(data.error || 'Failed to update item');
+            showFlash('error', data.error || 'Failed to update item');
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('Failed to update item');
+        showFlash('error', 'Failed to update item');
     }
 }
 
@@ -932,11 +932,11 @@ async function logWater(amount) {
             updateWaterUI(data);
             updateUI(data);
         } else {
-            alert(data.error || 'Failed to log water');
+            showFlash('error', data.error || 'Failed to log water');
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('Failed to log water');
+        showFlash('error', 'Failed to log water');
     }
 }
 
@@ -1039,7 +1039,7 @@ async function submitMood() {
     const moodLevel = parseInt(moodSlider.value);
 
     if (JOURNAL_IN_APP && !notes) {
-        alert('Please write a journal entry before submitting.');
+        showFlash('error', 'Please write a journal entry before submitting.');
         openJournalFullscreen();
         return;
     }
@@ -1065,11 +1065,11 @@ async function submitMood() {
             closeModal('moodModal');
             location.reload(); // Refresh to show updated mood
         } else {
-            alert(data.error || 'Failed to save mood');
+            showFlash('error', data.error || 'Failed to save mood');
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('Failed to save mood');
+        showFlash('error', 'Failed to save mood');
     }
 }
 

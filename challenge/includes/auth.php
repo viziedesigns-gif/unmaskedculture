@@ -7,6 +7,7 @@
 require_once __DIR__ . '/functions.php';
 require_once __DIR__ . '/retention_service.php';
 require_once __DIR__ . '/admin_service.php';
+require_once __DIR__ . '/device_auth.php';
 
 // Start session if not already started
 if (session_status() === PHP_SESSION_NONE) {
@@ -26,6 +27,7 @@ if (session_status() === PHP_SESSION_NONE) {
  * @return bool
  */
 function isLoggedIn(): bool {
+    restoreDeviceLogin();
     return isset($_SESSION['user_id']) && $_SESSION['user_id'] > 0;
 }
 
@@ -314,6 +316,10 @@ function getCurrentUser(): ?array {
         logoutUser();
         redirect('/kinto?session=expired#signin');
     }
+    // Enroll an existing, validated session as well as fresh sign-ins.
+    if ($row && !isset($_COOKIE[DEVICE_AUTH_COOKIE])) {
+        rememberDeviceLogin((int) $row['id'], (int) $row['auth_version']);
+    }
     if ($row && hasPublicProfileColumn('last_active_at')) {
         $lastActive = !empty($row['last_active_at']) ? strtotime($row['last_active_at'] . ' UTC') : 0;
         if ($lastActive === false || $lastActive < time() - 300) {
@@ -445,6 +451,7 @@ function loginUser(string $email, string $password): array {
     // Regenerate session ID for security
     session_regenerate_id(true);
     clearFlash();
+    rememberDeviceLogin((int) $user['id'], (int) ($user['auth_version'] ?? 1));
     
     return [true, $user['onboarding_completed'] ? 'dashboard' : 'onboarding'];
 }
@@ -474,6 +481,7 @@ function requireSuperAdmin(): void {
  * Log out current user
  */
 function logoutUser(): void {
+    forgetDeviceLogin();
     $_SESSION = [];
     
     if (ini_get('session.use_cookies')) {
@@ -576,6 +584,7 @@ function updatePassword(int $userId, string $currentPassword, string $newPasswor
     dbQuery("UPDATE users SET password_hash = ?, auth_version = auth_version + 1 WHERE id = ?", [$newHash, $userId]);
     $version = dbFetchOne("SELECT auth_version FROM users WHERE id = ?", [$userId]);
     $_SESSION['auth_version'] = (int) ($version['auth_version'] ?? 1);
+    rememberDeviceLogin($userId, $_SESSION['auth_version']);
     clearCurrentUserCache();
     
     return [true, 'Password updated successfully'];

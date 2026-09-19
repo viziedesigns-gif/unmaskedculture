@@ -399,7 +399,7 @@ document.getElementById('shareProfileButton')?.addEventListener('click', async f
             await navigator.share({ title, text, url });
         } else {
             await navigator.clipboard.writeText(url);
-            alert('Invite link copied!');
+            showFlash('success', 'Invite link copied!');
         }
     } catch (error) {
         if (error?.name !== 'AbortError') {
