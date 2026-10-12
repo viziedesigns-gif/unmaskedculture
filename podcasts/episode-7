@@ -44,7 +44,7 @@
       </div>
     </section>
 
-    <nav class="episode-stepper" aria-label="Chronological episode navigation"><a class="episode-stepper__link" href="/podcasts/episode-3"><small>← Previous episode</small><strong>Why We Started</strong></a><span class="episode-stepper__empty next"><small>Latest episode</small><strong>You’re all caught up</strong></span></nav>
+    <nav class="episode-stepper" aria-label="Chronological episode navigation"><a class="episode-stepper__link" href="/podcasts/episode-4"><small>← Previous episode</small><strong>An Impromptu Mental Health Check-In</strong></a><span class="episode-stepper__empty next"><small>Latest episode</small><strong>You’re all caught up</strong></span></nav>
 
     <div class="content-inner">
       <article class="story">

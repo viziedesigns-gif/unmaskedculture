@@ -44,7 +44,7 @@
       </div>
     </section>
 
-    <nav class="episode-stepper" aria-label="Chronological episode navigation"><a class="episode-stepper__link" href="/podcasts/episode-2"><small>← Previous episode</small><strong>Mental Health Check-In</strong></a><a class="episode-stepper__link next" href="/podcasts/episode-7"><small>Next episode →</small><strong>Mikel's Mental Health Check-In</strong></a></nav>
+    <nav class="episode-stepper" aria-label="Chronological episode navigation"><a class="episode-stepper__link" href="/podcasts/episode-2"><small>← Previous episode</small><strong>Mental Health Check-In</strong></a><a class="episode-stepper__link next" href="/podcasts/episode-4"><small>Next episode →</small><strong>An Impromptu Mental Health Check-In</strong></a></nav>
 
     <div class="content-inner">
       <article class="story">
