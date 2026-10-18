@@ -5,6 +5,17 @@
  */
 return [
     [
+        'published_at' => '2026-10-18T16:10:42-04:00',
+        'title' => 'A little more space for you',
+        'items' => [
+            'A refreshed daily screen, clearer progress, and cleaner navigation in Kinto’s familiar cream and gold.',
+            'Sleeker type, shorter transitions, and lighter success messages make daily check-ins feel smoother.',
+            'Installed apps now explain optional reminders before asking for permission. Native daily reminders require the updated Android build.',
+        ],
+        'href' => '/challenge/app/settings/notifications.php',
+        'link_label' => 'Manage reminders',
+    ],
+    [
         'published_at' => '2026-08-23T16:35:00-04:00',
         'title' => 'Meet Avatar Studio',
         'items' => [
