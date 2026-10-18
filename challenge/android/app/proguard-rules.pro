@@ -1,4 +1,9 @@
 # Add project specific ProGuard rules here.
+# Capacitor supplies consumer rules for plugins loaded by class name. Keep
+# JavaScript entry points as well so R8 cannot rename the WebView bridge.
+-keepclassmembers class * {
+    @android.webkit.JavascriptInterface <methods>;
+}
 # You can control the set of applied configuration files using the
 # proguardFiles setting in build.gradle.
 #
