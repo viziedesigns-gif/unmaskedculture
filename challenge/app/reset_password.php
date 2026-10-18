@@ -4,6 +4,7 @@ require_once __DIR__ . '/../includes/mail_service.php';
 
 $pageTitle = 'Reset Password';
 $hideNav = true;
+$bodyClass = 'auth-page';
 $token = strtolower(trim((string) ($_GET['token'] ?? $_POST['token'] ?? '')));
 $error = '';
 $success = '';

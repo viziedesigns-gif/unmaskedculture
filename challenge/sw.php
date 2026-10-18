@@ -13,6 +13,9 @@ require_once __DIR__ . '/includes/functions.php';
 
 $shellCache = shellCacheName();
 $css = assetUrl('/challenge/assets/css/style.css');
+$appUiCss = assetUrl('/challenge/assets/css/app-ui.css');
+$appUiJs = assetUrl('/challenge/assets/js/app-ui.js');
+$remindersJs = assetUrl('/challenge/assets/js/reminders.js');
 $appJs = assetUrl('/challenge/assets/js/app.js');
 $podcastPlayerJs = assetUrl('/challenge/assets/js/podcast-player.js');
 $siteShellJs = assetUrl('/challenge/assets/js/site-shell.js');
@@ -38,6 +41,10 @@ self.addEventListener('install', (event) => {
         await cache.addAll([
             '{$manifest}',
             '{$css}',
+            '{$appUiCss}',
+            '{$appUiJs}',
+            '{$remindersJs}',
+            '/challenge/assets/fonts/manrope-variable.ttf',
             '{$appJs}',
             '{$podcastPlayerJs}',
             '{$siteShellJs}',

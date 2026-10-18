@@ -227,7 +227,7 @@ function handleSettingsRemindersUpdate(int $userId): array {
     $streakRisk = isset($_POST['streak_risk_enabled']) ? 1 : 0;
     $reminderTime = trim($_POST['daily_reminder_time'] ?? '18:00');
 
-    if (!preg_match('/^\d{2}:\d{2}$/', $reminderTime)) {
+    if (!preg_match('/^(?:[01]\d|2[0-3]):[0-5]\d$/', $reminderTime)) {
         return ['Please choose a valid reminder time.', ''];
     }
 

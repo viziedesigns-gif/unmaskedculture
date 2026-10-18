@@ -16,6 +16,10 @@
     "backgroundColor": "#F5F0E8"
   },
   "plugins": {
+    "LocalNotifications": {
+      "smallIcon": "ic_kinto_notification",
+      "iconColor": "#B99A59"
+    },
     "SystemBars": {
       "insetsHandling": "disable",
       "style": "LIGHT"

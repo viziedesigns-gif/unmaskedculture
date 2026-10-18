@@ -136,46 +136,14 @@ include __DIR__ . '/../includes/header.php';
 ?>
 
 <div class="dashboard">
-    <!-- Streak Header -->
-    <div class="streak-header">
-        <div class="streak-display <?= $streakStatus['is_today_completed'] ? 'completed' : '' ?>">
-            <div class="streak-flame <?= $streakStatus['current_streak'] > 0 ? 'active' : '' ?>">
-                <i data-lucide="flame"></i>
-            </div>
-            <div class="streak-count"><?= $streakStatus['current_streak'] ?></div>
-            <div class="streak-label">Day Streak</div>
-            <a href="/challenge/app/streaks.php" class="streaks-entry">View streaks &amp; calendar &rarr;</a>
+    <header class="daily-welcome">
+        <div>
+            <p class="eyebrow">A little space for you</p>
+            <h1><?= !empty($user['first_name']) ? 'Hello, ' . h($user['first_name']) . '.' : 'Make today yours.' ?></h1>
         </div>
-        
-        <div class="streak-stats">
-            <div class="stat">
-                <span class="stat-value"><?= $streakStatus['streak_repairs'] ?></span>
-                <span class="stat-label">Repairs</span>
-            </div>
-            <div class="stat calm-stat">
-                <span class="stat-value" id="calmPointsTotal"><?= $calmPoints ?></span>
-                <span class="stat-label">Calm Points · L<span id="calmLevel"><?= $calmLevel ?></span></span>
-            </div>
-            <div class="stat mode-stat">
-                <span class="stat-value mode-badge"><?= $challengeMode === 'easy' ? 'Easy' : 'Intermediate' ?></span>
-                <span class="stat-label">Mode</span>
-            </div>
-        </div>
-
-        <?php if ($streakStatus['is_today_completed']): ?>
-            <div class="day-complete-badge">
-                <i data-lucide="check-circle" class="badge-icon"></i>
-                <span><?= $challengeMode === 'easy' ? 'Day counted!' : 'Today Complete!' ?></span>
-            </div>
-        <?php else: ?>
-            <div class="progress-ring-container">
-                <div class="progress-ring" data-progress="<?= $itemsRequired > 0 ? round(($itemsDone / $itemsRequired) * 100) : 0 ?>">
-                    <span class="progress-text"><?= $itemsDone ?>/<?= $itemsRequired ?></span>
-                </div>
-                <span class="progress-label">items today</span>
-            </div>
-        <?php endif; ?>
-    </div>
+        <span class="daily-date"><?= h(formatDate($streakStatus['user_date'], 'D')) ?><br><?= h(formatDate($streakStatus['user_date'], 'M j')) ?></span>
+    </header>
+    <?php include __DIR__ . '/../includes/daily_focus.php'; ?>
 
     <?php if ($streakStatus['streak_at_risk'] && !$streakStatus['is_today_completed']): ?>
         <div class="alert alert-warning streak-warning">
@@ -277,8 +245,8 @@ include __DIR__ . '/../includes/header.php';
     <?php endif; ?>
 
     <!-- Daily Checklist -->
-    <div class="checklist-section">
-        <h2 class="section-title"><?= $viewingYesterday ? "Yesterday's Challenge" : "Today's Challenge" ?></h2>
+    <div class="checklist-section" id="dailyRhythm">
+        <h2 class="section-title"><?= $viewingYesterday ? "Yesterday's rhythm" : 'Your daily rhythm' ?></h2>
         <p class="section-date"><?= formatDate($streakStatus['user_date'], 'l, F j, Y') ?></p>
 
         <?php if ($checklistDateContext['can_log_yesterday']): ?>
@@ -1144,7 +1112,7 @@ function updateUI(data) {
 
     const streakCount = document.querySelector('.streak-count');
     if (streakCount) streakCount.textContent = data.streak.current_streak;
-    const repairsEl = document.querySelector('.streak-stats .stat-value');
+    const repairsEl = document.getElementById('streakRepairsTotal');
     if (repairsEl) repairsEl.textContent = data.streak.streak_repairs;
 
     const xp = data.xp || data.streak.xp;

@@ -50,7 +50,10 @@ function assetUrl(string $path): string {
 function shellCacheName(): string {
     $shellAssets = [
         '/challenge/assets/css/style.css',
+        '/challenge/assets/css/app-ui.css',
         '/challenge/assets/js/app.js',
+        '/challenge/assets/js/app-ui.js',
+        '/challenge/assets/js/reminders.js',
         '/challenge/assets/js/podcast-player.js',
         '/challenge/assets/js/site-shell.js',
         '/challenge/assets/js/water-scene.js',

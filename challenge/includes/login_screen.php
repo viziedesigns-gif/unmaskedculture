@@ -12,6 +12,7 @@ if (!defined('SESSION_NAME')) { http_response_code(404); exit; }
     <meta name="apple-mobile-web-app-title" content="Kinto">
     <title>Sign in | Kinto</title>
     <?php include __DIR__ . '/favicon.php'; ?>
+    <link rel="preload" href="/challenge/assets/fonts/manrope-variable.ttf" as="font" type="font/ttf" crossorigin>
     <style>
         * { box-sizing: border-box; }
         html { background: #f5f0e8; color: #1a1714; }
@@ -41,8 +42,22 @@ if (!defined('SESSION_NAME')) { http_response_code(404); exit; }
         .notice { padding: 12px 16px; border-radius: 12px; background: #e9e0ce; margin-bottom: 20px; }
         .error { background: #f9e5e0; color: #832d20; }
     </style>
+    <link rel="stylesheet" href="<?= h(assetUrl('/challenge/assets/css/app-ui.css')) ?>">
+    <style>
+        body.kinto-app { font-family: var(--font-sans); }
+        .login h1 { font-size: 26px; font-weight: 750; }
+        .brand { margin-bottom: 30px; }
+        .brand img { width: 64px; height: 64px; border-radius: 19px; }
+        .wordmark { font-size: 42px; }
+        .tagline { font-size: 12px; }
+        .submit { background: var(--primary); font-family: var(--font-sans); }
+        .toggle { font-family: var(--font-sans); }
+        .remember { font-size: 12px; }
+    </style>
+    <script src="<?= h(assetUrl('/challenge/assets/js/reminders.js')) ?>" defer></script>
 </head>
-<body>
+<body class="kinto-app" data-kinto-signed-in="0">
+<?php include __DIR__ . '/reminder_context.php'; ?>
 <main>
     <section class="login" aria-labelledby="signin-title">
         <div class="brand">

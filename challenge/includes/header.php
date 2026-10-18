@@ -37,7 +37,7 @@ if (!headers_sent()) {
       gtag('config', 'G-BBEQYLCZDX');
     </script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="application-name" content="Kinto">
     <meta name="description" content="Kinto — Heal. Grow. Become. Daily check-ins, journaling, insights, and community support.">
     <meta name="theme-color" content="#F5F0E8">
@@ -47,10 +47,9 @@ if (!headers_sent()) {
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title><?= h($pageTitle) ?> | Kinto</title>
     <?php include __DIR__ . '/favicon.php'; ?>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="/challenge/assets/fonts/manrope-variable.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="stylesheet" href="<?= h(assetUrl('/challenge/assets/css/style.css')) ?>">
+    <link rel="stylesheet" href="<?= h(assetUrl('/challenge/assets/css/app-ui.css')) ?>">
     <script>
         try {
             if (!sessionStorage.getItem('kintoSplashSeen')) {
@@ -66,9 +65,12 @@ if (!headers_sent()) {
     </script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <script src="<?= h(assetUrl('/challenge/assets/js/app.js')) ?>" defer></script>
+    <script src="<?= h(assetUrl('/challenge/assets/js/app-ui.js')) ?>" defer></script>
+    <script src="<?= h(assetUrl('/challenge/assets/js/reminders.js')) ?>" defer></script>
     <script src="<?= h(assetUrl('/challenge/assets/js/podcast-player.js')) ?>" defer></script>
 </head>
-<body class="<?= h($bodyClass) ?> <?= $showBottomNav ? 'has-bottom-nav' : '' ?>">
+<body class="kinto-app <?= h($bodyClass) ?> <?= $showBottomNav ? 'has-bottom-nav' : '' ?>" data-kinto-signed-in="<?= $currentUser ? '1' : '0' ?>">
+    <?php include __DIR__ . '/reminder_context.php'; ?>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHSZ9V9D"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -88,11 +90,11 @@ if (!headers_sent()) {
             <img class="mobile-brand__icon" src="<?= h(faviconUrl('kinto-app-icon-192.png')) ?>" alt="" aria-hidden="true">
             <span class="mobile-brand__text">
                 <span class="mobile-brand__name">Kinto</span>
-                <span class="mobile-brand__tagline">Heal. Grow. Become.</span>
+                <span class="mobile-brand__tagline">Your daily space</span>
             </span>
         </a>
-        <a href="/challenge/app/profile.php" class="mobile-header__settings" aria-label="Settings">
-            <i data-lucide="settings"></i>
+        <a href="/challenge/app/settings/notifications.php" class="mobile-header__settings" aria-label="Reminder settings">
+            <i data-lucide="bell"></i>
         </a>
     </header>
     <?php endif; ?>

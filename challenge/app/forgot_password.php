@@ -5,6 +5,7 @@ require_once __DIR__ . '/../includes/mail_service.php';
 if (isLoggedIn()) redirect('/challenge/app/dashboard.php');
 $pageTitle = 'Forgot Password';
 $hideNav = true;
+$bodyClass = 'auth-page';
 $error = '';
 $sent = false;
 if (empty($_SESSION['password_reset_csrf'])) $_SESSION['password_reset_csrf'] = bin2hex(random_bytes(32));

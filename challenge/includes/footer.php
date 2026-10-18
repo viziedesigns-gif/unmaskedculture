@@ -79,7 +79,7 @@
     <audio id="kintoPodcastAudio" preload="metadata"></audio>
 
     <!-- Bottom Navigation -->
-    <nav class="bottom-nav">
+    <nav class="bottom-nav" aria-label="Main navigation">
         <div class="bottom-nav-container">
             <a href="/challenge/app/mood_stats.php" class="bottom-nav-item <?= $insightsActive ? 'active' : '' ?>">
                 <i data-lucide="bar-chart-3"></i>

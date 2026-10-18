@@ -66,7 +66,7 @@ include __DIR__ . '/../includes/header.php';
                 <span class="settings-install-checklist__status" data-check-status="notifications" aria-hidden="true"><i data-lucide="circle"></i></span>
                 <span>
                     <strong>Turn on app notifications</strong>
-                    <small>Enable reminders and streak alerts on this device.</small>
+                    <small>Make time for your daily check-in.</small>
                 </span>
                 <i data-lucide="chevron-right" aria-hidden="true"></i>
             </a>
@@ -146,11 +146,12 @@ include __DIR__ . '/../includes/header.php';
 </div>
 
 <script>
-(function () {
+document.addEventListener('DOMContentLoaded', async () => {
     const checklist = document.getElementById('installedAppChecklist');
     if (!checklist) return;
 
     const isInstalled = window.matchMedia('(display-mode: standalone)').matches
+        || window.Capacitor?.isNativePlatform?.() === true
         || window.navigator.standalone === true
         || document.referrer.startsWith('android-app://');
 
@@ -167,7 +168,15 @@ include __DIR__ . '/../includes/header.php';
         }
     };
 
-    const notificationsComplete = checklist.dataset.pushEnabled === '1';
+    let notificationsComplete = false;
+    try {
+        if (window.Capacitor?.isPluginAvailable?.('LocalNotifications')) {
+            notificationsComplete = (await window.Capacitor.Plugins.LocalNotifications.checkPermissions()).display === 'granted';
+        } else if ('serviceWorker' in navigator && 'PushManager' in window) {
+            const registration = await navigator.serviceWorker.getRegistration('/challenge/');
+            notificationsComplete = !!(await registration?.pushManager.getSubscription());
+        }
+    } catch (_) {}
     setStatus('notifications', notificationsComplete);
 
     let tiltComplete = false;
@@ -183,7 +192,7 @@ include __DIR__ . '/../includes/header.php';
     if (window.lucide) {
         window.lucide.createIcons();
     }
-})();
+});
 </script>
 
 <?php include __DIR__ . '/../includes/footer.php'; ?>

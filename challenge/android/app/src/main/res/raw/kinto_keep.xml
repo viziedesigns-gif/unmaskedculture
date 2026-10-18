@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Cordova reads this generated XML by name rather than an R.xml reference. -->
 <resources xmlns:tools="http://schemas.android.com/tools"
-    tools:keep="@xml/config" />
+    tools:keep="@xml/config,@drawable/ic_kinto_notification" />

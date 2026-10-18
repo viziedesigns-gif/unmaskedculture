@@ -94,6 +94,11 @@ function dismissFlash(button) {
 function prepareFlash(flash) {
     const message = flash.querySelector('.flash-text').textContent;
     const type = ['success', 'error', 'warning'].find(value => flash.classList.contains('flash-' + value)) || 'info';
+    if (type === 'success') {
+        flash.remove();
+        showKintoToast(message);
+        return;
+    }
     const title = {success: 'A step forward', error: 'Let’s try again', warning: 'Before you continue', info: 'Good to know'}[type];
     flash.classList.add('modal', 'active');
     flash.setAttribute('role', 'dialog');
@@ -110,6 +115,11 @@ function prepareFlash(flash) {
 }
 
 function showFlash(type, message) {
+    if (type === 'success') {
+        showKintoToast(message);
+        window.KintoHaptics?.success?.();
+        return;
+    }
     document.querySelectorAll('.flash-message').forEach(el => {
         const button = el.querySelector('button');
         if (button) dismissFlash(button); else el.remove();
@@ -120,6 +130,16 @@ function showFlash(type, message) {
     document.body.appendChild(flash);
     prepareFlash(flash);
     if (window.KintoHaptics && typeof window.KintoHaptics[type] === 'function') window.KintoHaptics[type]();
+}
+
+function showKintoToast(message) {
+    document.querySelector('.kinto-toast')?.remove();
+    const toast = document.createElement('div');
+    toast.className = 'kinto-toast';
+    toast.setAttribute('role', 'status');
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 4000);
 }
 
 function confirmKinto(message, actionLabel = 'Confirm') {
@@ -472,7 +492,7 @@ document.addEventListener('submit', () => {
 let deferredPwaInstallPrompt = null;
 
 function isPwaStandalone() {
-    return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+    return window.Capacitor?.isNativePlatform?.() === true || window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
 }
 
 function isIosDevice() {
@@ -585,6 +605,7 @@ if ('serviceWorker' in navigator) {
 }
 
 function reportNotificationPermission() {
+    if (window.KintoReminders) return window.KintoReminders.report();
     const supported = 'Notification' in window && 'serviceWorker' in navigator;
     const permission = supported ? Notification.permission : 'unsupported';
     fetch('/challenge/api/report_notification_status.php', {
@@ -605,76 +626,14 @@ function initAppSplash() {
     const splash = document.getElementById('app-splash');
     const root = document.documentElement;
     if (!splash || !root.classList.contains('splash-pending')) {
-        splash?.remove();
-        return;
+        splash?.remove(); return;
     }
-
-    try {
-        sessionStorage.setItem('kintoSplashSeen', '1');
-    } catch (error) {
-        // Storage can be unavailable in private browsing; the splash still exits safely.
-    }
-
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const canvas = splash.querySelector('canvas');
-    const context = canvas?.getContext?.('2d');
-    let frameId = 0;
-    const startedAt = performance.now();
-    const duration = reduceMotion ? 450 : 2100;
-
-    const finish = () => {
-        cancelAnimationFrame(frameId);
+    try { sessionStorage.setItem('kintoSplashSeen', '1'); } catch (_) {}
+    requestAnimationFrame(() => {
         splash.classList.add('app-splash--leaving');
-        window.setTimeout(() => {
-            root.classList.remove('splash-pending');
-            splash.remove();
-        }, reduceMotion ? 120 : 650);
-    };
-
-    if (!context || reduceMotion) {
-        window.setTimeout(finish, duration);
-        return;
-    }
-
-    const draw = (now) => {
-        const width = canvas.clientWidth;
-        const height = canvas.clientHeight;
-        const ratio = Math.min(window.devicePixelRatio || 1, 2);
-        if (canvas.width !== Math.round(width * ratio) || canvas.height !== Math.round(height * ratio)) {
-            canvas.width = Math.round(width * ratio);
-            canvas.height = Math.round(height * ratio);
-        }
-        context.setTransform(ratio, 0, 0, ratio, 0, 0);
-        context.clearRect(0, 0, width, height);
-
-        const progress = Math.min(1, (now - startedAt) / duration);
-        const eased = 1 - Math.pow(1 - Math.min(progress * 1.45, 1), 3);
-        const surface = height - (height * (0.18 + eased * 0.88));
-        const phase = now * 0.0035;
-        const gradient = context.createLinearGradient(0, surface, 0, height);
-        gradient.addColorStop(0, 'rgba(232, 213, 163, .92)');
-        gradient.addColorStop(1, '#C4A35A');
-        context.fillStyle = gradient;
-        context.beginPath();
-        context.moveTo(0, height);
-        context.lineTo(0, surface);
-        for (let x = 0; x <= width + 12; x += 12) {
-            const y = surface + Math.sin((x / Math.max(width, 1)) * 10 + phase) * 10
-                + Math.sin((x / Math.max(width, 1)) * 19 - phase * 1.3) * 4;
-            context.lineTo(x, y);
-        }
-        context.lineTo(width, height);
-        context.closePath();
-        context.fill();
-
-        if (progress < 1) {
-            frameId = requestAnimationFrame(draw);
-        } else {
-            finish();
-        }
-    };
-
-    frameId = requestAnimationFrame(draw);
+        root.classList.remove('splash-pending');
+        setTimeout(() => splash.remove(), 180);
+    });
 }
 
 document.addEventListener('DOMContentLoaded', function() {

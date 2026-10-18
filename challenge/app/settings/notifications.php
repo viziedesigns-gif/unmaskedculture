@@ -15,7 +15,7 @@ include __DIR__ . '/../../includes/header.php';
         <form method="POST" class="settings-detail-form">
             <input type="hidden" name="action" value="update_reminders">
             <h3>Reminder Schedule</h3>
-            <p class="form-hint">Reminders use your profile timezone (<?= h($user['timezone'] ?? DEFAULT_TIMEZONE) ?>).</p>
+            <p class="form-hint">Android reminders follow this device’s clock. Browser reminders use your profile timezone (<?= h($user['timezone'] ?? DEFAULT_TIMEZONE) ?>).</p>
             <label class="checkbox-large profile-visible-choice">
                 <input type="checkbox" name="daily_reminder_enabled" value="1" <?= (($user['daily_reminder_enabled'] ?? 1) ? 'checked' : '') ?>>
                 <span class="checkbox-label">Daily check-in reminder</span>
@@ -26,7 +26,7 @@ include __DIR__ . '/../../includes/header.php';
             </div>
             <label class="checkbox-large profile-visible-choice">
                 <input type="checkbox" name="streak_risk_enabled" value="1" <?= (($user['streak_risk_enabled'] ?? 1) ? 'checked' : '') ?>>
-                <span class="checkbox-label">Streak-at-risk alert (9:00 PM local time)</span>
+                <span class="checkbox-label">Streak-at-risk browser alert (9:00 PM in your profile timezone)</span>
             </label>
             <div class="form-actions">
                 <button type="submit" class="btn btn-primary">Save Preferences</button>
@@ -36,21 +36,21 @@ include __DIR__ . '/../../includes/header.php';
 
     <div class="settings-card settings-detail-card notification-card">
         <div class="settings-card-header">
-            <h3>Push Notifications</h3>
+            <h3>Reminders on this device</h3>
             <span class="notification-status" id="pushStatusBadge">
                 <?= $pushSubscriptionCount > 0 ? 'Enabled on ' . $pushSubscriptionCount . ' device' . ($pushSubscriptionCount === 1 ? '' : 's') : 'Not enabled' ?>
             </span>
         </div>
         <div class="notification-card-body">
-            <p class="notification-copy">Enable push on this device to receive your reminders and streak alerts.</p>
+            <p class="notification-copy">Make a little time for yourself. Enable a daily reminder on this device, even when Kinto is closed.</p>
             <?php if (!$pushStatus['has_vapid_keys'] || !$pushStatus['has_web_push_library'] || !$pushStatus['has_database_table']): ?>
-                <div class="alert alert-warning notification-config-warning">
-                    Push setup is not finished on the server yet.
+                <div class="alert alert-warning notification-config-warning web-push-note">
+                    Browser reminders are temporarily unavailable. Android daily reminders can still be enabled.
                 </div>
             <?php endif; ?>
             <div class="notification-actions">
                 <button type="button" class="btn btn-primary" id="enablePushBtn" onclick="enablePushNotifications()">
-                    <i data-lucide="bell"></i> Enable Notifications
+                    <i data-lucide="bell"></i> Enable reminders
                 </button>
                 <button type="button" class="btn btn-secondary" id="testPushBtn" onclick="sendTestPush()" <?= $pushSubscriptionCount > 0 ? '' : 'disabled' ?>>
                     <i data-lucide="send"></i> Send Test
@@ -60,7 +60,7 @@ include __DIR__ . '/../../includes/header.php';
                 </button>
             </div>
             <p class="form-hint" id="pushHelpText">
-                iPhone users may need to add this app to the Home Screen before notifications can be enabled.
+                You can turn these off at any time. On iPhone, add Kinto to the Home Screen in Safari first.
             </p>
         </div>
     </div>

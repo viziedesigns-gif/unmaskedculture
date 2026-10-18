@@ -35,7 +35,14 @@ After changing `capacitor.config.json`, installed Capacitor plugins, or files in
 Because the app displays the production PHP site, normal server-side web changes
 do not require a new APK. Native configuration or plugin changes do.
 
-## Play Console update: 1.0.1 (version code 2)
+## Current release: 1.1.0 (version code 3)
+
+This release refreshes the mobile interface and adds the optional notification
+introduction plus native daily reminders. See [mobile design and behavior](docs/MOBILE_EXPERIENCE.md).
+After downloading, the introduction appears on first use; permission is requested
+only after Enable is tapped. On Android, scheduling starts after sign-in and
+uses the device's timezone. No Firebase configuration is required for these
+local reminders. Existing browser push continues to use the server.
 
 The Android activity explicitly enables edge-to-edge on supported Android
 versions. Its cream background extends behind the system bars; the WebView
@@ -46,13 +53,16 @@ enabling both would apply insets twice.
 
 Run `npm run sync:android` before building. In Android Studio, use **Build >
 Generate Signed Bundle / APK > Android App Bundle** and the existing upload key.
-Upload the signed version-code-2 bundle to replace the version-code-1 artifact.
+Upload the signed version-code-3 bundle to replace the previously uploaded artifact.
 An unsigned `bundleRelease` output is not ready for Play upload.
 
 Before release, check login, password recovery, bottom navigation, and text entry
 on Android 14 and Android 15/16 with gesture and three-button navigation, and a
 device with a display cutout. Confirm focused fields remain above the keyboard
 and no extra gap remains after the keyboard closes.
+For notifications, test Enable, denial, Maybe later, changing the reminder time,
+turning reminders off, tapping a notification, and signing out. Use a real
+Android 13+ device for the OS permission prompt and closed-app delivery.
 
 The portrait-only activity restriction has been removed and the activity is
 explicitly resizable. Rotation and window resizing are handled by Capacitor's

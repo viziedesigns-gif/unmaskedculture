@@ -1,0 +1,200 @@
+/* Kinto 1.1 — warm, focused, and built for the hand. */
+@font-face {
+    font-family: Manrope;
+    src: url('../fonts/manrope-variable.ttf') format('truetype');
+    font-weight: 200 800;
+    font-display: swap;
+}
+:root {
+    --font-sans: Manrope, system-ui, sans-serif;
+    --font-display: Manrope, system-ui, sans-serif;
+    --background: #f5f2eb;
+    --surface: #fffdf8;
+    --surface-hover: #eee9df;
+    --primary: #252c27;
+    --primary-hover: #36463b;
+    --accent: #85682f;
+    --accent-muted: #756440;
+    --text: #252c27;
+    --text-secondary: #6c7068;
+    --text-light: #6c7068;
+    --border: #e5e3d9;
+    --radius: 20px;
+    --radius-lg: 26px;
+    --shadow: 0 6px 24px -14px #353e3620;
+    --shadow-lg: 0 16px 48px -24px #353e3630;
+    --ease-out: cubic-bezier(.2,.8,.2,1);
+}
+html { background: var(--background); scroll-padding-top: 90px; }
+body.kinto-app { background: var(--background); font-family: var(--font-sans); font-weight: 450; letter-spacing: -.015em; min-height: 100dvh; overflow-x: clip; }
+.kinto-app [hidden] { display: none !important; }
+.kinto-app h1,.kinto-app h2,.kinto-app h3,.kinto-app .section-title { font-family: var(--font-sans); letter-spacing: -.045em; font-weight: 750; line-height: 1.2; }
+.kinto-app h1 { font-size: clamp(1.9rem,5.8vw,2.8rem); }
+.kinto-app h2,.kinto-app .section-title { font-size: clamp(1.3rem,4.4vw,1.65rem); }
+.kinto-app h3 { font-size: 1.1rem; }
+.kinto-app p { text-wrap: pretty; }
+.kinto-app button,.kinto-app input,.kinto-app textarea,.kinto-app select { font-family: inherit; }
+.kinto-app a,.kinto-app button { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+.kinto-app a:hover { text-decoration: none; }
+.kinto-app :focus-visible { outline: 3px solid #8d713a; outline-offset: 4px; }
+.kinto-app .main-content { width: 100%; max-width: 1100px; padding: 24px clamp(18px,4vw,40px) 112px; min-height: calc(100svh - 76px); }
+.kinto-app .page-header { margin-bottom: 26px; gap: 14px; }
+.kinto-app .mobile-header { min-height: 74px; padding: 13px clamp(18px,4vw,40px); background: #f5f2ebed; backdrop-filter: blur(12px); border: 0; animation: none; }
+.kinto-app .mobile-brand { gap: 10px; }
+.kinto-app .mobile-brand__icon { width: 36px; height: 36px; border-radius: 11px; box-shadow: none; }
+.kinto-app .mobile-brand__name { font: 500 27px/1 Georgia,serif; letter-spacing: -.05em; }
+.kinto-app .mobile-brand__tagline { font: 500 10px/1.5 var(--font-sans); letter-spacing: .035em; color: var(--text-secondary); text-transform: none; }
+.kinto-app .mobile-header__settings { width: 44px; height: 44px; background: #fffdf8; border: 1px solid var(--border); border-radius: 50%; box-shadow: none; color: var(--text); }
+.kinto-app .mobile-header__settings svg { width: 19px; height: 19px; }
+.kinto-app .bottom-nav { padding: 0; background: #f5f2eb; }
+.kinto-app .bottom-nav-container { border-radius: 0; box-shadow: none; background: #fffdf8f5; border-top: 1px solid var(--border); min-height: 76px; padding: 8px max(8px,env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)); gap: 2px; }
+.kinto-app .bottom-nav-item { flex: 1; max-width: 130px; gap: 5px; padding: 7px 3px; min-width: 0; color: #696f64; border-radius: 18px; font-size: 11px; font-weight: 600; }
+.kinto-app .bottom-nav-item>span { font-size: 10px; font-weight: 650; }
+.kinto-app .bottom-nav-item svg { width: 21px; height: 21px; stroke-width: 1.65; }
+.kinto-app .bottom-nav-item.active { color: var(--text); background: #eeeee5; }
+.kinto-app .bottom-nav-item.primary .nav-item-primary { width: 25px; height: 25px; border-radius: 0; background: transparent; color: inherit; box-shadow: none; transform: none; margin: 0; }
+.kinto-app .bottom-nav-item.primary .nav-item-primary svg { width: 23px; height: 23px; }
+.kinto-app .bottom-nav-item.primary span { color: inherit; }
+.kinto-app .main-footer { display: none; }
+.kinto-app .btn { min-height: 46px; border-radius: 14px; font-size: .85rem; font-weight: 700; letter-spacing: -.01em; box-shadow: none; transition: background 160ms, transform 140ms var(--ease-out); }
+.kinto-app .btn-primary { background: var(--primary); border-color: var(--primary); color: #fffdf8; }
+.kinto-app .btn-secondary,.kinto-app .btn-outline { background: transparent; color: var(--text); border: 1px solid #d9dbce; }
+.kinto-app .btn:hover { transform: none; box-shadow: none; }
+.kinto-app button:active,.kinto-app .btn:active { transform: scale(.975); }
+.kinto-app .btn-sm { min-height: 44px; font-size: .76rem; border-radius: 12px; }
+.kinto-app .form-group input,.kinto-app .form-group textarea,.kinto-app .form-group select,.kinto-app .form-input,.kinto-app .form-textarea,.kinto-app .form-select { border-radius: 14px; border-color: #d9dbce; background: #fffdf8; color: var(--text); font-size: 16px; box-shadow: none; min-height: 50px; }
+.kinto-app .form-group label { font-size: .8rem; font-weight: 650; color: var(--text); letter-spacing: 0; text-transform: none; }
+.kinto-app .settings-card,.kinto-app .stat-card,.kinto-app .chart-section,.kinto-app .journal-entry,.kinto-app .journal-card,.kinto-app .circle-card,.kinto-app .insight-card { box-shadow: none; border: 1px solid var(--border); border-radius: 22px; background: var(--surface); }
+.kinto-app .settings-card { overflow: hidden; }
+.kinto-app .settings-hub-page .settings-hub-header { border-radius: 24px; box-shadow: none; background: #e8ece1; border-color: transparent; }
+.kinto-app .settings-hub-section { margin-top: 28px; }
+.kinto-app .settings-hub-section h2 { font-size: .73rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text-secondary); }
+.kinto-app .settings-row { min-height: 76px; border-color: var(--border); }
+.kinto-app .notification-status { border-radius: 20px; }
+.kinto-app .settings-detail-form>h3 { margin-bottom: 10px; }
+.kinto-app .alert { border-radius: 16px; border-width: 1px; box-shadow: none; font-size: .85rem; }
+.kinto-app .streak-broken-banner { background: #ede8dc; border: 0; box-shadow: none; border-radius: 20px; padding: 18px; margin: 20px 0; }
+.kinto-app .streak-broken-banner__title { font-size: 1rem; }
+.kinto-app .streak-broken-banner__message { font-size: .8rem; }
+.kinto-app .streak-broken-banner__glyph { background: transparent; width: 26px; min-width: 26px; }
+.kinto-app .midnight-countdown { display: flex; justify-content: flex-start; background: transparent; border: 0; padding: 0; font-size: .72rem; color: var(--text-secondary); margin-bottom: 20px; }
+.kinto-app .section-date { font-size: .78rem; color: var(--text-secondary); margin-top: 6px; }
+.kinto-app .checklist-section { background: transparent; border: 0; box-shadow: none; padding: 0; }
+.kinto-app .checklist { gap: 10px; display: grid; }
+.kinto-app .checklist-item { padding: 20px 16px; border: 1px solid var(--border); border-radius: 20px; box-shadow: none; background: var(--surface); gap: 13px; margin: 0; align-items: flex-start; transition: background 180ms,border-color 180ms; }
+.kinto-app .checklist-item:hover { transform: none; box-shadow: none; }
+.kinto-app .checklist-item.completed { border-color: #dbe2cf; background: #eef1e6; }
+.kinto-app .item-icon { width: 38px; height: 38px; border-radius: 13px; background: #f0eadc; color: #92753b; flex-shrink: 0; }
+.kinto-app .item-icon svg { width: 19px; height: 19px; }
+.kinto-app .item-name { font-size: .91rem; font-weight: 750; line-height: 1.4; }
+.kinto-app .item-goal { font-size: .72rem; font-weight: 600; color: var(--text-secondary); }
+.kinto-app .item-content { min-width: 0; }
+.kinto-app .item-check { width: 24px; height: 24px; min-width: 24px; border-width: 1.5px; border-radius: 50%; margin-top: 7px; }
+.kinto-app .item-check.checked { background: #61735b; border-color: #61735b; }
+.kinto-app .water-controls { flex-wrap: wrap; gap: 6px; }
+.kinto-app .btn-water { background: #e8ede4; border: 0; color: #344c3e; }
+.kinto-app .btn-workout,.kinto-app .btn-mood { background: #ece6d4; border: 0; color: #655330; }
+.kinto-app .water-visual { border-radius: 15px; overflow: hidden; margin: 12px 0; }
+.kinto-app .checklist-item .item-header { flex-wrap: wrap; gap: 6px; }
+.kinto-app .modal { background: #252c2760; backdrop-filter: blur(5px); }
+.kinto-app .modal-content { background: var(--surface); border: 0; border-radius: 28px 28px 0 0; box-shadow: none; animation: kinto-sheet-in 220ms var(--ease-out); }
+.kinto-app .modal-header { border-color: var(--border); }
+.kinto-app .modal-brand { display: none; }
+.kinto-app .modal-footer { gap: 10px; background: transparent; }
+.kinto-app .modal.active .modal-header,.kinto-app .modal.active .modal-body,.kinto-app .modal.active .modal-footer,.kinto-app .modal.active .modal-content>form { animation: none; }
+.kinto-app .modal-close { background: #eeeade; border-radius: 50%; min-width: 40px; min-height: 40px; }
+.kinto-app .flash-message { background: #f5f2eb; }
+.kinto-app .kinto-notice .modal-body { padding-top: max(60px,12svh); }
+.kinto-app .kinto-notice h2 { font-size: 2rem; }
+.kinto-toast { position: fixed; z-index: 2050; left: 50%; bottom: calc(94px + env(safe-area-inset-bottom)); transform: translateX(-50%); width: max-content; max-width: calc(100% - 36px); padding: 14px 20px; background: #303f33; color: #fffdf8; border-radius: 17px; font-size: .82rem; box-shadow: var(--shadow-lg); pointer-events: none; }
+.kinto-app .app-splash { transition: opacity 180ms ease; transform: none; }
+.kinto-app .app-splash--leaving { opacity: 0; transform: none; }
+.kinto-app .app-splash__brand { animation: none; opacity: 1; transform: none; }
+.kinto-app .app-splash__logo { width: 70px; height: 70px; }
+.kinto-app .app-splash__wordmark { font-family: Georgia,serif; font-size: 36px; }
+.kinto-app .app-splash__water { display: none; }
+/* A clear daily starting point. */
+.daily-welcome { display: flex; justify-content: space-between; align-items: center; margin: 2px 0 24px; gap: 12px; }
+.daily-welcome .eyebrow,.kinto-eyebrow { color: var(--text-secondary); font-size: .68rem; font-weight: 750; text-transform: uppercase; letter-spacing: .13em; }
+.daily-welcome h1 { font-size: clamp(1.75rem,5.9vw,2.4rem); margin-top: 5px; }
+.daily-date { font-size: .71rem; color: var(--text-secondary); text-align: right; white-space: nowrap; }
+.daily-focus { position: relative; overflow: hidden; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px; padding: 22px 23px; background: #e6e9dd; border-radius: 27px; margin-bottom: 16px; }
+.daily-focus h2 { max-width: 15ch; font-size: clamp(1.75rem,5.8vw,2.35rem); line-height: 1.15; margin: 9px 0 12px; }
+.daily-focus p { max-width: 27ch; font-size: .8rem; line-height: 1.65; color: #606b5c; }
+.daily-focus-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; min-height: 44px; font-size: .8rem; font-weight: 750; color: var(--text); }
+.daily-focus-link svg { width: 18px; }
+.daily-orbit { width: clamp(94px,24vw,140px); height: clamp(94px,24vw,140px); display: grid; place-items: center; border: 1px solid #9d92564d; border-radius: 50%; background: #f5f2eb55; box-shadow: 0 0 0 10px #f5f2eb40,0 0 0 11px #9d925621; margin-right: 4px; }
+.daily-orbit img { width: 86%; height: 86%; object-fit: contain; }
+.daily-metrics { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; margin: 0 0 28px; }
+.daily-metric { border: 1px solid var(--border); border-radius: 18px; background: #fffdf8; padding: 16px 12px; color: var(--text); min-width: 0; }
+.daily-metric>svg { width: 17px; height: 17px; color: #998049; margin-bottom: 10px; }
+.daily-metric strong { display: block; font-size: 1.5rem; font-weight: 750; line-height: 1.1; letter-spacing: -.05em; margin: 0; padding: 0; }
+.daily-metric small { display: block; font-size: .62rem; color: var(--text-secondary); line-height: 1.5; margin-top: 6px; }
+.daily-progress { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding-bottom: 18px; margin-bottom: 22px; border-bottom: 1px solid var(--border); font-size: .78rem; }
+.daily-progress strong { font-weight: 750; }
+.daily-progress-track { flex: 1; max-width: 130px; height: 5px; border-radius: 5px; background: #e2e3d8; overflow: hidden; }
+.daily-progress-track span { display: block; height: 100%; background: #7d8d6b; border-radius: inherit; transition: width 240ms ease; }
+.daily-progress .progress-ring[hidden] { display: none; }
+/* First-install reminder introduction. */
+.reminder-intro { position: fixed; inset: 0; z-index: 2100; background: var(--background); overflow-y: auto; display: flex; padding: max(32px,env(safe-area-inset-top)) max(24px,env(safe-area-inset-right)) max(28px,env(safe-area-inset-bottom)) max(24px,env(safe-area-inset-left)); overscroll-behavior: contain; }
+.reminder-intro[hidden] { display: none; }
+.reminder-intro__content { width: 100%; max-width: 420px; margin: auto; padding: 12px 0; }
+.reminder-art { width: 150px; height: 150px; border-radius: 50%; display: grid; place-items: center; margin: 0 auto 36px; background: #e5e9db; box-shadow: 0 0 0 14px #e5e9db55,0 0 0 28px #e5e9db25; }
+.reminder-art svg { width: 55px; height: 55px; stroke: #796337; stroke-width: 1.2; fill: none; }
+.reminder-intro .kinto-eyebrow { display: block; margin-bottom: 12px; }
+.reminder-intro h2 { font: 750 clamp(2rem,8vw,2.7rem)/1.1 var(--font-sans); letter-spacing: -.055em; max-width: 12ch; margin: 0 0 18px; }
+.reminder-intro__lead { font-size: .94rem; color: var(--text-secondary); line-height: 1.7; }
+.reminder-benefits { list-style: none; padding: 0; margin: 28px 0; display: grid; gap: 18px; }
+.reminder-benefits li { display: flex; align-items: center; gap: 13px; font-size: .84rem; line-height: 1.5; }
+.reminder-benefits span:first-child { background: #eae6d9; width: 34px; height: 34px; border-radius: 11px; display: grid; place-items: center; flex-shrink: 0; color: #826a35; font-weight: 750; }
+.reminder-intro button { width: 100%; min-height: 52px; border-radius: 16px; font-size: .88rem; font-weight: 750; margin-top: 10px; }
+.reminder-intro .btn-primary { border: 0; cursor: pointer; }
+.reminder-later { background: transparent; border: 0; color: var(--text-secondary); cursor: pointer; }
+.reminder-privacy { color: var(--text-secondary); font-size: .68rem; line-height: 1.6; text-align: center; margin-top: 16px; }
+.reminder-result { color: #58684f; font-size: .85rem; margin-top: 16px; line-height: 1.65; }
+.web-push-note { display: block; }.native-app .web-push-note { display: none; }
+/* Auth is part of the app, without the website header and footer. */
+.kinto-app.auth-page { display: block; background: var(--background); color: var(--text); padding: 0; overflow: auto; }
+.kinto-app.auth-page::before { content: none; }
+.kinto-app.auth-page .main-content { min-height: 100svh; display: grid; align-items: center; padding: 28px 24px; }
+.kinto-app.auth-page .auth-container { width: 100%; max-width: 390px; margin: auto; display: block; }
+.kinto-app.auth-page .auth-card { width: 100%; padding: 0; border: 0; border-radius: 0; box-shadow: none; background: transparent; backdrop-filter: none; }
+.kinto-app.auth-page .auth-header h1 { font-size: 2rem; line-height: 1.2; font-weight: 750; }
+.kinto-app.auth-page .auth-header h2 { font-size: 1.8rem; }
+.kinto-app.auth-page .auth-subtitle { font-size: .87rem; line-height: 1.6; color: var(--text-secondary); }
+.kinto-app.auth-page .main-footer { display: none; }
+.app-auth-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 36px; font: 500 32px Georgia,serif; letter-spacing: -.05em; }
+.app-auth-brand img { width: 44px; height: 44px; border-radius: 13px; }
+.kinto-app .password-toggle { border: 0; background: transparent; color: var(--accent-muted); font-size: .75rem; }
+.kinto-app .auth-footer { margin-top: 26px; border: 0; font-size: .82rem; }
+.kinto-app .auth-footer a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+/* Cross-document transitions preserve the server-rendered app and browser history. */
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: kinto-page-out 140ms ease both; }
+::view-transition-new(root) { animation: kinto-page-in 200ms var(--ease-out) both; }
+@keyframes kinto-page-out { to { opacity: 0; transform: translateY(-4px); } }
+@keyframes kinto-page-in { from { opacity: 0; transform: translateY(8px); } }
+@keyframes kinto-sheet-in { from { opacity: 0; transform: translateY(24px); } }
+@media (min-width: 900px) {
+    .kinto-app .dashboard { max-width: 780px; margin: auto; }
+    .daily-focus { padding: 34px; }
+    .daily-focus h2 { max-width: 20ch; }
+    .daily-metric { padding: 20px; }
+    .kinto-app .bottom-nav-container { justify-content: center; gap: 25px; }
+}
+@media (max-width: 380px) {
+    .daily-focus { padding: 22px 18px; grid-template-columns: 1fr; }
+    .daily-orbit { display: none; }
+    .daily-focus h2 { font-size: 1.65rem; }
+    .kinto-app .checklist-item { padding: 17px 12px; gap: 9px; }
+    .kinto-app .item-icon { width: 30px; height: 30px; }
+}
+@media (max-width: 700px) {
+    .kinto-app .modal { align-items: flex-end; padding: 0; }
+    .kinto-app .modal-content { max-height: 94dvh; overflow-y: auto; }
+    .kinto-app .modal-content>.modal-header,.kinto-app .modal-content>.modal-body,.kinto-app .modal-content>.modal-footer { width: 100%; padding-left: 22px; padding-right: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    *,*::before,*::after { animation-duration: .01ms !important; animation-delay: 0ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+    ::view-transition-old(root),::view-transition-new(root) { animation: none; }
+}
