@@ -19,6 +19,10 @@ function dbQuery($sql,$params=[]) {
   if(isset($rows[$params[0]]) && $rows[$params[0]]['token_hash']===$params[1]) unset($rows[$params[0]]);
  }
  if (str_starts_with($sql,'INSERT')) $rows[$params[0]]=['selector'=>$params[0],'user_id'=>$params[1],'token_hash'=>$params[2],'auth_version'=>$params[3],'expires_at'=>$params[4]];
+ if (str_starts_with($sql,'UPDATE user_device_logins SET expires_at')) {
+  check(isset($rows[$params[1]]) && $rows[$params[1]]['token_hash']===$params[2], 'Only the verified credential may be renewed');
+  $rows[$params[1]]['expires_at']=$params[0];
+ }
 }
 function check($value,$message) {if(!$value) throw new RuntimeException($message);}
 if($case==='tampered') $_COOKIE[DEVICE_AUTH_COOKIE]=$selector.':'.str_repeat('c',64);
@@ -34,6 +38,10 @@ if($case==='logout') {
 } else {
  restoreDeviceLogin();
  check(($case==='valid') === (($_SESSION['user_id']??0)===7),'Restoration outcome wrong');
- if($case==='valid') check($_SESSION['auth_version']===2,'Auth version must be restored');
+ if($case==='valid') {
+  check($_SESSION['auth_version']===2,'Auth version must be restored');
+  check($rows[$selector]['expires_at'] >= gmdate('Y-m-d H:i:s',time()+(DEVICE_AUTH_DAYS*86400)-5),'An active device must be remembered for another 90 days');
+  check($_COOKIE[DEVICE_AUTH_COOKIE]===$selector.':'.$token,'Renewal must preserve the verified token');
+ }
 }
 echo "PASS $case\n";

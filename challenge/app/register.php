@@ -254,7 +254,7 @@ $bodyClass = 'auth-page auth-landing-page';
             </form>
 
             <div class="auth-footer">
-                <p>Already have an account? <a href="/kinto#signin">Sign in</a></p>
+                <p>Already have an account? <a href="/challenge/app/">Sign in</a></p>
             </div>
         </div>
             </div>

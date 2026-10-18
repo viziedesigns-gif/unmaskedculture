@@ -310,11 +310,11 @@ function getCurrentUser(): ?array {
     );
     if ($row && !isset($_SESSION['auth_version'])) {
         logoutUser();
-        redirect('/kinto?session=security_update#signin');
+        redirect('/challenge/app/?session=security_update');
     }
     if ($row && (int) $_SESSION['auth_version'] !== (int) ($row['auth_version'] ?? 1)) {
         logoutUser();
-        redirect('/kinto?session=expired#signin');
+        redirect('/challenge/app/?session=expired');
     }
     // Enroll an existing, validated session as well as fresh sign-ins.
     if ($row && !isset($_COOKIE[DEVICE_AUTH_COOKIE])) {
@@ -345,7 +345,7 @@ function clearCurrentUserCache(): void {
  */
 function requireLogin(): void {
     if (!isLoggedIn()) {
-        redirect('/kinto?login=required#signin');
+        redirect('/challenge/app/?login=required');
     }
 }
 

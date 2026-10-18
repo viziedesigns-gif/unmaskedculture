@@ -41,7 +41,7 @@ include __DIR__ . '/../includes/header.php';
                 <button type="submit" class="btn btn-primary btn-block">Send reset link</button>
             </form>
         <?php endif; ?>
-        <div class="auth-footer"><a href="/kinto#signin">Back to sign in</a></div>
+        <div class="auth-footer"><a href="/challenge/app/">Back to sign in</a></div>
     </div>
 </div>
 <?php include __DIR__ . '/../includes/footer.php'; ?>

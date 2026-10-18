@@ -4,5 +4,6 @@
  * Kinto App
  */
 
-header('Location: /kinto#signin');
+header('Cache-Control: no-store');
+header('Location: /challenge/app/');
 exit;

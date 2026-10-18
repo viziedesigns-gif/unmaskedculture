@@ -216,7 +216,7 @@ function handleSettingsDeleteAccount(int $userId): array {
     [$deleteSuccess, $deleteMessage] = deleteUserAccount($userId);
     if ($deleteSuccess) {
         logoutUser();
-        redirect('/kinto?status=account-deleted#signin');
+        redirect('/challenge/app/?status=account-deleted');
     }
 
     return [$deleteMessage, ''];

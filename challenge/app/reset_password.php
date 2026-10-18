@@ -30,7 +30,7 @@ include __DIR__ . '/../includes/header.php';
         <div class="auth-header"><h1>Choose a new password</h1><p>Use at least eight characters with uppercase, lowercase, and a number.</p></div>
         <?php if ($success): ?>
             <div class="alert alert-success"><?= h($success) ?></div>
-            <a class="btn btn-primary btn-block" href="/kinto#signin">Sign in</a>
+            <a class="btn btn-primary btn-block" href="/challenge/app/">Sign in</a>
         <?php else: ?>
             <?php if ($error): ?><div class="alert alert-error"><?= h($error) ?></div><?php endif; ?>
             <form method="POST" class="auth-form">

@@ -2,16 +2,15 @@
 /**
  * Kinto authentication controller.
  *
- * The public sign-in experience lives at /kinto. This endpoint remains the
- * POST target and legacy app entry so existing Android and web links continue
- * to work without exposing authentication logic in the marketing page.
+ * App entry and sign-in. Saved device credentials open the user's dashboard;
+ * new devices see only the login form, without the public website shell.
  */
 
 require_once __DIR__ . '/../includes/auth.php';
 
-function kintoPublicLoginUrl(array $params = []): string {
+function kintoAppLoginUrl(array $params = []): string {
     $params = array_filter($params, static fn($value) => $value !== null && $value !== '');
-    return '/kinto' . ($params ? '?' . http_build_query($params) : '') . '#signin';
+    return '/challenge/app/' . ($params ? '?' . http_build_query($params) : '');
 }
 
 $requestInviteCode = normalizeCircleInviteCode($_GET['invite'] ?? $_POST['invite_code'] ?? '');
@@ -55,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = (string) ($_POST['password'] ?? '');
 
     if ($email === '' || $password === '') {
-        redirect(kintoPublicLoginUrl([
+        redirect(kintoAppLoginUrl([
             'login' => 'missing',
             'invite' => $requestInviteCode,
             'return' => $requestedReturn,
@@ -64,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     [$success, $result] = loginUser($email, $password);
     if (!$success) {
-        redirect(kintoPublicLoginUrl([
+        redirect(kintoAppLoginUrl([
             'login' => 'invalid',
             'invite' => $requestInviteCode,
             'return' => $requestedReturn,
@@ -85,19 +84,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     redirect('/challenge/onboarding/step1.php');
 }
 
-$params = [
-    'signin' => '1',
-    'invite' => $requestInviteCode,
-    'return' => $requestedReturn,
-];
-
-if ($inviteInvalid) {
-    $params['notice'] = 'invite';
+header('Cache-Control: no-cache, no-store, must-revalidate');
+$loginError = match ((string) ($_GET['login'] ?? '')) {
+    'missing' => 'Enter your email and password to sign in.',
+    'invalid' => 'Invalid email or password. Please try again.',
+    default => '',
+};
+$loginNotice = '';
+if ($inviteInvalid || ($_GET['notice'] ?? '') === 'invite') {
+    $loginNotice = 'This circle invite is invalid or has expired. Ask the circle owner for a new link.';
+} elseif (in_array($_GET['session'] ?? '', ['expired', 'security_update'], true)) {
+    $loginNotice = 'Please sign in again to keep your account secure.';
+} elseif (($_GET['status'] ?? '') === 'logged-out') {
+    $loginNotice = 'You have signed out of this device.';
+} elseif (($_GET['status'] ?? '') === 'account-deleted') {
+    $loginNotice = 'Your account has been deleted.';
 }
-
-$sessionStatus = (string) ($_GET['session'] ?? '');
-if (in_array($sessionStatus, ['expired', 'security_update'], true)) {
-    $params['session'] = $sessionStatus;
-}
-
-redirect(kintoPublicLoginUrl($params));
+$registerUrl = '/challenge/app/register.php' . ($requestInviteCode !== '' ? '?invite=' . rawurlencode($requestInviteCode) : '');
+require __DIR__ . '/../includes/login_screen.php';

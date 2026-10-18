@@ -75,5 +75,11 @@ function restoreDeviceLogin(): void {
         $_SESSION['user_id'] = (int) $device['user_id'];
         $_SESSION['auth_version'] = (int) $device['current_auth_version'];
         $_SESSION['login_time'] = time();
+        // Keep an actively used device remembered after its PHP session expires.
+        // Reuse the verified credential so concurrent launches remain valid.
+        $expires = time() + DEVICE_AUTH_DAYS * 86400;
+        dbQuery('UPDATE user_device_logins SET expires_at = ? WHERE selector = ? AND token_hash = ?',
+            [gmdate('Y-m-d H:i:s', $expires), $parts[0], hash('sha256', $parts[1])]);
+        setDeviceCookie($parts[0] . ':' . $parts[1], $expires);
     } catch (Throwable $e) { error_log('Device sign-in restoration unavailable'); }
 }
