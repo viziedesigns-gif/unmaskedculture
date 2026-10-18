@@ -35,7 +35,13 @@ After changing `capacitor.config.json`, installed Capacitor plugins, or files in
 Because the app displays the production PHP site, normal server-side web changes
 do not require a new APK. Native configuration or plugin changes do.
 
-## Current release: 1.1.0 (version code 3)
+## Current build: 1.2.0 (version code 4)
+
+Adds a native home-screen daily checklist with progress and a final-hour countdown.
+See [widget behavior, security, and release checks](docs/ANDROID_WIDGET.md).
+Native widget functionality requires installing this updated Android binary.
+
+## Previous release: 1.1.0 (version code 3)
 
 This release refreshes the mobile interface and adds the optional notification
 introduction plus native daily reminders. See [mobile design and behavior](docs/MOBILE_EXPERIENCE.md).

@@ -12,6 +12,13 @@ include __DIR__ . '/../../includes/header.php';
     <?php renderSettingsAlerts($error, $success); ?>
 
     <div class="settings-card settings-detail-card">
+        <h3>Your rhythm, on your home screen</h3>
+        <p class="form-hint">Check off daily tasks at a glance. A countdown appears when unfinished tasks have less than an hour left, using your profile timezone and challenge deadline. Water, mood, and workouts open their activity logs in Kinto.</p>
+        <button type="button" class="btn btn-primary" id="addChecklistWidget" hidden>Add checklist widget</button>
+        <p class="form-hint" id="checklistWidgetStatus" role="status">Available in Kinto for Android 1.2.0 or later. Touch and hold your home screen, choose Widgets, then Kinto · Daily checklist.</p>
+    </div>
+
+    <div class="settings-card settings-detail-card">
         <form method="POST" class="settings-detail-form">
             <input type="hidden" name="action" value="update_reminders">
             <h3>Reminder Schedule</h3>

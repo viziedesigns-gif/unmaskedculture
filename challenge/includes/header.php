@@ -66,6 +66,7 @@ if (!headers_sent()) {
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <script src="<?= h(assetUrl('/challenge/assets/js/app.js')) ?>" defer></script>
     <script src="<?= h(assetUrl('/challenge/assets/js/app-ui.js')) ?>" defer></script>
+    <script src="<?= h(assetUrl('/challenge/assets/js/checklist-widget.js')) ?>" defer></script>
     <script src="<?= h(assetUrl('/challenge/assets/js/reminders.js')) ?>" defer></script>
     <script src="<?= h(assetUrl('/challenge/assets/js/podcast-player.js')) ?>" defer></script>
 </head>

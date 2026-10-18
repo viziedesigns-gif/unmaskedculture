@@ -1,6 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="app_name">Kinto</string>
+    <string name="widget_name">Kinto · Daily checklist</string>
+    <string name="widget_description">Your daily tasks, progress, and a countdown during the final hour.</string>
     <string name="title_activity_main">Kinto</string>
     <string name="package_name">org.unmaskedculture.kinto</string>
     <string name="custom_url_scheme">org.unmaskedculture.kinto</string>
